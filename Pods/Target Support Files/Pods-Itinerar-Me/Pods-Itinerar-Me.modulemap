@@ -1,0 +1,6 @@
+framework module Pods_Itinerar_Me {
+  umbrella header "Pods-Itinerar-Me-umbrella.h"
+
+  export *
+  module * { export * }
+}
