@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func onSignUp(_ sender: Any) {
-        guard fullNameField.text != nil else {
+        guard let fullName = fullNameField.text, !fullName.isEmpty else {
             print("NO NAME")
             return
         }
