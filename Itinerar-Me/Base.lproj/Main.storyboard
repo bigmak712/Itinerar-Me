@@ -194,11 +194,8 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3SZ-Q8-mpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
             <point key="canvasLocation" x="137" y="863"/>
-=======
             <point key="canvasLocation" x="140" y="855"/>
->>>>>>> Stashed changes
         </scene>
     </scenes>
 </document>
