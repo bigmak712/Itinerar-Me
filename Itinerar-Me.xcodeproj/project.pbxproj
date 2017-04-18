@@ -83,12 +83,13 @@
 		126C3D8C1E9C9DA200C9C291 /* Itinerar-Me */ = {
 			isa = PBXGroup;
 			children = (
+				12AA89251EA5CEDF00660906 /* APIs */,
+				12AA89241EA5CED700660906 /* Views */,
+				12AA89231EA5CED000660906 /* Models */,
+				12AA89221EA5CEC600660906 /* Storyboards */,
 				126C3DD01EA5987600C9C291 /* View Controllers */,
 				126C3D8D1E9C9DA200C9C291 /* AppDelegate.swift */,
 				126C3D911E9C9DA200C9C291 /* Main.storyboard */,
-				D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */,
-				12AA89201EA5BE6F00660906 /* Preferences.storyboard */,
-				D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */,
 				126C3D941E9C9DA200C9C291 /* Assets.xcassets */,
 				126C3D961E9C9DA200C9C291 /* LaunchScreen.storyboard */,
 				12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */,
@@ -115,6 +116,37 @@
 				C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		12AA89221EA5CEC600660906 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */,
+				12AA89201EA5BE6F00660906 /* Preferences.storyboard */,
+				D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		12AA89231EA5CED000660906 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		12AA89241EA5CED700660906 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		12AA89251EA5CEDF00660906 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = APIs;
 			sourceTree = "<group>";
 		};
 		98122A27C2957D7685595D5A /* Pods */ = {
