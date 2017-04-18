@@ -12,7 +12,7 @@
         <!--Location View Controller-->
         <scene sceneID="1rk-XZ-na1">
             <objects>
-                <viewController id="WD4-UM-D7U" customClass="LocationViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="locationVC" id="WD4-UM-D7U" customClass="LocationViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mrt-RZ-wgP"/>
                         <viewControllerLayoutGuide type="bottom" id="a5O-GS-qHF"/>
@@ -87,7 +87,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-xL-Mg5">
+                            <pickerView contentMode="scaleToFill" restorationIdentifier="Preferences" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-xL-Mg5">
                                 <rect key="frame" x="27" y="175" width="320" height="216"/>
                             </pickerView>
                         </subviews>
