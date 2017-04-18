@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		126C3D8E1E9C9DA200C9C291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C3D8D1E9C9DA200C9C291 /* AppDelegate.swift */; };
-		126C3D901E9C9DA200C9C291 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C3D8F1E9C9DA200C9C291 /* ViewController.swift */; };
+		126C3D901E9C9DA200C9C291 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */; };
 		126C3D931E9C9DA200C9C291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126C3D911E9C9DA200C9C291 /* Main.storyboard */; };
 		126C3D951E9C9DA200C9C291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126C3D941E9C9DA200C9C291 /* Assets.xcassets */; };
 		126C3D981E9C9DA200C9C291 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126C3D961E9C9DA200C9C291 /* LaunchScreen.storyboard */; };
+		126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */; };
+		126C3DD41EA59BEB00C9C291 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 126C3DD31EA59BEB00C9C291 /* GoogleService-Info.plist */; };
 		AC9D2719E6CA35BABE75993F /* Pods_Itinerar_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */; };
 		D03D2AF81E9D82F8006373DB /* Iterinerary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03D2AF71E9D82F8006373DB /* Iterinerary.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,11 +21,13 @@
 /* Begin PBXFileReference section */
 		126C3D8A1E9C9DA200C9C291 /* Itinerar-Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Itinerar-Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		126C3D8D1E9C9DA200C9C291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		126C3D8F1E9C9DA200C9C291 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		126C3D921E9C9DA200C9C291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		126C3D941E9C9DA200C9C291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		126C3D971E9C9DA200C9C291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126C3D991E9C9DA200C9C291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		126C3DD31EA59BEB00C9C291 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		336BD453C9C3CFB8020718F6 /* Pods-Itinerar-Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerar-Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Itinerar-Me/Pods-Itinerar-Me.debug.xcconfig"; sourceTree = "<group>"; };
 		B54533240FEE61086004E17A /* Pods-Itinerar-Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerar-Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itinerar-Me/Pods-Itinerar-Me.release.xcconfig"; sourceTree = "<group>"; };
 		C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itinerar_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,15 +67,25 @@
 		126C3D8C1E9C9DA200C9C291 /* Itinerar-Me */ = {
 			isa = PBXGroup;
 			children = (
+				126C3DD01EA5987600C9C291 /* View Controllers */,
 				126C3D8D1E9C9DA200C9C291 /* AppDelegate.swift */,
-				126C3D8F1E9C9DA200C9C291 /* ViewController.swift */,
 				126C3D911E9C9DA200C9C291 /* Main.storyboard */,
 				D03D2AF71E9D82F8006373DB /* Iterinerary.storyboard */,
 				126C3D941E9C9DA200C9C291 /* Assets.xcassets */,
 				126C3D961E9C9DA200C9C291 /* LaunchScreen.storyboard */,
+				126C3DD31EA59BEB00C9C291 /* GoogleService-Info.plist */,
 				126C3D991E9C9DA200C9C291 /* Info.plist */,
 			);
 			path = "Itinerar-Me";
+			sourceTree = "<group>";
+		};
+		126C3DD01EA5987600C9C291 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */,
+				126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		126EE698A2BE4D64509EAB59 /* Frameworks */ = {
@@ -155,6 +169,7 @@
 			files = (
 				126C3D981E9C9DA200C9C291 /* LaunchScreen.storyboard in Resources */,
 				D03D2AF81E9D82F8006373DB /* Iterinerary.storyboard in Resources */,
+				126C3DD41EA59BEB00C9C291 /* GoogleService-Info.plist in Resources */,
 				126C3D951E9C9DA200C9C291 /* Assets.xcassets in Resources */,
 				126C3D931E9C9DA200C9C291 /* Main.storyboard in Resources */,
 			);
@@ -215,7 +230,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				126C3D901E9C9DA200C9C291 /* ViewController.swift in Sources */,
+				126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */,
+				126C3D901E9C9DA200C9C291 /* SignInViewController.swift in Sources */,
 				126C3D8E1E9C9DA200C9C291 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
