@@ -49,9 +49,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPw-qt-A8s" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="16" y="420" width="343" height="30"/>
                                 <state key="normal" title="FB Login"/>
-                                <connections>
-                                    <action selector="onFBLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9sP-H5-Ynt"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9M-Uc-wmC">
                                 <rect key="frame" x="175" y="379" width="24" height="21"/>
