@@ -17,6 +17,9 @@
 		12AA89211EA5BE6F00660906 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12AA89201EA5BE6F00660906 /* Preferences.storyboard */; };
 		AC9D2719E6CA35BABE75993F /* Pods_Itinerar_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */; };
 		C9C60E071EA5C8910051892D /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E061EA5C8910051892D /* TimeViewController.swift */; };
+		C9C60E0A1EA5C9C20051892D /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E091EA5C9C20051892D /* LocationViewController.swift */; };
+		C9C60E0C1EA5C9CF0051892D /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E0B1EA5C9CF0051892D /* BudgetViewController.swift */; };
+		C9C60E0E1EA5C9DD0051892D /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E0D1EA5C9DD0051892D /* PeopleViewController.swift */; };
 		D03D2AF81E9D82F8006373DB /* Iterinerary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03D2AF71E9D82F8006373DB /* Iterinerary.storyboard */; };
 		D0F54FD51EA5BF0F008B18DA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */; };
 /* End PBXBuildFile section */
@@ -36,6 +39,9 @@
 		B54533240FEE61086004E17A /* Pods-Itinerar-Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerar-Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itinerar-Me/Pods-Itinerar-Me.release.xcconfig"; sourceTree = "<group>"; };
 		C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itinerar_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C60E061EA5C8910051892D /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		C9C60E091EA5C9C20051892D /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		C9C60E0B1EA5C9CF0051892D /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		C9C60E0D1EA5C9DD0051892D /* PeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		D03D2AF71E9D82F8006373DB /* Iterinerary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Iterinerary.storyboard; sourceTree = "<group>"; };
 		D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,9 +96,9 @@
 		126C3DD01EA5987600C9C291 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C9C60E081EA5C9AB0051892D /* Preferences VC */,
 				126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */,
 				126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */,
-				C9C60E061EA5C8910051892D /* TimeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -112,6 +118,17 @@
 				B54533240FEE61086004E17A /* Pods-Itinerar-Me.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C9C60E081EA5C9AB0051892D /* Preferences VC */ = {
+			isa = PBXGroup;
+			children = (
+				C9C60E061EA5C8910051892D /* TimeViewController.swift */,
+				C9C60E091EA5C9C20051892D /* LocationViewController.swift */,
+				C9C60E0B1EA5C9CF0051892D /* BudgetViewController.swift */,
+				C9C60E0D1EA5C9DD0051892D /* PeopleViewController.swift */,
+			);
+			name = "Preferences VC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9C60E0A1EA5C9C20051892D /* LocationViewController.swift in Sources */,
+				C9C60E0E1EA5C9DD0051892D /* PeopleViewController.swift in Sources */,
+				C9C60E0C1EA5C9CF0051892D /* BudgetViewController.swift in Sources */,
 				126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */,
 				C9C60E071EA5C8910051892D /* TimeViewController.swift in Sources */,
 				126C3D901E9C9DA200C9C291 /* SignInViewController.swift in Sources */,
