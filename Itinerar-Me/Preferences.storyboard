@@ -74,12 +74,43 @@
                     <view key="view" contentMode="scaleToFill" id="mG0-v1-mBj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5G-03-E5Z">
+                                <rect key="frame" x="85.5" y="84" width="205" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JXe-lm-s2D">
+                                <rect key="frame" x="128" y="129" width="119" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-xL-Mg5">
+                                <rect key="frame" x="27" y="175" width="320" height="216"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v5G-03-E5Z" firstAttribute="top" secondItem="98M-yF-Qcr" secondAttribute="bottom" constant="64" id="EfC-t7-KlG"/>
+                            <constraint firstItem="JXe-lm-s2D" firstAttribute="top" secondItem="v5G-03-E5Z" secondAttribute="bottom" constant="16" id="LZe-Vo-urj"/>
+                            <constraint firstItem="WMF-xL-Mg5" firstAttribute="top" secondItem="JXe-lm-s2D" secondAttribute="bottom" constant="16" id="ODv-ys-XOQ"/>
+                            <constraint firstItem="v5G-03-E5Z" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="cva-VA-rSI"/>
+                            <constraint firstAttribute="trailing" secondItem="JXe-lm-s2D" secondAttribute="trailing" constant="128" id="lt7-h2-gAl"/>
+                            <constraint firstItem="JXe-lm-s2D" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="luX-26-Wvl"/>
+                            <constraint firstItem="WMF-xL-Mg5" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="m96-fu-pM5"/>
+                            <constraint firstItem="JXe-lm-s2D" firstAttribute="leading" secondItem="mG0-v1-mBj" secondAttribute="leading" constant="128" id="yEQ-Dq-DWQ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="peopleDropDown" destination="WMF-xL-Mg5" id="ctR-yn-cPr"/>
+                        <outlet property="peopleTextField" destination="JXe-lm-s2D" id="3bQ-OY-zWm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bjb-ld-2Bg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2649" y="170"/>
+            <point key="canvasLocation" x="2648.8000000000002" y="169.56521739130437"/>
         </scene>
     </scenes>
 </document>

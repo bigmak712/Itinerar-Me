@@ -8,8 +8,14 @@
 
 import UIKit
 
-class PeopleViewController: UIViewController {
+class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
+    @IBOutlet weak var peopleTextField: UITextField!
+    @IBOutlet weak var peopleDropDown: UIPickerView!
+    
+    // List for drop down menu
+    var list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+" ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +26,7 @@ class PeopleViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*
