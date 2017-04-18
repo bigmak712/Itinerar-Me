@@ -16,10 +16,6 @@
 		12AA891F1EA5BD2D00660906 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */; };
 		12AA89211EA5BE6F00660906 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12AA89201EA5BE6F00660906 /* Preferences.storyboard */; };
 		AC9D2719E6CA35BABE75993F /* Pods_Itinerar_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */; };
-		C9C60DFF1EA5C0A60051892D /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60DFE1EA5C0A60051892D /* TimeViewController.swift */; };
-		C9C60E011EA5C0E20051892D /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E001EA5C0E20051892D /* LocationViewController.swift */; };
-		C9C60E031EA5C10C0051892D /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E021EA5C10C0051892D /* BudgetViewController.swift */; };
-		C9C60E051EA5C11D0051892D /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E041EA5C11D0051892D /* PeopleViewController.swift */; };
 		D03D2AF81E9D82F8006373DB /* Iterinerary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03D2AF71E9D82F8006373DB /* Iterinerary.storyboard */; };
 		D0F54FD51EA5BF0F008B18DA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */; };
 /* End PBXBuildFile section */
@@ -38,10 +34,6 @@
 		336BD453C9C3CFB8020718F6 /* Pods-Itinerar-Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerar-Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Itinerar-Me/Pods-Itinerar-Me.debug.xcconfig"; sourceTree = "<group>"; };
 		B54533240FEE61086004E17A /* Pods-Itinerar-Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerar-Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itinerar-Me/Pods-Itinerar-Me.release.xcconfig"; sourceTree = "<group>"; };
 		C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itinerar_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9C60DFE1EA5C0A60051892D /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
-		C9C60E001EA5C0E20051892D /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		C9C60E021EA5C10C0051892D /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
-		C9C60E041EA5C11D0051892D /* PeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		D03D2AF71E9D82F8006373DB /* Iterinerary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Iterinerary.storyboard; sourceTree = "<group>"; };
 		D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +93,6 @@
 			children = (
 				126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */,
 				126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */,
-				C9C60DFD1EA5C0790051892D /* Preferences VC */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -121,17 +112,6 @@
 				B54533240FEE61086004E17A /* Pods-Itinerar-Me.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		C9C60DFD1EA5C0790051892D /* Preferences VC */ = {
-			isa = PBXGroup;
-			children = (
-				C9C60E001EA5C0E20051892D /* LocationViewController.swift */,
-				C9C60E021EA5C10C0051892D /* BudgetViewController.swift */,
-				C9C60DFE1EA5C0A60051892D /* TimeViewController.swift */,
-				C9C60E041EA5C11D0051892D /* PeopleViewController.swift */,
-			);
-			name = "Preferences VC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,11 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C60E011EA5C0E20051892D /* LocationViewController.swift in Sources */,
-				C9C60E051EA5C11D0051892D /* PeopleViewController.swift in Sources */,
-				C9C60E031EA5C10C0051892D /* BudgetViewController.swift in Sources */,
 				126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */,
-				C9C60DFF1EA5C0A60051892D /* TimeViewController.swift in Sources */,
 				126C3D901E9C9DA200C9C291 /* SignInViewController.swift in Sources */,
 				126C3D8E1E9C9DA200C9C291 /* AppDelegate.swift in Sources */,
 			);
