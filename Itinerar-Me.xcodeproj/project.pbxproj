@@ -20,8 +20,10 @@
 		C9C60E0A1EA5C9C20051892D /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E091EA5C9C20051892D /* LocationViewController.swift */; };
 		C9C60E0C1EA5C9CF0051892D /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E0B1EA5C9CF0051892D /* BudgetViewController.swift */; };
 		C9C60E0E1EA5C9DD0051892D /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E0D1EA5C9DD0051892D /* PeopleViewController.swift */; };
-		D03D2AF81E9D82F8006373DB /* Iterinerary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03D2AF71E9D82F8006373DB /* Iterinerary.storyboard */; };
+		D03D2AF81E9D82F8006373DB /* Itinerary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */; };
 		D0F54FD51EA5BF0F008B18DA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */; };
+		D0F54FD71EA5CC93008B18DA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F54FD61EA5CC93008B18DA /* ProfileViewController.swift */; };
+		D0F54FD91EA5CCC1008B18DA /* FinalItineraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F54FD81EA5CCC1008B18DA /* FinalItineraryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +44,10 @@
 		C9C60E091EA5C9C20051892D /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		C9C60E0B1EA5C9CF0051892D /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		C9C60E0D1EA5C9DD0051892D /* PeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
-		D03D2AF71E9D82F8006373DB /* Iterinerary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Iterinerary.storyboard; sourceTree = "<group>"; };
+		D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Itinerary.storyboard; sourceTree = "<group>"; };
 		D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		D0F54FD61EA5CC93008B18DA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D0F54FD81EA5CCC1008B18DA /* FinalItineraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalItineraryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +86,7 @@
 				126C3DD01EA5987600C9C291 /* View Controllers */,
 				126C3D8D1E9C9DA200C9C291 /* AppDelegate.swift */,
 				126C3D911E9C9DA200C9C291 /* Main.storyboard */,
-				D03D2AF71E9D82F8006373DB /* Iterinerary.storyboard */,
+				D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */,
 				12AA89201EA5BE6F00660906 /* Preferences.storyboard */,
 				D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */,
 				126C3D941E9C9DA200C9C291 /* Assets.xcassets */,
@@ -99,6 +103,8 @@
 				C9C60E081EA5C9AB0051892D /* Preferences VC */,
 				126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */,
 				126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */,
+				D0F54FD61EA5CC93008B18DA /* ProfileViewController.swift */,
+				D0F54FD81EA5CCC1008B18DA /* FinalItineraryViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -195,7 +201,7 @@
 			files = (
 				D0F54FD51EA5BF0F008B18DA /* Profile.storyboard in Resources */,
 				126C3D981E9C9DA200C9C291 /* LaunchScreen.storyboard in Resources */,
-				D03D2AF81E9D82F8006373DB /* Iterinerary.storyboard in Resources */,
+				D03D2AF81E9D82F8006373DB /* Itinerary.storyboard in Resources */,
 				12AA891F1EA5BD2D00660906 /* GoogleService-Info.plist in Resources */,
 				12AA89211EA5BE6F00660906 /* Preferences.storyboard in Resources */,
 				126C3D951E9C9DA200C9C291 /* Assets.xcassets in Resources */,
@@ -259,11 +265,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9C60E0A1EA5C9C20051892D /* LocationViewController.swift in Sources */,
+				D0F54FD91EA5CCC1008B18DA /* FinalItineraryViewController.swift in Sources */,
 				C9C60E0E1EA5C9DD0051892D /* PeopleViewController.swift in Sources */,
 				C9C60E0C1EA5C9CF0051892D /* BudgetViewController.swift in Sources */,
 				126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */,
 				C9C60E071EA5C8910051892D /* TimeViewController.swift in Sources */,
 				126C3D901E9C9DA200C9C291 /* SignInViewController.swift in Sources */,
+				D0F54FD71EA5CC93008B18DA /* ProfileViewController.swift in Sources */,
 				126C3D8E1E9C9DA200C9C291 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
