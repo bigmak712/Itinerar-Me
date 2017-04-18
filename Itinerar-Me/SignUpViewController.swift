@@ -44,6 +44,7 @@ class SignUpViewController: UIViewController {
             if error == nil {
                 print("Sign up success")
                 self.dismiss(animated: true, completion: nil)
+                //SEgue to itinerary create.
             }else {
                 print(error!.localizedDescription)
             }
