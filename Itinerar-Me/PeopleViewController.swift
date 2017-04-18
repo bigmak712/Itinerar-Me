@@ -47,7 +47,10 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+        if textField == self.peopleTextField {
+            self.peopleDropDown.isHidden = false
+            textField.endEditing(true)
+        }
     }
     
 
