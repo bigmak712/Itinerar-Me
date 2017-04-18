@@ -14,9 +14,13 @@ import FBSDKLoginKit
 class SignInViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var facebookButton: FBSDKLoginButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        facebookButton.delegate = self
+        facebookButton.readPermissions = ["email", "public_profile"]
     }
     
     @IBAction func onLogin(_ sender: Any) {
@@ -64,6 +68,7 @@ extension SignInViewController: FBSDKLoginButtonDelegate {
                 print(error!.localizedDescription)
             }
             //SEgue to itinerary create.
+            print("WE GOOD")
         })
     }
 }

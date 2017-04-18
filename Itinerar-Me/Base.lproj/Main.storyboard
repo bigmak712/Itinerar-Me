@@ -95,6 +95,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="uXf-Rf-m8I" id="WcJ-Ju-MJ7"/>
+                        <outlet property="facebookButton" destination="sPw-qt-A8s" id="fIy-4w-kix"/>
                         <outlet property="passwordField" destination="Sfp-7J-KXg" id="Xhk-n0-of5"/>
                     </connections>
                 </viewController>
