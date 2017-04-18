@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Location View Controller-->
         <scene sceneID="1rk-XZ-na1">
             <objects>
-                <viewController id="WD4-UM-D7U" sceneMemberID="viewController">
+                <viewController id="WD4-UM-D7U" customClass="LocationViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mrt-RZ-wgP"/>
                         <viewControllerLayoutGuide type="bottom" id="a5O-GS-qHF"/>
@@ -26,6 +26,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ay5-aj-fQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="298" y="171"/>
+        </scene>
+        <!--Budget View Controller-->
+        <scene sceneID="ssK-PB-Qz2">
+            <objects>
+                <viewController id="Yuq-D9-xvE" customClass="BudgetViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ux0-WL-wnb"/>
+                        <viewControllerLayoutGuide type="bottom" id="v4e-0c-qYh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d4g-9H-YRG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uKC-kL-qHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166" y="170"/>
+        </scene>
+        <!--Time View Controller-->
+        <scene sceneID="LSe-zm-DZF">
+            <objects>
+                <viewController id="dpA-Qy-b54" customClass="TimeViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mwg-Kt-CgL"/>
+                        <viewControllerLayoutGuide type="bottom" id="9iI-kc-T0w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k6K-MO-Y53">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C3w-FJ-yzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2039" y="170"/>
+        </scene>
+        <!--People View Controller-->
+        <scene sceneID="CIH-wB-jla">
+            <objects>
+                <viewController id="Ldf-eO-1ur" customClass="PeopleViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7ni-vr-30p"/>
+                        <viewControllerLayoutGuide type="bottom" id="znV-i3-p2I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ezN-4A-Qui">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KaR-yg-1J4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2857" y="170"/>
         </scene>
     </scenes>
 </document>
