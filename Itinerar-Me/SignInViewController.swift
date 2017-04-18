@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FBSDKLoginKit
 
 class SignInViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
@@ -36,9 +38,9 @@ class SignInViewController: UIViewController {
             }
         })
     }
+}
+
+extension SignInViewController: FBSDKLoginButtonDelegate {
     
-    @IBAction func onFBLogin(_ sender: Any) {
-        
-    }
 }
 
