@@ -101,7 +101,7 @@
 		126C3DD01EA5987600C9C291 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C9C60E081EA5C9AB0051892D /* Preferences VC */,
+				C9C60E081EA5C9AB0051892D /* Preferences VCs */,
 				126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */,
 				126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */,
 				D0F54FD61EA5CC93008B18DA /* ProfileViewController.swift */,
@@ -158,7 +158,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C9C60E081EA5C9AB0051892D /* Preferences VC */ = {
+		C9C60E081EA5C9AB0051892D /* Preferences VCs */ = {
 			isa = PBXGroup;
 			children = (
 				C9C60E061EA5C8910051892D /* TimeViewController.swift */,
@@ -166,7 +166,7 @@
 				C9C60E0B1EA5C9CF0051892D /* BudgetViewController.swift */,
 				C9C60E0D1EA5C9DD0051892D /* PeopleViewController.swift */,
 			);
-			name = "Preferences VC";
+			name = "Preferences VCs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
