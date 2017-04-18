@@ -33,6 +33,7 @@ class SignInViewController: UIViewController {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
             if error == nil {
                 print("SIGN IN SUCCESS")
+                //SEgue to itinerary create.
             }else {
                 print(error!.localizedDescription)
             }
@@ -41,6 +42,29 @@ class SignInViewController: UIViewController {
 }
 
 extension SignInViewController: FBSDKLoginButtonDelegate {
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("LOGGED OUT")
+    }
     
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            print(error.localizedDescription)
+            return
+        }
+        
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString else {
+            print("Access token invalid")
+            return
+        }
+        let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        
+        FIRAuth.auth()?.signIn(with: credentials, completion: { (user: FIRUser?, error: Error?) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            //SEgue to itinerary create.
+        })
+    }
 }
 

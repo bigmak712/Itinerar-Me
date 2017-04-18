@@ -101,9 +101,8 @@
 		126C3DD01EA5987600C9C291 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				12AA89261EA5CF4300660906 /* Sign In VCs */,
 				C9C60E081EA5C9AB0051892D /* Preferences VC */,
-				126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */,
-				126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */,
 				D0F54FD61EA5CC93008B18DA /* ProfileViewController.swift */,
 				D0F54FD81EA5CCC1008B18DA /* FinalItineraryViewController.swift */,
 			);
@@ -147,6 +146,15 @@
 			children = (
 			);
 			name = APIs;
+			sourceTree = "<group>";
+		};
+		12AA89261EA5CF4300660906 /* Sign In VCs */ = {
+			isa = PBXGroup;
+			children = (
+				126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */,
+				126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */,
+			);
+			name = "Sign In VCs";
 			sourceTree = "<group>";
 		};
 		98122A27C2957D7685595D5A /* Pods */ = {
