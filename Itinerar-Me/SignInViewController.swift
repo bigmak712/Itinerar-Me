@@ -37,7 +37,10 @@ class SignInViewController: UIViewController {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
             if error == nil {
                 print("SIGN IN SUCCESS")
-                //SEgue to itinerary create.
+
+                let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "locationVC")
+                self.present(vc, animated: false, completion: nil)
             }else {
                 print(error!.localizedDescription)
             }
@@ -67,8 +70,9 @@ extension SignInViewController: FBSDKLoginButtonDelegate {
             if error != nil {
                 print(error!.localizedDescription)
             }
-            //SEgue to itinerary create.
-            print("WE GOOD")
+            let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "locationVC")
+            self.present(vc, animated: false, completion: nil)
         })
     }
 }

@@ -44,7 +44,10 @@ class SignUpViewController: UIViewController {
             if error == nil {
                 print("Sign up success")
                 self.dismiss(animated: true, completion: nil)
-                //SEgue to itinerary create.
+
+                let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "locationVC")
+                self.present(vc, animated: false, completion: nil)
             }else {
                 print(error!.localizedDescription)
             }
