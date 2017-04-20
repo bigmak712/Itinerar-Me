@@ -7,7 +7,9 @@
 //
 
 import UIKit
-import Firebase
+import MBProgressHUD
+import FirebaseAuth
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
     @IBOutlet weak var fullNameField: UITextField!
@@ -15,8 +17,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
 
+    var firebaseRef: FIRDatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firebaseRef = FIRDatabase.database().reference()
     }
     
     @IBAction func onSignUp(_ sender: Any) {
@@ -40,14 +46,18 @@ class SignUpViewController: UIViewController {
             return
         }
         
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
-            if error == nil {
-                print("Sign up success")
-                self.dismiss(animated: true, completion: nil)
+            MBProgressHUD.hide(for: self.view, animated: true)
 
+            if error == nil {
+                self.firebaseRef.child("users").child(user!.uid).setValue(["email": email, "name": fullName])
                 let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "locationVC")
                 self.present(vc, animated: false, completion: nil)
+//                self.dismiss(animated: true, completion: {
+//                    
+//                })
             }else {
                 print(error!.localizedDescription)
             }

@@ -10,6 +10,8 @@ import UIKit
 
 class BudgetViewController: UIViewController {
 
+    @IBOutlet weak var budgetSegments: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
