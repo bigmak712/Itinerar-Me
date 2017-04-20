@@ -46,28 +46,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mae-MS-Ctx" userLabel="DollarStackView">
-                                <rect key="frame" x="64" y="145" width="43" height="82"/>
+                                <rect key="frame" x="64" y="145" width="32" height="61.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyw-Bs-uEZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWa-uw-1UF">
-                                        <rect key="frame" x="0.0" y="20.5" width="43" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="32" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nir-ho-Ce4">
-                                        <rect key="frame" x="0.0" y="41" width="43" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ik-Il-p17">
-                                        <rect key="frame" x="0.0" y="61.5" width="43" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="41" width="32" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -75,7 +69,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="v4k-TX-lbX" userLabel="DescriptionStackView">
-                                <rect key="frame" x="233.5" y="145" width="77.5" height="82"/>
+                                <rect key="frame" x="233.5" y="145" width="77.5" height="61.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="under $10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUk-gR-eTp">
                                         <rect key="frame" x="0.0" y="0.0" width="77.5" height="20.5"/>
@@ -83,20 +77,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$11 - $30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovc-Vn-bIZ">
-                                        <rect key="frame" x="4" y="20.5" width="73.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10 - $30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovc-Vn-bIZ">
+                                        <rect key="frame" x="1" y="20.5" width="76.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$31 - $60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxp-SQ-UO1">
-                                        <rect key="frame" x="1" y="41" width="76.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="over $60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2T-dC-xMY">
-                                        <rect key="frame" x="8" y="61.5" width="69.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="over $30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxp-SQ-UO1">
+                                        <rect key="frame" x="8.5" y="41" width="69" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -104,16 +92,15 @@
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aw6-hx-OKN">
-                                <rect key="frame" x="90" y="259" width="195" height="29"/>
+                                <rect key="frame" x="126.5" y="238.5" width="122" height="29"/>
                                 <segments>
                                     <segment title="$"/>
                                     <segment title="$$"/>
                                     <segment title="$$$"/>
-                                    <segment title="$$$$"/>
                                 </segments>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="r4p-R4-hGm">
-                                <rect key="frame" x="118" y="319" width="138" height="33"/>
+                                <rect key="frame" x="118" y="298.5" width="138" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHS-dm-pmo">
                                         <rect key="frame" x="0.0" y="0.0" width="38" height="33"/>
@@ -124,6 +111,9 @@
                                         <rect key="frame" x="102" y="0.0" width="36" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Next"/>
+                                        <connections>
+                                            <segue destination="6BP-VA-RqE" kind="presentation" identifier="nextTimeSegue" id="7M0-6u-QG8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -143,6 +133,9 @@
                             <constraint firstItem="Mae-MS-Ctx" firstAttribute="leading" secondItem="Ewd-D6-3E0" secondAttribute="leading" constant="64" id="yqT-b5-2ad"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="budgetSegments" destination="aw6-hx-OKN" id="uBc-SV-6Hg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMW-ZK-bnM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,13 +186,33 @@
                             <pickerView contentMode="scaleToFill" restorationIdentifier="Preferences" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-xL-Mg5">
                                 <rect key="frame" x="27" y="207" width="320" height="216"/>
                             </pickerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="iIF-xO-WPI" userLabel="Button View">
+                                <rect key="frame" x="114" y="207" width="147" height="33"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeO-6T-RYu">
+                                        <rect key="frame" x="0.0" y="0.0" width="38" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <segue destination="6BP-VA-RqE" kind="presentation" identifier="backTimeSegue" id="2z9-gQ-dmp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eh-2Z-ya9">
+                                        <rect key="frame" x="102" y="0.0" width="45" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Finish"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="iIF-xO-WPI" firstAttribute="top" secondItem="JXe-lm-s2D" secondAttribute="bottom" constant="32" id="8ql-rw-Jl8"/>
                             <constraint firstItem="v5G-03-E5Z" firstAttribute="top" secondItem="98M-yF-Qcr" secondAttribute="bottom" constant="64" id="EfC-t7-KlG"/>
                             <constraint firstItem="JXe-lm-s2D" firstAttribute="top" secondItem="v5G-03-E5Z" secondAttribute="bottom" constant="32" id="LZe-Vo-urj"/>
                             <constraint firstItem="WMF-xL-Mg5" firstAttribute="top" secondItem="JXe-lm-s2D" secondAttribute="bottom" constant="32" id="ODv-ys-XOQ"/>
                             <constraint firstItem="v5G-03-E5Z" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="cva-VA-rSI"/>
+                            <constraint firstItem="iIF-xO-WPI" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="ga4-zL-RGR"/>
                             <constraint firstAttribute="trailing" secondItem="JXe-lm-s2D" secondAttribute="trailing" constant="128" id="lt7-h2-gAl"/>
                             <constraint firstItem="JXe-lm-s2D" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="luX-26-Wvl"/>
                             <constraint firstItem="WMF-xL-Mg5" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="m96-fu-pM5"/>
@@ -216,4 +229,7 @@
             <point key="canvasLocation" x="2648.8000000000002" y="169.56521739130437"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7M0-6u-QG8"/>
+    </inferredMetricsTieBreakers>
 </document>
