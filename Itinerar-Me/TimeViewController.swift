@@ -6,14 +6,25 @@
 //  Copyright © 2017 ItinerarMe. All rights reserved.
 //
 
+
+/* NOTE:
+ - Must ensure that the end time is later than the start time
+ */
+
+
 import UIKit
 
 class TimeViewController: UIViewController {
 
+    @IBOutlet weak var startTimePicker: UIDatePicker!
+    @IBOutlet weak var endTimePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        startTimePicker.datePickerMode = .time
+        endTimePicker.datePickerMode = .time
+
     }
 
     override func didReceiveMemoryWarning() {
