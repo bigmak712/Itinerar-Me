@@ -12,5 +12,6 @@ target 'Itinerar-Me' do
  pod 'Firebase/Database'
  pod 'FBSDKCoreKit'
  pod 'FBSDKLoginKit'
+ pod 'GooglePlaces'
 
 end

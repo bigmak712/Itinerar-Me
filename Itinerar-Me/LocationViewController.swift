@@ -7,42 +7,39 @@
 //
 
 import UIKit
+import GooglePlaces
 
-class LocationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var locationName: UITextField!
-    @IBOutlet weak var locationTblView: UITableView!
+class LocationViewController: UIViewController  {
     
-    var location: String?
+    
+    @IBOutlet weak var textField: UITextField!
+    var pickedLocation: GMSPlace?
+    
+    var locationPicked = false
+    
+    //Instance of autocomplete view controller for the class.
+    let autoCompleteCtllr = GMSAutocompleteViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textField.frame.height = 45
+        textField.textColor = UIColor.lightGray
+        autoCompleteCtllr.delegate = self
+        
+    }
+   
+    @IBAction func userTouchedTxtField(_ sender: AnyObject) {
+        
+        self.present(autoCompleteCtllr, animated: true) { 
+            if let pickedLocation = pickedLocation {
+                textField.textColor = UIColor.darkGray
+                textField.text = pickedLocation.name
+            }
+        }
+    }
 
-        //Setup table view
-        locationTblView.dataSource = self
-        locationTblView.delegate = self
-        
-    }
-
-    func autocomplete() -> [String] {
-        return nil
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell()
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
+       override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -59,3 +56,40 @@ class LocationViewController: UIViewController, UITableViewDelegate, UITableView
     */
 
 }
+
+extension LocationViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        
+        print("Place name: \(place.name)")
+        self.pickedLocation = place
+        locationPicked = true
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //If error occured in autocomplete
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+
+}
+
