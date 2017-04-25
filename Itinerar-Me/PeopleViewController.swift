@@ -16,6 +16,8 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // List for drop down menu
     var list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"]
     
+    var numPeople = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +46,15 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.peopleTextField.text = self.list[row]
         self.peopleDropDown.isHidden = true
+        
+        let number = self.list[row]
+        
+        if row != 9 {
+            numPeople = Int(number)!
+        }
+        else {
+            numPeople = 10
+        }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

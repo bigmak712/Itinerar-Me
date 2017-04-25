@@ -63,22 +63,4 @@ class TimeViewController: UIViewController {
         endTimeTextField.text = dateFormatter.string(from: sender.date)
         
     }
-    
-    /*@IBAction func startTimeChanged(_ sender: Any) {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let timeAsString = dateFormatter.stringFromDate(dateOnPicker)
-        //dateFormatter.dateFormat = "HH:mm"
-        //var strDate = dateFormatter.stringFromDate(myDatePicker.date)
-        self.startTimeLabel.text = timeAsString
-    }
-    
-    @IBAction func endTimeChanged(_ sender: Any) {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let timeAsString = dateFormatter.stringFromDate(dateOnPicker)
-        //dateFormatter.dateFormat = "HH:mm"
-        //var strDate = dateFormatter.stringFromDate(myDatePicker.date)
-        self.endTimeLabel.text = timeAsString
-    }*/
 }
