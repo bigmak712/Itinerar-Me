@@ -55,9 +55,6 @@ class SignUpViewController: UIViewController {
                 let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "locationVC")
                 self.present(vc, animated: false, completion: nil)
-//                self.dismiss(animated: true, completion: {
-//                    
-//                })
             }else {
                 print(error!.localizedDescription)
             }
