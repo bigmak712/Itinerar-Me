@@ -16,19 +16,55 @@ import UIKit
 
 class TimeViewController: UIViewController {
 
-    @IBOutlet weak var startTimePicker: UIDatePicker!
-    @IBOutlet weak var endTimePicker: UIDatePicker!
-    @IBOutlet weak var startTimeLabel: UILabel!
-    @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var startTimeTextField: UITextField!
+    @IBOutlet weak var endTimeTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        startTimePicker.datePickerMode = .time
-        endTimePicker.datePickerMode = .time
     }
     
-    @IBAction func startTimeChanged(_ sender: Any) {
+    @IBAction func startTime(_ sender: UITextField) {
+        
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.time
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(TimeViewController.startPickerValueChanged), for: UIControlEvents.valueChanged)
+    }
+
+    @IBAction func endTime(_ sender: UITextField) {
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.time
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(TimeViewController.endPickerValueChanged), for: UIControlEvents.valueChanged)
+    }
+    
+    func startPickerValueChanged(_ sender:UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        
+        startTimeTextField.text = dateFormatter.string(from: sender.date)
+        
+    }
+    
+    func endPickerValueChanged(_ sender:UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        
+        endTimeTextField.text = dateFormatter.string(from: sender.date)
+        
+    }
+    
+    /*@IBAction func startTimeChanged(_ sender: Any) {
         var dateFormatter = NSDateFormatter()
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         let timeAsString = dateFormatter.stringFromDate(dateOnPicker)
@@ -44,5 +80,5 @@ class TimeViewController: UIViewController {
         //dateFormatter.dateFormat = "HH:mm"
         //var strDate = dateFormatter.stringFromDate(myDatePicker.date)
         self.endTimeLabel.text = timeAsString
-    }
+    }*/
 }
