@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -204,6 +204,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="514348170.40805602">
                                     <!--2017-04-20 02:29:30 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="startTimeChanged:" destination="6BP-VA-RqE" eventType="valueChanged" id="eGi-4a-FSR"/>
+                                </connections>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="xGJ-VA-Vtg">
                                 <rect key="frame" x="0.0" y="379" width="375" height="216"/>
@@ -214,6 +217,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="514348175.87901503">
                                     <!--2017-04-20 02:29:35 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="endTimeChanged:" destination="6BP-VA-RqE" eventType="valueChanged" id="Yrj-15-qB1"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Time?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAg-3K-V5C">
                                 <rect key="frame" x="119" y="25" width="137" height="29"/>
@@ -285,7 +291,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="endTimeLabel" destination="ngC-4b-wCo" id="kYt-Cb-EYm"/>
                         <outlet property="endTimePicker" destination="xGJ-VA-Vtg" id="TYP-YE-CW7"/>
+                        <outlet property="startTimeLabel" destination="oiF-kb-rBb" id="c9t-0x-ag9"/>
                         <outlet property="startTimePicker" destination="er4-rS-e4C" id="cYQ-B4-HVn"/>
                     </connections>
                 </viewController>
@@ -364,6 +372,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7M0-6u-QG8"/>
+        <segue reference="2z9-gQ-dmp"/>
     </inferredMetricsTieBreakers>
 </document>
