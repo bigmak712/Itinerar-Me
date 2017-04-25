@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -70,7 +70,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dea-OS-tR6">
-                                <rect key="frame" x="70.5" y="84" width="234.5" height="29"/>
+                                <rect key="frame" x="183" y="84" width="234.5" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -105,7 +105,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="v4k-TX-lbX" userLabel="DescriptionStackView">
-                                <rect key="frame" x="233.5" y="145" width="77.5" height="82"/>
+                                <rect key="frame" x="458.5" y="145" width="77.5" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="under $10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUk-gR-eTp">
                                         <rect key="frame" x="0.0" y="0.0" width="77.5" height="20.5"/>
@@ -134,7 +134,7 @@
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aw6-hx-OKN">
-                                <rect key="frame" x="90" y="259" width="195" height="29"/>
+                                <rect key="frame" x="202.5" y="259" width="195" height="29"/>
                                 <segments>
                                     <segment title="$"/>
                                     <segment title="$$"/>
@@ -146,7 +146,7 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="r4p-R4-hGm">
-                                <rect key="frame" x="118.5" y="319" width="138" height="33"/>
+                                <rect key="frame" x="231" y="319" width="138" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHS-dm-pmo">
                                         <rect key="frame" x="0.0" y="0.0" width="38" height="33"/>
@@ -200,7 +200,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Time?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAg-3K-V5C">
-                                <rect key="frame" x="119" y="25" width="137" height="29"/>
+                                <rect key="frame" x="231.5" y="25" width="137" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="137" id="0pL-tx-Qax"/>
                                     <constraint firstAttribute="height" constant="29" id="jZr-Id-T9f"/>
@@ -324,10 +324,10 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="peopleChanged:" destination="wuC-FD-eAh" eventType="editingDidBegin" id="eZf-Mj-RN4"/>
+                                </connections>
                             </textField>
-                            <pickerView contentMode="scaleToFill" restorationIdentifier="Preferences" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-xL-Mg5">
-                                <rect key="frame" x="27.5" y="207" width="320" height="216"/>
-                            </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="iIF-xO-WPI" userLabel="Button View">
                                 <rect key="frame" x="114" y="207" width="147" height="33"/>
                                 <subviews>
@@ -352,17 +352,14 @@
                             <constraint firstItem="iIF-xO-WPI" firstAttribute="top" secondItem="JXe-lm-s2D" secondAttribute="bottom" constant="32" id="8ql-rw-Jl8"/>
                             <constraint firstItem="v5G-03-E5Z" firstAttribute="top" secondItem="98M-yF-Qcr" secondAttribute="bottom" constant="64" id="EfC-t7-KlG"/>
                             <constraint firstItem="JXe-lm-s2D" firstAttribute="top" secondItem="v5G-03-E5Z" secondAttribute="bottom" constant="32" id="LZe-Vo-urj"/>
-                            <constraint firstItem="WMF-xL-Mg5" firstAttribute="top" secondItem="JXe-lm-s2D" secondAttribute="bottom" constant="32" id="ODv-ys-XOQ"/>
                             <constraint firstItem="v5G-03-E5Z" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="cva-VA-rSI"/>
                             <constraint firstItem="iIF-xO-WPI" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="ga4-zL-RGR"/>
                             <constraint firstAttribute="trailing" secondItem="JXe-lm-s2D" secondAttribute="trailing" constant="128" id="lt7-h2-gAl"/>
                             <constraint firstItem="JXe-lm-s2D" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="luX-26-Wvl"/>
-                            <constraint firstItem="WMF-xL-Mg5" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="m96-fu-pM5"/>
                             <constraint firstItem="JXe-lm-s2D" firstAttribute="leading" secondItem="mG0-v1-mBj" secondAttribute="leading" constant="128" id="yEQ-Dq-DWQ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="peopleDropDown" destination="WMF-xL-Mg5" id="ctR-yn-cPr"/>
                         <outlet property="peopleTextField" destination="JXe-lm-s2D" id="3bQ-OY-zWm"/>
                     </connections>
                 </viewController>
@@ -372,7 +369,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AOg-5u-XXO"/>
-        <segue reference="7M0-6u-QG8"/>
+        <segue reference="wcN-mf-zlm"/>
+        <segue reference="2z9-gQ-dmp"/>
     </inferredMetricsTieBreakers>
 </document>

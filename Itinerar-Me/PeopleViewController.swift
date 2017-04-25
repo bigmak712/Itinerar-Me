@@ -11,11 +11,9 @@ import UIKit
 class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var peopleTextField: UITextField!
-    @IBOutlet weak var peopleDropDown: UIPickerView!
     
     // List for drop down menu
     var list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"]
-    
     var numPeople = 0
     
     override func viewDidLoad() {
@@ -45,7 +43,6 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.peopleTextField.text = self.list[row]
-        self.peopleDropDown.isHidden = true
         
         let number = self.list[row]
         
@@ -57,10 +54,14 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == self.peopleTextField {
-            self.peopleDropDown.isHidden = false
-            textField.endEditing(true)
-        }
+    @IBAction func peopleChanged(_ sender: UITextField) {
+        print("text field clicked")
+        let peoplePicker = UIPickerView()
+        peoplePicker.delegate = self
+        peoplePicker.dataSource = self
+        sender.inputView = peoplePicker
+        self.view.addSubview(peoplePicker)
+        
     }
+    
 }
