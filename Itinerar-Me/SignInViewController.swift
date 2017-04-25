@@ -10,14 +10,19 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FBSDKLoginKit
+import MBProgressHUD
 
 class SignInViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var facebookButton: FBSDKLoginButton!
 
+    var firebaseRef: FIRDatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firebaseRef = FIRDatabase.database().reference()
         
         facebookButton.delegate = self
         facebookButton.readPermissions = ["email", "public_profile"]
@@ -64,20 +69,25 @@ extension SignInViewController: FBSDKLoginButtonDelegate {
         }
         let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
         
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         FIRAuth.auth()?.signIn(with: credentials, completion: { (user: FIRUser?, error: Error?) in
             if error != nil {
                 print(error!.localizedDescription)
             }
             
             if (accessToken != nil) {
-                FBSDKGraphRequest(graphPath: "me", parameters: nil).start(completionHandler: { (connection: FBSDKGraphRequestConnection?, result: Any?, error: Error?) in
+                FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection: FBSDKGraphRequestConnection?, result: Any?, error: Error?) in
                     if error == nil {
-                        print("fetched user:\(result)")
+                        let userInfo = result as! NSDictionary
+                        
+                        self.firebaseRef.child("users").child(userInfo["id"] as! String).setValue(["email": userInfo["email"], "name": userInfo["name"]])
+                    }else {
+                        print(error!.localizedDescription)
                     }
-
                 })
             }
-            
+            MBProgressHUD.hide(for: self.view, animated: true)
+
             let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "locationVC")
             self.present(vc, animated: false, completion: nil)
