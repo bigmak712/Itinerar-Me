@@ -23,7 +23,7 @@ class LocationViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField.frame.height = 45
+        //textField.fram
         textField.textColor = UIColor.lightGray
         autoCompleteCtllr.delegate = self
         
@@ -32,29 +32,12 @@ class LocationViewController: UIViewController  {
     @IBAction func userTouchedTxtField(_ sender: AnyObject) {
         
         self.present(autoCompleteCtllr, animated: true) { 
-            if let pickedLocation = pickedLocation {
-                textField.textColor = UIColor.darkGray
-                textField.text = pickedLocation.name
+            if let pickedLocation = self.pickedLocation {
+                self.textField.textColor = UIColor.darkGray
+                self.textField.text = pickedLocation.name
             }
         }
     }
-
-       override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension LocationViewController: GMSAutocompleteViewControllerDelegate {
@@ -65,6 +48,7 @@ extension LocationViewController: GMSAutocompleteViewControllerDelegate {
         print("Place name: \(place.name)")
         self.pickedLocation = place
         locationPicked = true
+        textField.text = place.name
         
         dismiss(animated: true, completion: nil)
     }
