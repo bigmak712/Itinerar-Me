@@ -23,7 +23,7 @@ class LocationViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //textField.fram
+        //textField.frame.height = 45
         textField.textColor = UIColor.lightGray
         autoCompleteCtllr.delegate = self
         

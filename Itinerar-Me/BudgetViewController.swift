@@ -12,9 +12,16 @@ class BudgetViewController: UIViewController {
 
     @IBOutlet weak var budgetSegments: UISegmentedControl!
     
+    var maxPrice = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func budgetChanged(_ sender: UISegmentedControl) {
+        maxPrice = budgetSegments.selectedSegmentIndex + 1
+    }
+    
 }

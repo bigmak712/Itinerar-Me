@@ -29,8 +29,8 @@ class TimeViewController: UIViewController {
     }
     
     @IBAction func startTimeChanged(_ sender: Any) {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        var dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.short
         let timeAsString = dateFormatter.stringFromDate(dateOnPicker)
         //dateFormatter.dateFormat = "HH:mm"
         //var strDate = dateFormatter.stringFromDate(myDatePicker.date)
@@ -38,8 +38,8 @@ class TimeViewController: UIViewController {
     }
     
     @IBAction func endTimeChanged(_ sender: Any) {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        var dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.short
         let timeAsString = dateFormatter.stringFromDate(dateOnPicker)
         //dateFormatter.dateFormat = "HH:mm"
         //var strDate = dateFormatter.stringFromDate(myDatePicker.date)
