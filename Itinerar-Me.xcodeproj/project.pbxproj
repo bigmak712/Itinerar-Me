@@ -15,6 +15,7 @@
 		126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */; };
 		12AA891F1EA5BD2D00660906 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */; };
 		12AA89211EA5BE6F00660906 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12AA89201EA5BE6F00660906 /* Preferences.storyboard */; };
+		26BAE5801EB17DD700F42A52 /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26BAE57F1EB17DD700F42A52 /* Selection.storyboard */; };
 		26E5E22E1EA859C3001AA178 /* locationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5E22D1EA859C3001AA178 /* locationTableViewCell.swift */; };
 		AC9D2719E6CA35BABE75993F /* Pods_Itinerar_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */; };
 		C9C60E071EA5C8910051892D /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E061EA5C8910051892D /* TimeViewController.swift */; };
@@ -38,6 +39,7 @@
 		126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12AA89201EA5BE6F00660906 /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
+		26BAE57F1EB17DD700F42A52 /* Selection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Selection.storyboard; sourceTree = "<group>"; };
 		26E5E22D1EA859C3001AA178 /* locationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationTableViewCell.swift; sourceTree = "<group>"; };
 		336BD453C9C3CFB8020718F6 /* Pods-Itinerar-Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerar-Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Itinerar-Me/Pods-Itinerar-Me.debug.xcconfig"; sourceTree = "<group>"; };
 		B54533240FEE61086004E17A /* Pods-Itinerar-Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerar-Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itinerar-Me/Pods-Itinerar-Me.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		12AA89221EA5CEC600660906 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				26BAE57F1EB17DD700F42A52 /* Selection.storyboard */,
 				D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */,
 				12AA89201EA5BE6F00660906 /* Preferences.storyboard */,
 				D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */,
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0F54FD51EA5BF0F008B18DA /* Profile.storyboard in Resources */,
+				26BAE5801EB17DD700F42A52 /* Selection.storyboard in Resources */,
 				126C3D981E9C9DA200C9C291 /* LaunchScreen.storyboard in Resources */,
 				D03D2AF81E9D82F8006373DB /* Itinerary.storyboard in Resources */,
 				12AA891F1EA5BD2D00660906 /* GoogleService-Info.plist in Resources */,
