@@ -71,21 +71,22 @@ extension SignInViewController: FBSDKLoginButtonDelegate {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         FIRAuth.auth()?.signIn(with: credentials, completion: { (user: FIRUser?, error: Error?) in
-            if error != nil {
+            if error == nil {
+                if (accessToken != nil) {
+                    FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection: FBSDKGraphRequestConnection?, result: Any?, error: Error?) in
+                        if error == nil {
+                            let userInfo = result as! NSDictionary
+                            
+                            self.firebaseRef.child("users").child(userInfo["id"] as! String).setValue(["email": userInfo["email"], "name": userInfo["name"]])
+                        }else {
+                            print(error!.localizedDescription)
+                        }
+                    })
+                }
+            }else {
                 print(error!.localizedDescription)
             }
             
-            if (accessToken != nil) {
-                FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection: FBSDKGraphRequestConnection?, result: Any?, error: Error?) in
-                    if error == nil {
-                        let userInfo = result as! NSDictionary
-                        
-                        self.firebaseRef.child("users").child(userInfo["id"] as! String).setValue(["email": userInfo["email"], "name": userInfo["name"]])
-                    }else {
-                        print(error!.localizedDescription)
-                    }
-                })
-            }
             MBProgressHUD.hide(for: self.view, animated: true)
 
             let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
