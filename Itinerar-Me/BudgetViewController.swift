@@ -12,11 +12,11 @@ class BudgetViewController: UIViewController {
 
     @IBOutlet weak var budgetSegments: UISegmentedControl!
     
+    var preferences: Preferences!
     var maxPrice = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -24,4 +24,22 @@ class BudgetViewController: UIViewController {
         maxPrice = budgetSegments.selectedSegmentIndex + 1
     }
     
+    @IBAction func onNext(_ sender: Any) {
+        if budgetSegments.selectedSegmentIndex == 0 {
+            preferences.maxPrice = 10
+        }else if budgetSegments.selectedSegmentIndex == 1 {
+            preferences.maxPrice = 30
+        }else if budgetSegments.selectedSegmentIndex == 2 {
+            preferences.maxPrice = 60
+        }else {
+            preferences.maxPrice = 1000000
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toTime" {
+            let timeVC = segue.destination as! TimeViewController
+            timeVC.preferences = self.preferences
+        }
+    }
 }

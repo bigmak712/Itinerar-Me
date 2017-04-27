@@ -10,10 +10,10 @@ import UIKit
 import GooglePlaces
 
 class LocationViewController: UIViewController  {
-    
-    
     @IBOutlet weak var textField: UITextField!
+    
     var pickedLocation: GMSPlace?
+    var preferences = Preferences()
     
     var locationPicked = false
     
@@ -38,6 +38,20 @@ class LocationViewController: UIViewController  {
             }
         }
     }
+    
+    @IBAction func onNext(_ sender: Any) {
+        guard !textField.text!.isEmpty else {
+            print("NO TEXTFIELD")
+            return
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toBudget" {
+            let budgetVC = segue.destination as! BudgetViewController
+            budgetVC.preferences = self.preferences
+        }
+    }
 }
 
 extension LocationViewController: GMSAutocompleteViewControllerDelegate {
@@ -45,10 +59,10 @@ extension LocationViewController: GMSAutocompleteViewControllerDelegate {
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
-        print("Place name: \(place.name)")
         self.pickedLocation = place
         locationPicked = true
         textField.text = place.name
+        preferences.location = place
         
         dismiss(animated: true, completion: nil)
     }

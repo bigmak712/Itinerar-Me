@@ -15,9 +15,10 @@
 import UIKit
 
 class TimeViewController: UIViewController {
-
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
+    
+    var preferences: Preferences!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,5 +63,25 @@ class TimeViewController: UIViewController {
         
         endTimeTextField.text = dateFormatter.string(from: sender.date)
         
+    }
+    
+    @IBAction func onNext(_ sender: Any) {
+        guard let startTime = startTimeTextField.text, !startTime.isEmpty else {
+            return
+        }
+        
+        guard let endTime = endTimeTextField.text, !endTime.isEmpty else {
+            return
+        }
+        
+        preferences.startTime = startTime
+        preferences.endTime = endTime
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPeople" {
+            let peopleVC = segue.destination as! PeopleViewController
+            peopleVC.preferences = self.preferences
+        }
     }
 }
