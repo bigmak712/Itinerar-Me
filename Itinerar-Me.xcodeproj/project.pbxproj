@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122CD99D1EB18295000F0390 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122CD99C1EB18295000F0390 /* Preferences.swift */; };
+		122CD99F1EB1848C000F0390 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122CD99E1EB1848C000F0390 /* Itinerary.swift */; };
 		126C3D8E1E9C9DA200C9C291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C3D8D1E9C9DA200C9C291 /* AppDelegate.swift */; };
 		126C3D901E9C9DA200C9C291 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */; };
 		126C3D931E9C9DA200C9C291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126C3D911E9C9DA200C9C291 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		122CD99C1EB18295000F0390 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		122CD99E1EB1848C000F0390 /* Itinerary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
 		126C3D8A1E9C9DA200C9C291 /* Itinerar-Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Itinerar-Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		126C3D8D1E9C9DA200C9C291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126C3D8F1E9C9DA200C9C291 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 		12AA89231EA5CED000660906 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				122CD99C1EB18295000F0390 /* Preferences.swift */,
+				122CD99E1EB1848C000F0390 /* Itinerary.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -327,10 +333,12 @@
 			files = (
 				C9C60E0A1EA5C9C20051892D /* LocationViewController.swift in Sources */,
 				26BAE5841EB1848D00F42A52 /* ActivitiesViewController.swift in Sources */,
+				122CD99F1EB1848C000F0390 /* Itinerary.swift in Sources */,
 				D0F54FD91EA5CCC1008B18DA /* FinalItineraryViewController.swift in Sources */,
 				26BAE5821EB1847600F42A52 /* RestaurantsViewController.swift in Sources */,
 				26E5E22E1EA859C3001AA178 /* locationTableViewCell.swift in Sources */,
 				C9C60E0E1EA5C9DD0051892D /* PeopleViewController.swift in Sources */,
+				122CD99D1EB18295000F0390 /* Preferences.swift in Sources */,
 				C9C60E0C1EA5C9CF0051892D /* BudgetViewController.swift in Sources */,
 				126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */,
 				C9C60E071EA5C8910051892D /* TimeViewController.swift in Sources */,

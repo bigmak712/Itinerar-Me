@@ -9,9 +9,9 @@
 import UIKit
 
 class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
     @IBOutlet weak var peopleTextField: UITextField!
     
+    var preferences: Preferences!
     // List for drop down menu
     var list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"]
     var numPeople = 0
@@ -61,7 +61,11 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         peoplePicker.dataSource = self
         sender.inputView = peoplePicker
         self.view.addSubview(peoplePicker)
-        
     }
     
+    @IBAction func onFinish(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Selection", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "selectionsTabBar")
+        self.present(vc, animated: false, completion: nil)
+    }
 }
