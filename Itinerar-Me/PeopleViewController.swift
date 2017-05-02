@@ -9,7 +9,9 @@
 import UIKit
 
 class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
     @IBOutlet weak var peopleTextField: UITextField!
+    let pickerView = UIPickerView()
     
     var preferences: Preferences!
     // List for drop down menu
@@ -18,7 +20,10 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        peopleTextField.inputView = pickerView
+        
         // Do any additional setup after loading the view.
     }
 
@@ -27,6 +32,33 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return list[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return list.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        peopleTextField.text = list[row]
+        self.view.endEditing(true)
+        
+        let number = self.list[row]
+        
+        if row != 9 {
+            numPeople = Int(number)!
+        }
+        else {
+            numPeople = 10
+        }
+    }
+    
+    /*
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -53,15 +85,7 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             numPeople = 10
         }
     }
-    
-    @IBAction func peopleChanged(_ sender: UITextField) {
-        print("text field clicked")
-        let peoplePicker = UIPickerView()
-        peoplePicker.delegate = self
-        peoplePicker.dataSource = self
-        sender.inputView = peoplePicker
-        self.view.addSubview(peoplePicker)
-    }
+    */
     
     @IBAction func onFinish(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Selection", bundle: nil)
