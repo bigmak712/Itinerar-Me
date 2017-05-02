@@ -58,34 +58,6 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    /*
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return list.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        self.view.endEditing(true)
-        return list[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.peopleTextField.text = self.list[row]
-        
-        let number = self.list[row]
-        
-        if row != 9 {
-            numPeople = Int(number)!
-        }
-        else {
-            numPeople = 10
-        }
-    }
-    
     @IBAction func onFinish(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Selection", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "selectionsTabBar")
