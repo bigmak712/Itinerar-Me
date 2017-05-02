@@ -55,7 +55,6 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func peopleChanged(_ sender: UITextField) {
-        print("text field clicked")
         let peoplePicker = UIPickerView()
         peoplePicker.delegate = self
         peoplePicker.dataSource = self
