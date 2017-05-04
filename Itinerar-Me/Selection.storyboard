@@ -9,7 +9,7 @@
         <!--Item-->
         <scene sceneID="bqd-dk-dUh">
             <objects>
-                <viewController id="qd7-bf-2hz" customClass="ActivitiesViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SeletionVC" id="qd7-bf-2hz" customClass="SelectionViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2yJ-Hf-PXy"/>
                         <viewControllerLayoutGuide type="bottom" id="YXU-Dw-o1H"/>
@@ -18,13 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swipe your Activity Choices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBx-7j-3Er">
-                                <frame key="frameInset" minX="27" minY="61" width="320" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GaJ-UK-dIv">
                                 <frame key="frameInset" minX="204" minY="500" width="100" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -51,107 +44,28 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swipe your Choices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBx-7j-3Er">
+                                <frame key="frameInset" minX="74" minY="60" width="227" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="MVb-eo-isX"/>
                     <connections>
-                        <outlet property="cardImageView" destination="x4D-RP-0on" id="tcN-Lb-zCA"/>
-                        <outlet property="cardLabel" destination="Sda-OG-K7J" id="N3H-QN-5hk"/>
-                        <outlet property="cardView" destination="m2F-bL-5dq" id="AP6-Do-csS"/>
-                        <outlet property="leftArrow" destination="IqY-ku-tIp" id="Gpv-rg-g0s"/>
-                        <outlet property="rightArrow" destination="GaJ-UK-dIv" id="l6G-YJ-R3K"/>
+                        <outlet property="cardImageView" destination="x4D-RP-0on" id="GlV-zF-Oa3"/>
+                        <outlet property="cardLabel" destination="Sda-OG-K7J" id="Fj1-8F-yQj"/>
+                        <outlet property="cardView" destination="m2F-bL-5dq" id="pbo-eH-qSB"/>
+                        <outlet property="leftArrow" destination="IqY-ku-tIp" id="9Bg-W4-Fgr"/>
+                        <outlet property="rightArrow" destination="GaJ-UK-dIv" id="23H-5d-IWM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2W-0f-b3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-108" y="-241.52923538230885"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="g81-Ai-KgE">
-            <objects>
-                <tabBarController storyboardIdentifier="selectionsTabBar" id="4lI-am-7ku" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Lua-SE-le3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="qd7-bf-2hz" kind="relationship" relationship="viewControllers" id="EFD-jS-DfN"/>
-                        <segue destination="APi-Nd-xry" kind="relationship" relationship="viewControllers" id="lpQ-G6-QMG"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C5r-oP-meW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1020" y="99"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="Lip-qJ-hFw">
-            <objects>
-                <viewController id="APi-Nd-xry" customClass="RestaurantsViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Hqz-Zn-G3f"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ihh-PO-SG1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Es8-zM-oUQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swipe your Activity Choices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQj-Vp-2vm">
-                                <frame key="frameInset" minX="27" minY="-83" width="320" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swipe your Restaurant Choices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdB-Om-bra">
-                                <frame key="frameInset" minX="8" minY="66" width="359" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJU-GS-cD4">
-                                <frame key="frameInset" minX="50" minY="135" width="274" height="339"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Disneyland !! - American amusement park/happiest place on earth" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKA-LS-WM6">
-                                        <frame key="frameInset" minX="8" minY="260" width="258" height="71"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFK-7w-qAO">
-                                        <frame key="frameInset" width="274" height="252"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sX5-UC-XnX">
-                                <frame key="frameInset" minX="203" minY="497" width="100" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fv2-uw-9nB">
-                                <frame key="frameInset" minX="71" minY="497" width="100" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Ckk-yX-kbF"/>
-                    <connections>
-                        <outlet property="cardImageView" destination="hFK-7w-qAO" id="Lzi-1C-hBI"/>
-                        <outlet property="cardLabel" destination="EKA-LS-WM6" id="gU6-EV-txm"/>
-                        <outlet property="cardView" destination="XJU-GS-cD4" id="hPl-Rm-MDz"/>
-                        <outlet property="leftArrow" destination="Fv2-uw-9nB" id="otY-Hz-LSv"/>
-                        <outlet property="rightArrow" destination="sX5-UC-XnX" id="tWX-ap-olU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mEe-hO-J40" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-108" y="428"/>
         </scene>
     </scenes>
 </document>
