@@ -88,7 +88,14 @@ extension SignInViewController: FBSDKLoginButtonDelegate {
                         if error == nil {
                             let userInfo = result as! NSDictionary
                             
-                            self.firebaseRef.child("users").child(userInfo["id"] as! String).setValue(["email": userInfo["email"], "name": userInfo["name"]])
+                            self.firebaseRef.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+                                
+                                if snapshot.hasChild(userInfo["id"] as! String){
+                                    print("User already exists")
+                                }else{
+                                    self.firebaseRef.child("users").child(userInfo["id"] as! String).setValue(["email": userInfo["email"], "name": userInfo["name"]])
+                                }
+                            })
                         }else {
                             print(error!.localizedDescription)
                         }
