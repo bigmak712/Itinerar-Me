@@ -2,6 +2,8 @@
 //  ActivitiesViewController.swift
 //  Itinerar-Me
 //
+//  Allows users to select their activities drawn from Google Places for their Itinerary.
+//
 //  Created by Sarah Gemperle on 4/26/17.
 //  Copyright © 2017 ItinerarMe. All rights reserved.
 //
@@ -13,6 +15,8 @@ class ActivitiesViewController: UIViewController {
     @IBOutlet weak var cardImageView: UIImageView!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var cardLabel: UILabel!
+    @IBOutlet weak var leftArrow: UIImageView!
+    @IBOutlet weak var rightArrow: UIImageView!
     
     var pannedOffPage: Bool?
     var cardInitialCenter: CGPoint!
@@ -20,15 +24,48 @@ class ActivitiesViewController: UIViewController {
     
     var previousXLocation: CGFloat!
     
+    /*
+     * NEED: -array of Models for Itinerary objects
+     *       -Array of Modesl for Itin objects that were 
+     *        selected by user
+     */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
 
+    //Initial setup - For UI and Gesture Recognizer.
     func setup() {
+        //For card view
         let panGestureRec = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
+        
+        //For left and right arrows.
+        let leftTapRec = UITapGestureRecognizer(target: self, action: #selector(didTapLeft(sender:)))
+        let rightTapRec = UITapGestureRecognizer(target: self, action: #selector(didTapRight(sender:)))
+        leftArrow.addGestureRecognizer(leftTapRec)
+        rightArrow.addGestureRecognizer(rightTapRec)
+
+        //For Tinder animation.
         cardInitialCenter = cardView.center
         previousXLocation = cardInitialCenter.x
+        
+        cardView.addGestureRecognizer(panGestureRec)
+        
+        //Load images.
+        leftArrow.image = #imageLiteral(resourceName: "Left-50")
+        rightArrow.image = #imageLiteral(resourceName: "Right-50")
+        
+    }
+    
+    @IBAction
+    func didTapRight(sender: UITapGestureRecognizer) {
+        animateAndLoadNew(currTranslation: 1)
+    }
+    
+    @IBAction
+    func didTapLeft(sender: UITapGestureRecognizer) {
+        animateAndLoadNew(currTranslation: -1)
     }
     
     @IBAction
@@ -40,6 +77,7 @@ class ActivitiesViewController: UIViewController {
         
         if sender.state == .began {
             print("Gesture began")
+            
             //Give an initial rotation
             cardView.transform = CGAffineTransform(rotationAngle: CGFloat(0))
             initialPanLocation = location.y
@@ -48,13 +86,12 @@ class ActivitiesViewController: UIViewController {
         } else if sender.state == .changed {
             print("Gesture is changing")
             
+            let currTranslation = translation.x
+            
             //If x translation great enough, animate off the view.
-            if(abs(translation.x) > 120) {
-                UIView.animate(withDuration: 0.35, animations: {
-                    self.cardView.alpha = 0
-                    }, completion: { (bool: Bool) in
-                        
-                })
+            if(abs(currTranslation) > 150) {
+                animateAndLoadNew(currTranslation: Int(currTranslation))
+                return
             }
             
             cardView.center = CGPoint(x: cardInitialCenter.x + translation.x, y: cardInitialCenter.y + translation.y)
@@ -77,8 +114,36 @@ class ActivitiesViewController: UIViewController {
             cardView.center = cardInitialCenter
             cardView.transform = CGAffineTransform.identity
             previousXLocation = cardInitialCenter.x
+            
         }
-
+    }
+    
+    func animateAndLoadNew(currTranslation: Int) {
+        UIView.animate(withDuration: 0.35, animations: {
+            self.cardView.alpha = 0
+            if(currTranslation > 0) {
+                self.cardView.center = CGPoint(x: self.cardInitialCenter.x + self.view.frame.width, y: self.cardInitialCenter.y)
+            } else {
+                self.cardView.center = CGPoint(x: self.cardInitialCenter.x - self.view.frame.width, y: self.cardInitialCenter.y)
+            }
+            }, completion: { (bool: Bool) in
+                
+                //TODO: Do something here.. Either add to itinerary array, or don't
+                
+                //If Swipe right :)
+                if(currTranslation > 0) {
+                    
+                    
+                    //If user Swiped left :(
+                } else {
+                    
+                }
+                //self.cardImageView.image = something else
+                //self.cardLabel.text = something else
+                
+                //TODO: Add a new view from database.
+                
+        })
     }
     
     override func didReceiveMemoryWarning() {
