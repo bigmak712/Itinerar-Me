@@ -271,7 +271,7 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="onNext:" destination="6BP-VA-RqE" eventType="touchUpInside" id="kDt-Fe-Edi"/>
-                                    <segue destination="wuC-FD-eAh" kind="presentation" identifier="toPeople" id="wgf-O8-tWO"/>
+                                    <segue destination="fNa-Ik-rLD" kind="presentation" identifier="toActivities" id="IeI-61-QnS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -336,7 +336,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Back"/>
                                         <connections>
-                                            <segue destination="6BP-VA-RqE" kind="presentation" identifier="backTimeSegue" id="2z9-gQ-dmp"/>
+                                            <segue destination="fNa-Ik-rLD" kind="presentation" id="sq3-33-H0p"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eh-2Z-ya9">
@@ -368,11 +368,103 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bjb-ld-2Bg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3138" y="170"/>
+            <point key="canvasLocation" x="3634" y="170"/>
+        </scene>
+        <!--Number Activities View Controller-->
+        <scene sceneID="CK0-rV-wr2">
+            <objects>
+                <viewController id="fNa-Ik-rLD" customClass="NumberActivitiesViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lSa-fb-Cq5"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Hl-du-het"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5e6-93-qIx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3US-Cd-WpA">
+                                <rect key="frame" x="71" y="84" width="233.5" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XOL-1n-qpO">
+                                <rect key="frame" x="128" y="145" width="119" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didEditActivities:" destination="fNa-Ik-rLD" eventType="editingDidBegin" id="DMJ-4J-57K"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Restaurants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1a-32-Xxl">
+                                <rect key="frame" x="54.5" y="207" width="265.5" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qMD-zs-uhI">
+                                <rect key="frame" x="128" y="268" width="119" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didEditRestaurants:" destination="fNa-Ik-rLD" eventType="editingDidBegin" id="Iru-ur-2lD"/>
+                                </connections>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="LgK-2t-SVo">
+                                <rect key="frame" x="118.5" y="330" width="138" height="33"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSI-Cc-3RM">
+                                        <rect key="frame" x="0.0" y="0.0" width="38" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <segue destination="6BP-VA-RqE" kind="presentation" identifier="backTimeSegue" id="kVh-Hj-2X5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vw-mT-omW">
+                                        <rect key="frame" x="102" y="0.0" width="36" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <segue destination="wuC-FD-eAh" kind="presentation" identifier="toPeople" id="C1y-ag-xAe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XOL-1n-qpO" firstAttribute="top" secondItem="3US-Cd-WpA" secondAttribute="bottom" constant="32" id="4Ic-Kb-0cH"/>
+                            <constraint firstItem="qMD-zs-uhI" firstAttribute="leading" secondItem="5e6-93-qIx" secondAttribute="leading" constant="128" id="7Lw-zN-N9M"/>
+                            <constraint firstItem="qMD-zs-uhI" firstAttribute="top" secondItem="o1a-32-Xxl" secondAttribute="bottom" constant="32" id="8Fh-Th-ynS"/>
+                            <constraint firstItem="LgK-2t-SVo" firstAttribute="centerX" secondItem="5e6-93-qIx" secondAttribute="centerX" id="Amt-Xh-fgS"/>
+                            <constraint firstItem="o1a-32-Xxl" firstAttribute="centerX" secondItem="5e6-93-qIx" secondAttribute="centerX" id="CrW-cs-ACe"/>
+                            <constraint firstItem="XOL-1n-qpO" firstAttribute="leading" secondItem="5e6-93-qIx" secondAttribute="leading" constant="128" id="IHH-1x-TSj"/>
+                            <constraint firstItem="qMD-zs-uhI" firstAttribute="centerX" secondItem="5e6-93-qIx" secondAttribute="centerX" id="NlN-ye-1qu"/>
+                            <constraint firstAttribute="trailing" secondItem="XOL-1n-qpO" secondAttribute="trailing" constant="128" id="Nw1-ct-onC"/>
+                            <constraint firstItem="3US-Cd-WpA" firstAttribute="top" secondItem="lSa-fb-Cq5" secondAttribute="bottom" constant="64" id="ZuI-j2-OtN"/>
+                            <constraint firstItem="3US-Cd-WpA" firstAttribute="centerX" secondItem="5e6-93-qIx" secondAttribute="centerX" id="cBO-Oc-Mob"/>
+                            <constraint firstItem="o1a-32-Xxl" firstAttribute="top" secondItem="XOL-1n-qpO" secondAttribute="bottom" constant="32" id="e9v-B9-3BK"/>
+                            <constraint firstItem="LgK-2t-SVo" firstAttribute="top" secondItem="qMD-zs-uhI" secondAttribute="bottom" constant="32" id="oV6-ZZ-Bxg"/>
+                            <constraint firstItem="XOL-1n-qpO" firstAttribute="centerX" secondItem="5e6-93-qIx" secondAttribute="centerX" id="pPh-Pa-iMQ"/>
+                            <constraint firstAttribute="trailing" secondItem="qMD-zs-uhI" secondAttribute="trailing" constant="128" id="tzY-DD-m5a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activitiesTextField" destination="XOL-1n-qpO" id="FHO-hc-JNk"/>
+                        <outlet property="restaurantsTextField" destination="qMD-zs-uhI" id="gtc-RM-Lza"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j4a-i5-3qZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2748" y="180"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="AOg-5u-XXO"/>
-        <segue reference="2z9-gQ-dmp"/>
+        <segue reference="kVh-Hj-2X5"/>
+        <segue reference="sq3-33-H0p"/>
     </inferredMetricsTieBreakers>
 </document>
