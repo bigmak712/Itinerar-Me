@@ -9,7 +9,7 @@
         <!--Item-->
         <scene sceneID="bqd-dk-dUh">
             <objects>
-                <viewController storyboardIdentifier="SeletionVC" id="qd7-bf-2hz" customClass="SelectionViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectionVC" id="qd7-bf-2hz" customClass="SelectionViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2yJ-Hf-PXy"/>
                         <viewControllerLayoutGuide type="bottom" id="YXU-Dw-o1H"/>
