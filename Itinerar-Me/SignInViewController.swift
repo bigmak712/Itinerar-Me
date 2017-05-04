@@ -23,7 +23,7 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-            if let user = user {
+            if let _ = user {
                 // User is signed in.
                 let storyboard = UIStoryboard(name: "Profile", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "profileVC")
@@ -90,9 +90,9 @@ extension SignInViewController: FBSDKLoginButtonDelegate {
                             
                             self.firebaseRef.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                                 
-                                if snapshot.hasChild(userInfo["id"] as! String){
+                                if snapshot.hasChild(userInfo["id"] as! String) {
                                     print("User already exists")
-                                }else{
+                                }else {
                                     self.firebaseRef.child("users").child(userInfo["id"] as! String).setValue(["email": userInfo["email"], "name": userInfo["name"]])
                                 }
                             })

@@ -26,7 +26,7 @@ class ActivitiesViewController: UIViewController {
     }
 
     func setup() {
-        let panGestureRec = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
+        _ = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
         cardInitialCenter = cardView.center
         previousXLocation = cardInitialCenter.x
     }
