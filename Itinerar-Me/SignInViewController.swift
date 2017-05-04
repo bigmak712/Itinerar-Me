@@ -22,6 +22,19 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            if let _ = user {
+                // User is signed in.
+//                let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "profileVC")
+//                self.present(vc, animated: false, completion: nil)
+                
+                
+            } else {
+                // No user is signed in.
+            }
+        }
+        
         firebaseRef = FIRDatabase.database().reference()
         
         facebookButton.delegate = self
@@ -77,7 +90,14 @@ extension SignInViewController: FBSDKLoginButtonDelegate {
                         if error == nil {
                             let userInfo = result as! NSDictionary
                             
-                            self.firebaseRef.child("users").child(userInfo["id"] as! String).setValue(["email": userInfo["email"], "name": userInfo["name"]])
+                            self.firebaseRef.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+                                
+                                if snapshot.hasChild(userInfo["id"] as! String) {
+                                    print("User already exists")
+                                }else {
+                                    self.firebaseRef.child("users").child(userInfo["id"] as! String).setValue(["email": userInfo["email"], "name": userInfo["name"]])
+                                }
+                            })
                         }else {
                             print(error!.localizedDescription)
                         }

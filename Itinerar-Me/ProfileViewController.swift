@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKLoginKit
 
 class ProfileViewController: UIViewController {
 
@@ -14,5 +16,19 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func onLogout(_ sender: Any) {
+        do {
+        try FIRAuth.auth()!.signOut()
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
+            self.present(vc, animated: true, completion: nil)
+        }catch {
+            
+        }
     }
 }
