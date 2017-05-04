@@ -75,6 +75,7 @@ class NumberActivitiesViewController: UIViewController, UIPickerViewDelegate, UI
     }
     
     
+    
     /*
     // MARK: - Navigation
 
@@ -85,10 +86,12 @@ class NumberActivitiesViewController: UIViewController, UIPickerViewDelegate, UI
     }
     */
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPeople" {
-            let peopleVC = segue.destination as! PeopleViewController
-            peopleVC.preferences = self.preferences
-        }
+    /*
+    @IBAction func onFinish(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Selection", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "selectionsTabBar")
+        self.present(vc, animated: false, completion: nil)
     }
+    */
+    
 }

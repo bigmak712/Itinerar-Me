@@ -271,7 +271,6 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="onNext:" destination="6BP-VA-RqE" eventType="touchUpInside" id="kDt-Fe-Edi"/>
-                                    <segue destination="fNa-Ik-rLD" kind="presentation" identifier="toActivities" id="IeI-61-QnS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -303,72 +302,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dR-QS-i70" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1877.5999999999999" y="169.56521739130437"/>
-        </scene>
-        <!--People View Controller-->
-        <scene sceneID="EOB-RS-HoR">
-            <objects>
-                <viewController id="wuC-FD-eAh" customClass="PeopleViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="98M-yF-Qcr"/>
-                        <viewControllerLayoutGuide type="bottom" id="NEB-wN-MEj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mG0-v1-mBj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5G-03-E5Z">
-                                <rect key="frame" x="85" y="84" width="205" height="29"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JXe-lm-s2D">
-                                <rect key="frame" x="128" y="145" width="119" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="iIF-xO-WPI" userLabel="Button View">
-                                <rect key="frame" x="114" y="207" width="147" height="33"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeO-6T-RYu">
-                                        <rect key="frame" x="0.0" y="0.0" width="38" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Back"/>
-                                        <connections>
-                                            <segue destination="fNa-Ik-rLD" kind="presentation" id="sq3-33-H0p"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eh-2Z-ya9">
-                                        <rect key="frame" x="102" y="0.0" width="45" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Finish"/>
-                                        <connections>
-                                            <action selector="onFinish:" destination="wuC-FD-eAh" eventType="touchUpInside" id="9qk-8I-mBR"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="iIF-xO-WPI" firstAttribute="top" secondItem="JXe-lm-s2D" secondAttribute="bottom" constant="32" id="8ql-rw-Jl8"/>
-                            <constraint firstItem="v5G-03-E5Z" firstAttribute="top" secondItem="98M-yF-Qcr" secondAttribute="bottom" constant="64" id="EfC-t7-KlG"/>
-                            <constraint firstItem="JXe-lm-s2D" firstAttribute="top" secondItem="v5G-03-E5Z" secondAttribute="bottom" constant="32" id="LZe-Vo-urj"/>
-                            <constraint firstItem="v5G-03-E5Z" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="cva-VA-rSI"/>
-                            <constraint firstItem="iIF-xO-WPI" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="ga4-zL-RGR"/>
-                            <constraint firstAttribute="trailing" secondItem="JXe-lm-s2D" secondAttribute="trailing" constant="128" id="lt7-h2-gAl"/>
-                            <constraint firstItem="JXe-lm-s2D" firstAttribute="centerX" secondItem="mG0-v1-mBj" secondAttribute="centerX" id="luX-26-Wvl"/>
-                            <constraint firstItem="JXe-lm-s2D" firstAttribute="leading" secondItem="mG0-v1-mBj" secondAttribute="leading" constant="128" id="yEQ-Dq-DWQ"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="peopleTextField" destination="JXe-lm-s2D" id="3bQ-OY-zWm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bjb-ld-2Bg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3634" y="170"/>
         </scene>
         <!--Number Activities View Controller-->
         <scene sceneID="CK0-rV-wr2">
@@ -413,7 +346,7 @@
                                 </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="LgK-2t-SVo">
-                                <rect key="frame" x="118.5" y="330" width="138" height="33"/>
+                                <rect key="frame" x="114" y="330" width="147" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSI-Cc-3RM">
                                         <rect key="frame" x="0.0" y="0.0" width="38" height="33"/>
@@ -424,12 +357,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vw-mT-omW">
-                                        <rect key="frame" x="102" y="0.0" width="36" height="33"/>
+                                        <rect key="frame" x="102" y="0.0" width="45" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Next"/>
-                                        <connections>
-                                            <segue destination="wuC-FD-eAh" kind="presentation" identifier="toPeople" id="C1y-ag-xAe"/>
-                                        </connections>
+                                        <state key="normal" title="Finish"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -465,6 +395,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="AOg-5u-XXO"/>
         <segue reference="kVh-Hj-2X5"/>
-        <segue reference="sq3-33-H0p"/>
     </inferredMetricsTieBreakers>
 </document>
