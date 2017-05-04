@@ -47,9 +47,9 @@ class LocationViewController: UIViewController  {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toBudget" {
-            let budgetVC = segue.destination as! BudgetViewController
-            budgetVC.preferences = self.preferences
+        if segue.identifier == "toTime" {
+            let timeVC = segue.destination as! TimeViewController
+            timeVC.preferences = self.preferences
         }
     }
 }
