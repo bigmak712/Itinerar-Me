@@ -79,9 +79,9 @@ class TimeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPeople" {
-            let peopleVC = segue.destination as! PeopleViewController
-            peopleVC.preferences = self.preferences
+        if segue.identifier == "toActivities" {
+            let activitiesVC = segue.destination as! NumberActivitiesViewController
+            activitiesVC.preferences = self.preferences
         }
     }
 }

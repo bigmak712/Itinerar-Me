@@ -47,15 +47,7 @@ class PeopleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         peopleTextField.text = list[row]
         self.view.endEditing(true)
-        
-        let number = self.list[row]
-        
-        if row != 9 {
-            numPeople = Int(number)!
-        }
-        else {
-            numPeople = 10
-        }
+        numPeople = row + 1
     }
     
     @IBAction func onFinish(_ sender: Any) {
