@@ -71,6 +71,9 @@ class NumberActivitiesViewController: UIViewController, UIPickerViewDelegate, UI
     
     
     @IBAction func onFinish(_ sender: Any) {
+        preferences.numOfActivities = numActivities
+        preferences.numOfRestaurants = numRestaurants
+        
         let storyboard = UIStoryboard(name: "Selection", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "selectionsTabBar")
         self.present(vc, animated: false, completion: nil)
