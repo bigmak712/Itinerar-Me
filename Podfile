@@ -10,6 +10,8 @@ target 'Itinerar-Me' do
  pod 'Firebase'
  pod 'Firebase/Auth'
  pod 'Firebase/Database'
+ pod 'Alamofire'
+ pod 'AlamofireImage'
  pod 'FBSDKCoreKit'
  pod 'FBSDKLoginKit'
  pod 'GooglePlaces'
