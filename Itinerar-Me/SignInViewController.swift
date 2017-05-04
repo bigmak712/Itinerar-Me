@@ -22,6 +22,17 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            if let user = user {
+                // User is signed in.
+                let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "profileVC")
+                self.present(vc, animated: false, completion: nil)
+            } else {
+                // No user is signed in.
+            }
+        }
+        
         firebaseRef = FIRDatabase.database().reference()
         
         facebookButton.delegate = self
