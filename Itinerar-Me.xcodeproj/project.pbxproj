@@ -18,6 +18,7 @@
 		12AA891F1EA5BD2D00660906 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */; };
 		12AA89211EA5BE6F00660906 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12AA89201EA5BE6F00660906 /* Preferences.storyboard */; };
 		26BAE5801EB17DD700F42A52 /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26BAE57F1EB17DD700F42A52 /* Selection.storyboard */; };
+		26C20CD41EC034B70079876D /* UserSwipeRights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C20CD31EC034B70079876D /* UserSwipeRights.swift */; };
 		26D5C7521EBAD9E7006E5A81 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D5C7511EBAD9E7006E5A81 /* SelectionViewController.swift */; };
 		26E5E22E1EA859C3001AA178 /* locationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5E22D1EA859C3001AA178 /* locationTableViewCell.swift */; };
 		AC9D2719E6CA35BABE75993F /* Pods_Itinerar_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */; };
@@ -48,6 +49,7 @@
 		12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12AA89201EA5BE6F00660906 /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		26BAE57F1EB17DD700F42A52 /* Selection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Selection.storyboard; sourceTree = "<group>"; };
+		26C20CD31EC034B70079876D /* UserSwipeRights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSwipeRights.swift; sourceTree = "<group>"; };
 		26D5C7511EBAD9E7006E5A81 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		26E5E22D1EA859C3001AA178 /* locationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationTableViewCell.swift; sourceTree = "<group>"; };
 		336BD453C9C3CFB8020718F6 /* Pods-Itinerar-Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerar-Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Itinerar-Me/Pods-Itinerar-Me.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				122CD99C1EB18295000F0390 /* Preferences.swift */,
 				122CD99E1EB1848C000F0390 /* Itinerary.swift */,
+				26C20CD31EC034B70079876D /* UserSwipeRights.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				C9259FEE1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift in Sources */,
 				26D5C7521EBAD9E7006E5A81 /* SelectionViewController.swift in Sources */,
 				122CD99D1EB18295000F0390 /* Preferences.swift in Sources */,
+				26C20CD41EC034B70079876D /* UserSwipeRights.swift in Sources */,
 				C9C60E0C1EA5C9CF0051892D /* BudgetViewController.swift in Sources */,
 				126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */,
 				C9C60E071EA5C8910051892D /* TimeViewController.swift in Sources */,

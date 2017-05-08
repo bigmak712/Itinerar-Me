@@ -11,7 +11,7 @@ import GooglePlaces
 
 class Preferences: NSObject {
     var location: GMSPlace?
-    var radius: GMSPlace?
+    var radius: String?
     var maxPrice: Int?
     var startTime: String?
     var endTime: String?

@@ -14,8 +14,9 @@ class LocationViewController: UIViewController  {
     
     var pickedLocation: GMSPlace?
     var preferences = Preferences()
-    
     var locationPicked = false
+    
+    @IBOutlet weak var radiusTextField: UITextField!
     
     //Instance of autocomplete view controller for the class.
     let autoCompleteCtllr = GMSAutocompleteViewController()
@@ -25,18 +26,31 @@ class LocationViewController: UIViewController  {
         
         //textField.frame.height = 45
         textField.textColor = UIColor.lightGray
+        radiusTextField.textColor = UIColor.lightGray
+
         autoCompleteCtllr.delegate = self
         
     }
    
     @IBAction func userTouchedTxtField(_ sender: AnyObject) {
         
-        self.present(autoCompleteCtllr, animated: true) { 
-            if let pickedLocation = self.pickedLocation {
-                self.textField.textColor = UIColor.darkGray
-                self.textField.text = pickedLocation.name
-            }
+        self.present(autoCompleteCtllr, animated: true) {
+            self.adjustUI()
         }
+    }
+    
+    func adjustUI() {
+        if(locationPicked) {
+            self.textField.textColor = UIColor.darkGray
+        } else {
+            self.textField.textColor = UIColor.lightGray
+        }
+        if(radiusTextField.text?.isEmpty)! {
+            self.textField.textColor = UIColor.lightGray
+        } else {
+            self.textField.textColor = UIColor.darkGray
+        }
+
     }
     
     @IBAction func onNext(_ sender: Any) {
@@ -44,6 +58,19 @@ class LocationViewController: UIViewController  {
             print("NO TEXTFIELD")
             return
         }
+        guard !radiusTextField.text!.isEmpty else {
+            print("NO TEXTFIELD")
+            return
+        }
+
+    }
+    
+    @IBAction func radiusEditingDidEnd(_ sender: AnyObject) {
+        if(radiusTextField.text?.isEmpty)! {
+            print("No radius entered")
+            return
+        }
+        preferences.radius = radiusTextField.text
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,6 +103,8 @@ extension LocationViewController: GMSAutocompleteViewControllerDelegate {
     // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         
+        locationPicked = false
+        textField.text = "Select location..."
         dismiss(animated: true, completion: nil)
         
     }
