@@ -12,15 +12,37 @@ import FirebaseDatabase
 import FBSDKLoginKit
 import MBProgressHUD
 
+extension UITextField{
+    func underLineTextField(){
+        let border = CALayer()
+        let width = CGFloat(0.75)
+        border.borderColor = UIColor.darkGray.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
+        
+        border.borderWidth = width
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
+    }
+}
+
 class SignInViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var facebookButton: FBSDKLoginButton!
+    @IBOutlet weak var loginButton: UIButton!
 
     var firebaseRef: FIRDatabaseReference!
     
+    let buttonBorderWidth = CGFloat(1.0)
+    let buttonCornerRadius = CGFloat(5.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginButton.layer.borderWidth = buttonBorderWidth
+        loginButton.layer.cornerRadius = buttonCornerRadius
+        
+        facebookButton.layer.cornerRadius = buttonCornerRadius
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let _ = user {
@@ -39,6 +61,13 @@ class SignInViewController: UIViewController {
         
         facebookButton.delegate = self
         facebookButton.readPermissions = ["email", "public_profile"]
+    }
+    
+    override func viewDidLayoutSubviews() {
+        emailField.underLineTextField()
+        passwordField.underLineTextField()
+        
+        super.viewDidLayoutSubviews()
     }
     
     @IBAction func onLogin(_ sender: Any) {
