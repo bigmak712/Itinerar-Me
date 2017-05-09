@@ -30,11 +30,12 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var facebookButton: FBSDKLoginButton!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
 
     var firebaseRef: FIRDatabaseReference!
     
     let buttonBorderWidth = CGFloat(1.0)
-    let buttonCornerRadius = CGFloat(5.0)
+    let buttonCornerRadius = CGFloat(7.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,9 @@ class SignInViewController: UIViewController {
         loginButton.layer.cornerRadius = buttonCornerRadius
         
         facebookButton.layer.cornerRadius = buttonCornerRadius
+        
+        signUpButton.layer.borderWidth = buttonBorderWidth
+        signUpButton.layer.cornerRadius = buttonCornerRadius
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let _ = user {
