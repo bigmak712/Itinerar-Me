@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import GooglePlaces
 
 class SelectionViewController: UIViewController {
 
@@ -30,6 +31,7 @@ class SelectionViewController: UIViewController {
     var restPlacesList: NSDictionary?
     
     var previousXLocation: CGFloat!
+    
     
     /*
      * NEED: -array of Models for Itinerary objects
@@ -245,7 +247,16 @@ class SelectionViewController: UIViewController {
 
     }
     
-    
+    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
+        GMSPlacesClient.shared().loadPlacePhoto(photoMetadata) { (callback: UIImage?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.cardImageView.image = callback
+            }
+        }
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
