@@ -11,6 +11,19 @@ import MBProgressHUD
 import FirebaseAuth
 import FirebaseDatabase
 
+extension UITextField{
+    func underLineTextField(){
+        let border = CALayer()
+        let width = CGFloat(0.75)
+        border.borderColor = UIColor.darkGray.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
+        
+        border.borderWidth = width
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
+    }
+}
+
 class SignUpViewController: UIViewController {
     @IBOutlet weak var fullNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -24,6 +37,16 @@ class SignUpViewController: UIViewController {
         
         firebaseRef = FIRDatabase.database().reference()
     }
+    
+    override func viewDidLayoutSubviews() {
+        fullNameField.underLineTextField()
+        emailField.underLineTextField()
+        passwordField.underLineTextField()
+        confirmPasswordField.underLineTextField()
+        
+        super.viewDidLayoutSubviews()
+    }
+
     
     @IBAction func onSignUp(_ sender: Any) {
         guard let fullName = fullNameField.text, !fullName.isEmpty else {
