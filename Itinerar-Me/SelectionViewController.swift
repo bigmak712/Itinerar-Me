@@ -49,7 +49,7 @@ class SelectionViewController: UIViewController {
                 print("Your filters gave no results RIP. :((")
             }
         }) { (error: Error?) in
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
         }
         
     }
@@ -186,7 +186,7 @@ class SelectionViewController: UIViewController {
                 print(response.result.value)
                 print("When getting restuarants: Validation Successful")
 
-                self.restPlacesList = response.result.value as! NSDictionary
+                self.restPlacesList = response.result.value as? NSDictionary
                 if((self.restPlacesList?["results"]) == nil) {
                     success(false)
                 } else {
@@ -244,23 +244,5 @@ class SelectionViewController: UIViewController {
         return params
 
     }
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-}
-
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destinationViewController.
- // Pass the selected object to the new view controller.
- }
- */
 
 }
