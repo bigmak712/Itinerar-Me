@@ -54,16 +54,17 @@ class LocationViewController: UIViewController  {
     func adjustUI() {
         if(locationPicked) {
             self.textField.textColor = UIColor.darkGray
-           
-        } else {
-            self.textField.textColor = UIColor.lightGray
             GMSPlacesClient.shared().lookUpPhotos(forPlaceID: (pickedLocation?.placeID)!, callback: { (photo: GMSPlacePhotoMetadataList?, error: Error?) in
                 if let error = error {
-                    print(error.localizedDescription)
+                    print("Error loading image for place: \(error.localizedDescription)")
                 } else {
                     self.loadImageForMetadata(photoMetadata: (photo?.results.first)!)
                 }
             })
+
+           
+        } else {
+            self.textField.textColor = UIColor.lightGray
         }
         if(radiusTextField.text?.isEmpty)! {
             self.textField.textColor = UIColor.lightGray
@@ -107,7 +108,6 @@ extension LocationViewController: GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
         self.pickedLocation = place
-        locationPicked = true
         textField.text = place.name
         preferences.location = place
         

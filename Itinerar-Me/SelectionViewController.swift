@@ -14,10 +14,11 @@ class SelectionViewController: UIViewController {
 
     
     @IBOutlet weak var cardImageView: UIImageView!
-    @IBOutlet weak var cardLabel: UILabel!
-    @IBOutlet weak var leftArrow: UIImageView!
-    @IBOutlet weak var rightArrow: UIImageView!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var categoriesLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
     
     let apiKey = "AIzaSyDWgrglpRDRqRVwPJMo-SkTq5xg7kJS0hk"
     
@@ -27,8 +28,18 @@ class SelectionViewController: UIViewController {
     var initialPanLocation: CGFloat!
     var preferences: Preferences!
     
-    var activityPlacesList: NSDictionary?
-    var restPlacesList: NSDictionary?
+    var activityArray: NSArray?
+    var restArray: NSArray?
+    var activityJSON: NSDictionary?
+    var restJSON: NSDictionary?
+    var nextPageTokenRest: String?
+    var nextPageTokenAct: String?
+    
+    var restIndex: Int = 0
+    var activityIndex: Int = 0
+    
+    //Whether a restaurant will be shown or an activity. 0 for rest, 1 for act.
+    var nextType: Int = 0
     
     var previousXLocation: CGFloat!
     
@@ -42,22 +53,44 @@ class SelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
-        
-        fetchPlaces(preferences: preferences, success: { (result: Bool) in
+        fetchRestauraunts(preferences: preferences, success: { (result: Bool) in
             if(result) {
                 print("SUCCESS in fetching results. it had stuff in the query")
+                print(self.restArray!.count)
+                
+                //Format first card for view.
+                let place: SelectionsCardFormatted = self.formatPlaceForCard(dict: self.restArray?[self.restIndex] as! NSDictionary)
+                self.formatCardUI(place: place)
+                self.restIndex += 1
+                self.nextType = 1
+                
             } else {
                 print("Your filters gave no results RIP. :((")
             }
         }) { (error: Error?) in
-                print(error?.localizedDescription)
+                print("Error loading results \(error?.localizedDescription)")
         }
         
+        fetchActivities(preferences: preferences, success: { (result: Bool) in
+            if(result) {
+                print("SUCCESS in fetching results. it had stuff in the query")
+                print(self.activityArray!.count)
+            } else {
+                print("Your filters gave no results RIP. :((")
+            }
+        }) { (error: Error?) in
+            print("Error loading results \(error?.localizedDescription)")
+        }
+        
+        setup()
     }
     
     //Initial setup - For UI and Gesture Recognizer.
     func setup() {
+        
+        //Initialize indeces for places
+        restIndex = 0
+        activityIndex = 0
         
         //GESTURE RECOGNIZERS
         //For card view
@@ -68,17 +101,27 @@ class SelectionViewController: UIViewController {
         //For left and right arrows.
         let leftTapRec = UITapGestureRecognizer(target: self, action: #selector(didTapLeft(sender:)))
         let rightTapRec = UITapGestureRecognizer(target: self, action: #selector(didTapRight(sender:)))
-        leftArrow.addGestureRecognizer(leftTapRec)
-        rightArrow.addGestureRecognizer(rightTapRec)
         
         //For Tinder animation.
         cardInitialCenter = cardView.center
         previousXLocation = cardInitialCenter.x
         
-        //Load images.
-        leftArrow.image = #imageLiteral(resourceName: "Left-50")
-        rightArrow.image = #imageLiteral(resourceName: "Right-50")
+    }
+    
+    func formatCardUI(place: SelectionsCardFormatted?) {
+        if (place == nil) {
+            print("passed in a nil place for formatting card :(")
+            return
+        }
         
+        nameLabel.text = place!.name
+        addressLabel.text = place!.address
+        
+        for i in place!.types {
+            categoriesLabel.text = categoriesLabel.text! + ", " + i
+        }
+        
+        ratingLabel.text = place!.rating + "/5.0"
     }
     
     //Action method for tapping right arrwow.
@@ -135,7 +178,6 @@ class SelectionViewController: UIViewController {
         } else if sender.state == .ended {
             print("Gesture ended")
             
-            //Reset position of card fyi ryan gosling wut a babe :)))
             cardView.center = cardInitialCenter
             cardView.transform = CGAffineTransform.identity
             previousXLocation = cardInitialCenter.x
@@ -163,22 +205,40 @@ class SelectionViewController: UIViewController {
                 } else {
                     
                 }
-                //self.cardImageView.image = something else
-                //self.cardLabel.text = something else
-                
-                //TODO: Add a new view from database.
+                UIView.animate(withDuration: 0.1, animations: { 
+                    self.cardView.alpha = 1
+                    //If next type is activity and there are activities left.
+                    if(self.nextType == 1 && self.activityIndex != self.activityArray?.count) {
+                        let nextPlace = self.formatPlaceForCard(dict: self.activityArray![self.activityIndex] as? NSDictionary)
+                        self.activityIndex += 1
+                        self.nextType = 0
+                        self.formatCardUI(place: nextPlace)
+                    }
+                    //If next type is activity and no activites left.
+                    if(self.nextType == 1 && self.activityIndex != self.activityArray?.count) {
+                        //TODO pass in nextPageIndex to load more.
+                        return
+                    }
+                    //If next type is rest and there are activities left.
+                    if(self.nextType == 0 && self.restIndex != self.activityArray?.count) {
+                        let nextPlace = self.formatPlaceForCard(dict: self.restArray![self.restIndex] as? NSDictionary)
+                        self.restIndex += 1
+                        self.nextType = 1
+                        self.formatCardUI(place: nextPlace)
+                    }
+                    //If next type is rest and no activites left.
+                    if(self.nextType == 0 && self.restIndex != self.activityArray?.count) {
+                        //TODO pass in nextPageIndex to load more.
+                        return
+                    }
+                })
         })
     }
     
     /*
-     * Method calls for fetching data from Google Places API!!
+     * Method for fetching restaurants from API.
      */
-    
-    func fetchPlaces(preferences: Preferences, success: @escaping (Bool) -> (), failure: @escaping (Error?) -> ()) {
-        
-        //For my reference cause I'm forgetful AF. feel free to delete
-        //https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&keyword=cruise&key=YOUR_API_KEY
-        
+    func fetchRestauraunts(preferences: Preferences, success: @escaping (Bool) -> (), failure: @escaping (Error?) -> ()) {
         //Fetch Restaurants.
         let restParams = formatParams(pageToken: nil, type: "restaurant")
         print(restParams)
@@ -187,17 +247,28 @@ class SelectionViewController: UIViewController {
             case .success:
                 print(response.result.value)
                 print("When getting restuarants: Validation Successful")
-
-                self.restPlacesList = response.result.value as! NSDictionary
-                if((self.restPlacesList?["results"]) == nil) {
+                self.restJSON = response.result.value as! NSDictionary?
+                
+                self.nextPageTokenRest = self.restJSON?["next_page_token"] as! String?
+                if((self.restJSON?["results"]) == nil) {
                     success(false)
                 } else {
+                    self.restArray = self.restJSON?["results"] as? NSArray
+                    print("See there's something here \(self.restArray)")
                     success(true)
                 }
             case .failure(let error):
                 failure(error)
             }
         }
+
+    }
+    
+    /*
+     * Method calls for fetching data from Google Places API!!
+     */
+    
+    func fetchActivities(preferences: Preferences, success: @escaping (Bool) -> (), failure: @escaping (Error?) -> ()) {
         
         //Fetch Activities.
         let activityParams = formatParams(pageToken: nil, type: "point_of_interest")
@@ -208,18 +279,26 @@ class SelectionViewController: UIViewController {
                 print(response.result.value)
                 print("When getting activities: Validation Successful")
 
-                self.activityPlacesList = response.result.value as! NSDictionary?
-                if((self.activityPlacesList?["results"]) == nil) {
+                self.activityJSON = response.result.value as! NSDictionary?
+                
+                //If there are more places to be pulled.
+                if (self.activityJSON?["next_page_token"] != nil) {
+                    self.nextPageTokenAct = self.activityJSON?["next_page_token"] as! String?
+                }
+                if((self.activityJSON?["results"]) == nil) {
                     success(false)
                 } else {
+                    self.activityArray = self.activityJSON?["results"] as? NSArray
                     success(true)
                 }
             case .failure(let error):
                 failure(error)
             }
         }
+        
     }
     
+    /* Formats parameters for API call to google places.*/
     func formatParams(pageToken: String?, type: String) -> String {
         
         var params: String = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
@@ -233,8 +312,8 @@ class SelectionViewController: UIViewController {
         //Note radius is in meters not miles.
         params.append("&radius=\(radius)")
         
-        let maxPrice = "3" //Change later
-        params.append("&maxprice=\(maxPrice)")
+        let maxPrice = "\(preferences.maxPrice)"
+        params.append("&maxprice=4")
        
         //Either restauraunt or point of interest
         params.append("&type=\(type)")
@@ -247,6 +326,28 @@ class SelectionViewController: UIViewController {
 
     }
     
+    func formatPlaceForCard(dict: NSDictionary?) -> SelectionsCardFormatted {
+        
+        if(dict == nil) {
+            print("ERROR in format place for card")
+            return SelectionsCardFormatted()
+        }
+        
+        let place: SelectionsCardFormatted = SelectionsCardFormatted()
+        
+        place.address = dict?["vicinity"] as! String
+        
+        place.name = dict?["name"] as! String
+            
+        place.id = dict?["id"] as! String
+        
+        place.types = dict?["types"] as! [String]
+        
+        place.rating =  "\(dict?["rating"])"
+        
+        return place
+    }
+    
     func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
         GMSPlacesClient.shared().loadPlacePhoto(photoMetadata) { (callback: UIImage?, error: Error?) in
             if let error = error {
@@ -257,7 +358,6 @@ class SelectionViewController: UIViewController {
         }
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

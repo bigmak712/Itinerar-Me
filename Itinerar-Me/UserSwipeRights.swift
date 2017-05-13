@@ -12,6 +12,6 @@ import GooglePlaces
 class UserSwipeRights: NSObject {
     
     var isRestaurant: Bool?
-    var location: GMSPlace?
+    var location: String?
     
 }
