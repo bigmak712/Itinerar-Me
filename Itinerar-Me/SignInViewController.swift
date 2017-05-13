@@ -12,19 +12,6 @@ import FirebaseDatabase
 import FBSDKLoginKit
 import MBProgressHUD
 
-extension UITextField{
-    func underLineTextField(){
-        let border = CALayer()
-        let width = CGFloat(0.75)
-        border.borderColor = UIColor.darkGray.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
-        
-        border.borderWidth = width
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
-    }
-}
-
 class SignInViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -45,7 +32,7 @@ class SignInViewController: UIViewController {
         
         facebookButton.layer.cornerRadius = buttonCornerRadius
         
-        signUpButton.layer.borderWidth = buttonBorderWidth
+        signUpButton.layer.borderWidth = 0
         signUpButton.layer.cornerRadius = buttonCornerRadius
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in

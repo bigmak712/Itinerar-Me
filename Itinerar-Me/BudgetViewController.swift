@@ -26,13 +26,13 @@ class BudgetViewController: UIViewController {
     
     @IBAction func onNext(_ sender: Any) {
         if budgetSegments.selectedSegmentIndex == 0 {
-            preferences.maxPrice = 10
+            preferences.maxPrice = 1
         }else if budgetSegments.selectedSegmentIndex == 1 {
-            preferences.maxPrice = 30
+            preferences.maxPrice = 2
         }else if budgetSegments.selectedSegmentIndex == 2 {
-            preferences.maxPrice = 60
+            preferences.maxPrice = 3
         }else {
-            preferences.maxPrice = 1000000
+            preferences.maxPrice = 4
         }
     }
     

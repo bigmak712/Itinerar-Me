@@ -16,6 +16,7 @@ class LocationViewController: UIViewController  {
     var preferences = Preferences()
     var locationPicked = false
     
+    @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var radiusTextField: UITextField!
     
     //Instance of autocomplete view controller for the class.
@@ -30,6 +31,7 @@ class LocationViewController: UIViewController  {
 
         autoCompleteCtllr.delegate = self
         
+        
     }
    
     @IBAction func userTouchedTxtField(_ sender: AnyObject) {
@@ -39,9 +41,28 @@ class LocationViewController: UIViewController  {
         }
     }
     
+    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
+        GMSPlacesClient.shared().loadPlacePhoto(photoMetadata) { (callback: UIImage?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.backgroundView.image = callback
+            }
+        }
+    }
+    
     func adjustUI() {
         if(locationPicked) {
             self.textField.textColor = UIColor.darkGray
+            GMSPlacesClient.shared().lookUpPhotos(forPlaceID: (pickedLocation?.placeID)!, callback: { (photo: GMSPlacePhotoMetadataList?, error: Error?) in
+                if let error = error {
+                    print("Error loading image for place: \(error.localizedDescription)")
+                } else {
+                    self.loadImageForMetadata(photoMetadata: (photo?.results.first)!)
+                }
+            })
+
+           
         } else {
             self.textField.textColor = UIColor.lightGray
         }
@@ -87,7 +108,6 @@ extension LocationViewController: GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
         self.pickedLocation = place
-        locationPicked = true
         textField.text = place.name
         preferences.location = place
         
