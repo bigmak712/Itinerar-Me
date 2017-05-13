@@ -79,11 +79,7 @@ class SelectionViewController: UIViewController {
                 print("Your filters gave no results RIP. :((")
             }
         }) { (error: Error?) in
-<<<<<<< HEAD
-                print(error!.localizedDescription)
-=======
             print("Error loading results \(error?.localizedDescription)")
->>>>>>> origin/master
         }
         
         setup()
