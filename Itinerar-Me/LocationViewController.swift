@@ -83,7 +83,6 @@ class LocationViewController: UIViewController  {
             print("NO TEXTFIELD")
             return
         }
-
     }
     
     @IBAction func radiusEditingDidEnd(_ sender: AnyObject) {

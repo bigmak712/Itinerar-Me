@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LSK-mQ-xtm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="LSK-mQ-xtm">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -48,7 +48,7 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="onNext:" destination="WD4-UM-D7U" eventType="touchUpInside" id="46h-hw-so9"/>
-                                    <segue destination="6BP-VA-RqE" kind="presentation" identifier="toTime" id="GXy-94-kNC"/>
+                                    <segue destination="6BP-VA-RqE" kind="show" identifier="toTime" id="GXy-94-kNC"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Radius (km)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7cr-xY-kBV">
@@ -253,7 +253,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="WD4-UM-D7U" kind="presentation" id="1cP-Bg-bnI"/>
+                                    <segue destination="WD4-UM-D7U" kind="show" id="1cP-Bg-bnI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Your Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dea-OS-tR6">
@@ -279,12 +279,13 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="onNext:" destination="6BP-VA-RqE" eventType="touchUpInside" id="kDt-Fe-Edi"/>
-                                    <segue destination="fNa-Ik-rLD" kind="presentation" identifier="toActivities" id="2A5-hA-GFn"/>
+                                    <segue destination="fNa-Ik-rLD" kind="show" identifier="toActivities" id="2A5-hA-GFn"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="4RH-gA-V3O"/>
                     <connections>
                         <outlet property="endTimeTextField" destination="Xgv-ac-iuT" id="hbq-O3-B0f"/>
                         <outlet property="startTimeTextField" destination="bvk-az-Jhc" id="QjZ-5N-W9I"/>
@@ -307,7 +308,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3US-Cd-WpA">
-                                <rect key="frame" x="71" y="84" width="233.5" height="29"/>
+                                <rect key="frame" x="71" y="84" width="234" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -322,7 +323,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Restaurants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1a-32-Xxl">
-                                <rect key="frame" x="55" y="207" width="265.5" height="29"/>
+                                <rect key="frame" x="55" y="207" width="266" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -344,7 +345,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Back"/>
                                         <connections>
-                                            <segue destination="6BP-VA-RqE" kind="presentation" identifier="backTimeSegue" id="kVh-Hj-2X5"/>
+                                            <segue destination="6BP-VA-RqE" kind="show" identifier="backTimeSegue" id="kVh-Hj-2X5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vw-mT-omW">
@@ -386,6 +387,9 @@
             <point key="canvasLocation" x="2111" y="179"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="307" height="459"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GXy-94-kNC"/>
     </inferredMetricsTieBreakers>
