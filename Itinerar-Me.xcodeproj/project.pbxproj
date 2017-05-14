@@ -104,8 +104,8 @@
 				12AA89251EA5CEDF00660906 /* APIs */,
 				12AA89241EA5CED700660906 /* Views */,
 				12AA89231EA5CED000660906 /* Models */,
-				12AA89221EA5CEC600660906 /* Storyboards */,
 				126C3DD01EA5987600C9C291 /* View Controllers */,
+				12AA89221EA5CEC600660906 /* Storyboards */,
 				126C3D8D1E9C9DA200C9C291 /* AppDelegate.swift */,
 				126C3D911E9C9DA200C9C291 /* Main.storyboard */,
 				126C3D941E9C9DA200C9C291 /* Assets.xcassets */,
@@ -163,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				26E5E22D1EA859C3001AA178 /* locationTableViewCell.swift */,
+				D08DD37F1EBAC3B1003AA073 /* OrderCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -214,7 +215,6 @@
 		D08DD37E1EBAC391003AA073 /* Order VC's */ = {
 			isa = PBXGroup;
 			children = (
-				D08DD37F1EBAC3B1003AA073 /* OrderCell.swift */,
 				D08DD3811EBAC3CA003AA073 /* OrderViewController.swift */,
 			);
 			name = "Order VC's";
