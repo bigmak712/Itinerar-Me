@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PopupDialog
 
 class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -20,12 +21,18 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.delegate = self
         
-        self.tableView.isEditing = true
+        self.tableView.allowsMultipleSelectionDuringEditing = true
+        tableView.setEditing(true, animated: true)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func onDetail(_ sender: Any) {
+        let popup = PopupDialog(title: "HELLO", message: "HELLO AGAIN", image: #imageLiteral(resourceName: "Collapse Arrow-50"))
+        let buttonOne = CancelButton(title: "CANCEL") {
+            print("You canceled the car dialog.")
+        }
+        popup.addButtons([buttonOne])
+        
+        self.present(popup, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,31 +47,7 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return .none
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
-    
-    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.orderings[sourceIndexPath.row]
-        orderings.remove(at: sourceIndexPath.row)
-        orderings.insert(movedObject, at: destinationIndexPath.row)
-        NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \(orderings)")
-        // To check for correctness enable: self.tableView.reloadData()
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
