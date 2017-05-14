@@ -102,7 +102,6 @@ class SelectionViewController: UIViewController {
         let panGestureRec = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
         cardView.addGestureRecognizer(panGestureRec)
 
-        
         //For Tinder animation.
         cardInitialCenter = cardView.center
         previousXLocation = cardInitialCenter.x
