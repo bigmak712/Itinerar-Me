@@ -330,14 +330,17 @@ class SelectionViewController: UIViewController {
         let photos = dict?["photos"] as? NSArray
         let photosDict = photos?[0] as! NSDictionary
         let reference = photosDict["photo_reference"]
-        let url = URL(string: "https://maps.googleapis.com/maps/api/place/photo?photoreference=\(reference!)&key=\(apiKey)")
+        let url = URL(string: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=\(reference!)&key=\(apiKey)")
         print("\(url)   blahhhh ")
         
         
         //ANOTHER API call to get the photo from the json result.
+        
         Alamofire.request(url!).responseImage { (
             response) in
-            
+            if let err = response.error {
+                print("There's an error: \(err.localizedDescription)")
+            }
             print("something")
             if let image = response.result.value {
                 self.cardImageView.image = image
