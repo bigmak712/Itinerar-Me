@@ -21,19 +21,20 @@ class SignInViewController: UIViewController {
 
     var firebaseRef: FIRDatabaseReference!
     
-    let buttonBorderWidth = CGFloat(1.0)
-    let buttonCornerRadius = CGFloat(7.0)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let buttonBorderWidth = CGFloat(1.0)
+        let buttonCornerRadius = CGFloat(7.0)
+        
         loginButton.layer.borderWidth = buttonBorderWidth
         loginButton.layer.cornerRadius = buttonCornerRadius
+        loginButton.layer.borderColor = UIColor.white.cgColor
         
-        facebookButton.layer.cornerRadius = buttonCornerRadius
-        
-        signUpButton.layer.borderWidth = 0
-        signUpButton.layer.cornerRadius = buttonCornerRadius
+        facebookButton.setBackgroundImage(nil, for: .normal)
+        facebookButton.setBackgroundImage(nil, for: .highlighted)
+        facebookButton.setTitleColor(UIColor.init(displayP3Red: 0, green: 0, blue: 255, alpha: 0.5), for: .normal)
+        facebookButton.tintColor = UIColor.init(displayP3Red: 0, green: 0, blue: 255, alpha: 0.5)
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let _ = user {

@@ -29,6 +29,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
+    @IBOutlet weak var signupButton: UIButton!
 
     var firebaseRef: FIRDatabaseReference!
     
@@ -36,6 +37,13 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         firebaseRef = FIRDatabase.database().reference()
+        
+        let buttonBorderWidth = CGFloat(1.0)
+        let buttonCornerRadius = CGFloat(7.0)
+        
+        signupButton.layer.borderWidth = buttonBorderWidth
+        signupButton.layer.cornerRadius = buttonCornerRadius
+        signupButton.layer.borderColor = UIColor.white.cgColor
     }
     
     override func viewDidLayoutSubviews() {

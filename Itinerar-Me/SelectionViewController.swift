@@ -237,10 +237,12 @@ class SelectionViewController: UIViewController {
             case .success:
                 print(response.result.value)
                 print("When getting restuarants: Validation Successful")
+
                 self.restJSON = response.result.value as! NSDictionary?
                 
                 self.nextPageTokenRest = self.restJSON?["next_page_token"] as! String?
                 if((self.restJSON?["results"]) == nil) {
+
                     success(false)
                 } else {
                     self.restArray = self.restJSON?["results"] as? NSArray
@@ -365,5 +367,4 @@ class SelectionViewController: UIViewController {
             }
         }
     }
-
 }
