@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import GooglePlaces
+import AlamofireImage
 
 class SelectionViewController: UIViewController {
 
@@ -88,6 +89,10 @@ class SelectionViewController: UIViewController {
     //Initial setup - For UI and Gesture Recognizer.
     func setup() {
         
+        cardView.layer.borderColor = UIColor.lightGray.cgColor
+        cardView.layer.borderWidth = 1
+        cardView.layer.cornerRadius = 6
+        
         //Initialize indeces for places
         restIndex = 0
         activityIndex = 0
@@ -97,10 +102,6 @@ class SelectionViewController: UIViewController {
         let panGestureRec = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
         cardView.addGestureRecognizer(panGestureRec)
 
-        
-        //For left and right arrows.
-        let leftTapRec = UITapGestureRecognizer(target: self, action: #selector(didTapLeft(sender:)))
-        let rightTapRec = UITapGestureRecognizer(target: self, action: #selector(didTapRight(sender:)))
         
         //For Tinder animation.
         cardInitialCenter = cardView.center
@@ -121,19 +122,7 @@ class SelectionViewController: UIViewController {
             categoriesLabel.text = categoriesLabel.text! + ", " + i
         }
         
-        ratingLabel.text = place!.rating + "/5.0"
-    }
-    
-    //Action method for tapping right arrwow.
-    @IBAction
-    func didTapRight(sender: UITapGestureRecognizer) {
-        animateAndLoadNew(currTranslation: 1)
-    }
-    
-    //Action method for tapping right arrwow.
-    @IBAction
-    func didTapLeft(sender: UITapGestureRecognizer) {
-        animateAndLoadNew(currTranslation: -1)
+        ratingLabel.text = place!.rating
     }
     
     @IBAction
@@ -157,7 +146,7 @@ class SelectionViewController: UIViewController {
             let currTranslation = translation.x
             
             //If x translation great enough, animate off the view.
-            if(abs(currTranslation) > 150) {
+            if(abs(currTranslation) > 175) {
                 animateAndLoadNew(currTranslation: Int(currTranslation))
                 return
             }
@@ -165,7 +154,7 @@ class SelectionViewController: UIViewController {
             cardView.center = CGPoint(x: cardInitialCenter.x + translation.x, y: cardInitialCenter.y + translation.y)
             
             //Tried different options, like a percentage of the translation of x but this random number worked better so 0.026 it is.
-            let rotation = (translation.x > 0) ? 0.026 : -0.026
+            let rotation = (translation.x > 0) ? 0.02 : -0.02
             
             //Started panning in top half.
             if( initialPanLocation <= halfPoint) {
@@ -203,6 +192,7 @@ class SelectionViewController: UIViewController {
                     
                     //If user Swiped left :(
                 } else {
+                    
                     
                 }
                 UIView.animate(withDuration: 0.1, animations: { 
@@ -295,7 +285,6 @@ class SelectionViewController: UIViewController {
                 failure(error)
             }
         }
-        
     }
     
     /* Formats parameters for API call to google places.*/
@@ -305,11 +294,12 @@ class SelectionViewController: UIViewController {
         
         //Get coordinates/radius
         let location = preferences.location?.coordinate
-        let radius: String = preferences.radius!
         params.append("location=\(location!.latitude)")
         params.append(",\(location!.longitude)")
         
-        //Note radius is in meters not miles.
+        //Note radius is in meters not miles. Multiply by 1000
+        let radius = Int(self.preferences.radius!)! * 1000
+        
         params.append("&radius=\(radius)")
         
         let maxPrice = "\(preferences.maxPrice)"
@@ -335,6 +325,24 @@ class SelectionViewController: UIViewController {
         
         let place: SelectionsCardFormatted = SelectionsCardFormatted()
         
+        let photos = dict?["photos"] as? NSArray
+        let photosDict = photos?[0] as! NSDictionary
+        let reference = photosDict["photo_reference"]
+        let url = URL(string: "https://maps.googleapis.com/maps/api/place/photo?photoreference=\(reference!)&key=\(apiKey)")
+        print("\(url)   blahhhh ")
+        
+        
+        //ANOTHER API call to get the photo from the json result.
+        Alamofire.request(url!).responseImage { (
+            response) in
+            
+            print("something")
+            if let image = response.result.value {
+                self.cardImageView.image = image
+                print("alamofire:  \(image)")
+            }
+        }
+        
         place.address = dict?["vicinity"] as! String
         
         place.name = dict?["name"] as! String
@@ -343,7 +351,7 @@ class SelectionViewController: UIViewController {
         
         place.types = dict?["types"] as! [String]
         
-        place.rating =  "\(dict?["rating"])"
+        place.rating =  "\((dict!["rating"])!)" + "/5"
         
         return place
     }
@@ -357,21 +365,5 @@ class SelectionViewController: UIViewController {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-}
-
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destinationViewController.
- // Pass the selected object to the new view controller.
- }
- */
 
 }
