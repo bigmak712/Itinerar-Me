@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0C126F0BDDDA76B964E9C03BA63F8297"
+               BlueprintIdentifier = "139FFB7C6E0DD881B688420AC05D53EA"
                BuildableName = "Pods_Itinerar_Me.framework"
                BlueprintName = "Pods-Itinerar-Me"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0C126F0BDDDA76B964E9C03BA63F8297"
+            BlueprintIdentifier = "139FFB7C6E0DD881B688420AC05D53EA"
             BuildableName = "Pods_Itinerar_Me.framework"
             BlueprintName = "Pods-Itinerar-Me"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0C126F0BDDDA76B964E9C03BA63F8297"
-            BuildableName = "Pods_Itinerar_Me.framework"
-            BlueprintName = "Pods-Itinerar-Me"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
