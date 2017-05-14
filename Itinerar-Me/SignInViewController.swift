@@ -24,7 +24,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginButton.layer.borderWidth = GFloat(1.0)
+        loginButton.layer.borderWidth = CGFloat(1.0)
         loginButton.layer.cornerRadius = CGFloat(7.0)
         loginButton.layer.borderColor = UIColor.white.cgColor
         
@@ -39,8 +39,6 @@ class SignInViewController: UIViewController {
 //                let storyboard = UIStoryboard(name: "Profile", bundle: nil)
 //                let vc = storyboard.instantiateViewController(withIdentifier: "profileVC")
 //                self.present(vc, animated: false, completion: nil)
-                
-                
             } else {
                 // No user is signed in.
             }
