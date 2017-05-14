@@ -24,11 +24,8 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let buttonBorderWidth = CGFloat(1.0)
-        let buttonCornerRadius = CGFloat(7.0)
-        
-        loginButton.layer.borderWidth = buttonBorderWidth
-        loginButton.layer.cornerRadius = buttonCornerRadius
+        loginButton.layer.borderWidth = GFloat(1.0)
+        loginButton.layer.cornerRadius = CGFloat(7.0)
         loginButton.layer.borderColor = UIColor.white.cgColor
         
         facebookButton.setBackgroundImage(nil, for: .normal)
