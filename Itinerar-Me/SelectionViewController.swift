@@ -38,6 +38,7 @@ class SelectionViewController: UIViewController {
     
     var restIndex: Int = 0
     var activityIndex: Int = 0
+    var maxTranslation: Int?
     
     //Whether a restaurant will be shown or an activity. 0 for rest, 1 for act.
     var nextType: Int = 0
@@ -142,17 +143,12 @@ class SelectionViewController: UIViewController {
         } else if sender.state == .changed {
             
             let currTranslation = translation.x
-            
-            //If x translation great enough, animate off the view.
-            if(abs(currTranslation) > 150) {
-                animateAndLoadNew(currTranslation: Int(currTranslation))
-                return
-            }
+            maxTranslation = Int(currTranslation)
             
             cardView.center = CGPoint(x: cardInitialCenter.x + translation.x, y: cardInitialCenter.y + translation.y)
             
-            //Tried different options, like a percentage of the translation of x but this random number worked better so 0.026 it is.
-            let rotation = (translation.x > 0) ? 0.02 : -0.02
+            //Tried different options, like a percentage of the translation of x but this random number worked better so 0.02 it is.
+            let rotation = (translation.x > 0) ? 0.018 : -0.018
             
             //Started panning in top half.
             if( initialPanLocation <= halfPoint) {
@@ -164,23 +160,29 @@ class SelectionViewController: UIViewController {
             
         } else if sender.state == .ended {
             
-            cardView.center = cardInitialCenter
-            cardView.transform = CGAffineTransform.identity
-            previousXLocation = cardInitialCenter.x
-            
+            //Load new card if the last position of the changed state prompted either left or right swipe off page.
+            if(abs(maxTranslation!) > 100) {
+                animateAndLoadNew(currTranslation: Int(maxTranslation!))
+            } else  {
+                self.cardView.center = cardInitialCenter
+                self.cardView.transform = CGAffineTransform.identity
+                self.previousXLocation = self.cardInitialCenter.x
+            }
         }
     }
     
     
     /* When user swipes far enough to left or right animate a new card onto the screen.*/
     func animateAndLoadNew(currTranslation: Int) {
+        
         //Load new card:
+        var nextPlace: SelectionsCardFormatted?
+        
         //If next type is activity and there are activities left.
         if(self.nextType == 1 && self.activityIndex != self.activityArray.count) {
-            let nextPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] )
+            nextPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] )
             self.activityIndex += 1
             self.nextType = 0
-            self.formatCardUI(place: nextPlace)
         //If next type is activity and no activites left.
         } else if(self.nextType == 1 && self.activityIndex == self.activityArray.count) {
             //TODO pass in nextPageIndex to load more.
@@ -189,10 +191,9 @@ class SelectionViewController: UIViewController {
         }
         //If next type is rest and there are activities left.
         else if(self.nextType == 0 && self.restIndex != self.restArray?.count) {
-            let nextPlace = self.formatPlaceForCard(dict: self.restArray![self.restIndex] )
+            nextPlace = self.formatPlaceForCard(dict: self.restArray![self.restIndex] )
             self.restIndex += 1
             self.nextType = 1
-            self.formatCardUI(place: nextPlace)
         }
         //If next type is rest and no activites left.
         else  {
@@ -200,9 +201,13 @@ class SelectionViewController: UIViewController {
             self.nextType = 1
             self.restIndex = 0
         }
+        formatCardUI(place: nextPlace)
 
-        UIView.animate(withDuration: 0.2, animations: {
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            
             self.cardView.alpha = 0
+            
             if(currTranslation > 0) {
                 self.cardView.center = CGPoint(x: self.cardInitialCenter.x + self.view.frame.width, y: self.cardInitialCenter.y)
             } else {
@@ -211,7 +216,6 @@ class SelectionViewController: UIViewController {
             }, completion: { (bool: Bool) in
                 
                 //TODO: Do something here.. Either add to itinerary array, or don't
-                self.cardView.center = CGPoint(x: self.cardInitialCenter.x, y: self.cardInitialCenter.y)
                 //If Swipe right :)
                 if(currTranslation > 0) {
                     
@@ -219,13 +223,16 @@ class SelectionViewController: UIViewController {
                 } else {
                     
                 }
-                //After card fades out fade back in from center.
-                UIView.animate(withDuration: 0.3, animations: { 
+                //Animate cardView with spring animations back to initial location with new data loaded.
+                UIView.animate(withDuration: 0.2, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                    self.cardView.center = self.cardInitialCenter
+                    self.cardView.transform = CGAffineTransform.identity
+                    self.previousXLocation = self.cardInitialCenter.x
                     self.cardView.alpha = 1
                     
-                }, completion: { (bool: Bool) in
-                    print("Entered completion")
-
+                    //self.cardView.center = CGPoint(x: self.cardInitialCenter.x, y: self.cardInitialCenter.y)
+                    }, completion: { (bool: Bool) in
+                        print("Entered Completion for animation.")
                 })
         })
        
@@ -269,7 +276,7 @@ class SelectionViewController: UIViewController {
     func fetchActivities(preferences: Preferences, success: @escaping (Bool) -> (), failure: @escaping (Error?) -> ()) {
 
         
-        let types: Array = [ "park","amusement_park", "movie_theater", "cafe", "university", "aquarium", "art_gallery", "bowling_alley",  "casino", "jewelry_store", "library",  "museum", "night_club", "shopping_mall", "spa",  "zoo" ]
+        let types: Array = [ "zoo", "park","amusement_park", "movie_theater", "university", "aquarium", "art_gallery", "museum", "night_club", "casino", "cafe", "bowling_alley",  "spa", "jewelry_store", "library"  ]
         var succ: Bool = false
         for s in types {
             //Fetch Activities.

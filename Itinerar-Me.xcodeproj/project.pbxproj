@@ -17,6 +17,7 @@
 		126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */; };
 		12AA891F1EA5BD2D00660906 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */; };
 		12AA89211EA5BE6F00660906 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12AA89201EA5BE6F00660906 /* Preferences.storyboard */; };
+		2681BFA11EC945C2004835F0 /* SwipableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2681BFA01EC945C1004835F0 /* SwipableCardView.swift */; };
 		26BAE5801EB17DD700F42A52 /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26BAE57F1EB17DD700F42A52 /* Selection.storyboard */; };
 		26D5C7521EBAD9E7006E5A81 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D5C7511EBAD9E7006E5A81 /* SelectionViewController.swift */; };
 		26E5E22E1EA859C3001AA178 /* locationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5E22D1EA859C3001AA178 /* locationTableViewCell.swift */; };
@@ -48,6 +49,7 @@
 		126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12AA89201EA5BE6F00660906 /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
+		2681BFA01EC945C1004835F0 /* SwipableCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipableCardView.swift; sourceTree = "<group>"; };
 		26BAE57F1EB17DD700F42A52 /* Selection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Selection.storyboard; sourceTree = "<group>"; };
 		26D5C7511EBAD9E7006E5A81 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		26E5E22D1EA859C3001AA178 /* locationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationTableViewCell.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				26E5E22D1EA859C3001AA178 /* locationTableViewCell.swift */,
 				D08DD37F1EBAC3B1003AA073 /* OrderCell.swift */,
+				2681BFA01EC945C1004835F0 /* SwipableCardView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				122CD99F1EB1848C000F0390 /* Itinerary.swift in Sources */,
 				D0F54FD91EA5CCC1008B18DA /* FinalItineraryViewController.swift in Sources */,
 				26E5E22E1EA859C3001AA178 /* locationTableViewCell.swift in Sources */,
+				2681BFA11EC945C2004835F0 /* SwipableCardView.swift in Sources */,
 				D08DD3801EBAC3B1003AA073 /* OrderCell.swift in Sources */,
 				C9259FEE1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift in Sources */,
 				26D5C7521EBAD9E7006E5A81 /* SelectionViewController.swift in Sources */,

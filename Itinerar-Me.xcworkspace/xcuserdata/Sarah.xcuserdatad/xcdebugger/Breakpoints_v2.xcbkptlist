@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Itinerar-Me/SelectionViewController.swift"
-            timestampString = "516487121.496308"
+            timestampString = "516521336.064678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "fetchActivities(preferences:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
