@@ -2,52 +2,51 @@
 //  OrderViewController.swift
 //  Itinerar-Me
 //
-//  Created by Vicky Tang on 5/3/17.
+//  Created by Daniel Ku on 5/15/17.
 //  Copyright © 2017 ItinerarMe. All rights reserved.
 //
 
 import UIKit
-import PopupDialog
 
-class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class OrderViewController: UIViewController {
+    @IBOutlet weak var orderTableView: UITableView!
 
-    @IBOutlet weak var tableView: UITableView!
-    
     var orderings = ["hello my yellow fellow", "Daniel told me", "to do this", "I want a burrito"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dataSource = self
-        tableView.delegate = self
+        orderTableView.delegate = self
+        orderTableView.dataSource = self
         
-        self.tableView.allowsMultipleSelectionDuringEditing = true
-        tableView.setEditing(true, animated: true)
+        self.orderTableView.isEditing = true
+    }
+}
+
+extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
     }
     
-    @IBAction func onDetail(_ sender: Any) {
-        let popup = PopupDialog(title: "HELLO", message: "HELLO AGAIN", image: #imageLiteral(resourceName: "Collapse Arrow-50"))
-        let buttonOne = CancelButton(title: "CANCEL") {
-            print("You canceled the car dialog.")
-        }
-        popup.addButtons([buttonOne])
-        
-        self.present(popup, animated: true, completion: nil)
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = self.orderings[sourceIndexPath.row]
+        orderings.remove(at: sourceIndexPath.row)
+        orderings.insert(movedObject, at: destinationIndexPath.row)
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orderings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for:  indexPath as IndexPath) as! OrderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for:  indexPath as IndexPath) as! OrderTableViewCell
         
-        cell.cellLabel.text = orderings[indexPath.row]
+        cell.somethingLabel.text = orderings[indexPath.row]
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
 }
