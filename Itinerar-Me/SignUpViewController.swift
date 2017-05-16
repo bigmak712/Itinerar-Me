@@ -88,7 +88,8 @@ extension UITextField{
     func underLineTextField(){
         let border = CALayer()
         let width = CGFloat(0.75)
-        border.borderColor = UIColor.darkGray.cgColor
+        border.borderColor = UIColor.white.cgColor
+        //border.borderColor = UIColor.darkGray.cgColor
         border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
         
         border.borderWidth = width
