@@ -360,6 +360,8 @@
 				D0F54FD91EA5CCC1008B18DA /* FinalItineraryViewController.swift in Sources */,
 				26E5E22E1EA859C3001AA178 /* locationTableViewCell.swift in Sources */,
 				D08DD3801EBAC3B1003AA073 /* CheckTableViewCell.swift in Sources */,
+				2681BFA11EC945C2004835F0 /* SwipableCardView.swift in Sources */,
+				D08DD3801EBAC3B1003AA073 /* OrderCell.swift in Sources */,
 				C9259FEE1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift in Sources */,
 				12F3B7091ECAB5F800E6A196 /* OrderTableViewCell.swift in Sources */,
 				26D5C7521EBAD9E7006E5A81 /* SelectionViewController.swift in Sources */,

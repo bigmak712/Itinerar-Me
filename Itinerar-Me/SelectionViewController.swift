@@ -29,8 +29,8 @@ class SelectionViewController: UIViewController {
     var initialPanLocation: CGFloat!
     var preferences: Preferences!
     
-    var activityArray: NSArray = NSArray()
-    var restArray: NSArray?
+    var activityArray: Array<NSDictionary> = Array()
+    var restArray: Array<NSDictionary>? = Array()
     var activityJSON: NSDictionary?
     var restJSON: NSDictionary?
     var nextPageTokenRest: String?
@@ -38,6 +38,7 @@ class SelectionViewController: UIViewController {
     
     var restIndex: Int = 0
     var activityIndex: Int = 0
+    var maxTranslation: Int?
     
     //Whether a restaurant will be shown or an activity. 0 for rest, 1 for act.
     var nextType: Int = 0
@@ -61,7 +62,7 @@ class SelectionViewController: UIViewController {
                 
                 //Format first card for view.
                 //So first show a restaurant.
-                let place: SelectionsCardFormatted = self.formatPlaceForCard(dict: self.restArray?[self.restIndex] as! NSDictionary)
+                let place: SelectionsCardFormatted = self.formatPlaceForCard(dict: self.restArray![self.restIndex] )
                 self.formatCardUI(place: place)
                 self.restIndex += 1
                 self.nextType = 1
@@ -142,17 +143,12 @@ class SelectionViewController: UIViewController {
         } else if sender.state == .changed {
             
             let currTranslation = translation.x
-            
-            //If x translation great enough, animate off the view.
-            if(abs(currTranslation) > 150) {
-                animateAndLoadNew(currTranslation: Int(currTranslation))
-                return
-            }
+            maxTranslation = Int(currTranslation)
             
             cardView.center = CGPoint(x: cardInitialCenter.x + translation.x, y: cardInitialCenter.y + translation.y)
             
-            //Tried different options, like a percentage of the translation of x but this random number worked better so 0.026 it is.
-            let rotation = (translation.x > 0) ? 0.02 : -0.02
+            //Tried different options, like a percentage of the translation of x but this random number worked better so 0.02 it is.
+            let rotation = (translation.x > 0) ? 0.018 : -0.018
             
             //Started panning in top half.
             if( initialPanLocation <= halfPoint) {
@@ -164,18 +160,54 @@ class SelectionViewController: UIViewController {
             
         } else if sender.state == .ended {
             
-            cardView.center = cardInitialCenter
-            cardView.transform = CGAffineTransform.identity
-            previousXLocation = cardInitialCenter.x
-            
+            //Load new card if the last position of the changed state prompted either left or right swipe off page.
+            if(abs(maxTranslation!) > 100) {
+                animateAndLoadNew(currTranslation: Int(maxTranslation!))
+            } else  {
+                self.cardView.center = cardInitialCenter
+                self.cardView.transform = CGAffineTransform.identity
+                self.previousXLocation = self.cardInitialCenter.x
+            }
         }
     }
     
     
     /* When user swipes far enough to left or right animate a new card onto the screen.*/
     func animateAndLoadNew(currTranslation: Int) {
-        UIView.animate(withDuration: 0.2, animations: {
+        
+        //Load new card:
+        var nextPlace: SelectionsCardFormatted?
+        
+        //If next type is activity and there are activities left.
+        if(self.nextType == 1 && self.activityIndex != self.activityArray.count) {
+            nextPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] )
+            self.activityIndex += 1
+            self.nextType = 0
+        //If next type is activity and no activites left.
+        } else if(self.nextType == 1 && self.activityIndex == self.activityArray.count) {
+            //TODO pass in nextPageIndex to load more.
+            self.nextType = 0
+            self.activityIndex = 0
+        }
+        //If next type is rest and there are activities left.
+        else if(self.nextType == 0 && self.restIndex != self.restArray?.count) {
+            nextPlace = self.formatPlaceForCard(dict: self.restArray![self.restIndex] )
+            self.restIndex += 1
+            self.nextType = 1
+        }
+        //If next type is rest and no activites left.
+        else  {
+            //TODO pass in nextPageIndex to load more.
+            self.nextType = 1
+            self.restIndex = 0
+        }
+        formatCardUI(place: nextPlace)
+
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            
             self.cardView.alpha = 0
+            
             if(currTranslation > 0) {
                 self.cardView.center = CGPoint(x: self.cardInitialCenter.x + self.view.frame.width, y: self.cardInitialCenter.y)
             } else {
@@ -184,60 +216,26 @@ class SelectionViewController: UIViewController {
             }, completion: { (bool: Bool) in
                 
                 //TODO: Do something here.. Either add to itinerary array, or don't
-                self.cardView.center = CGPoint(x: self.cardInitialCenter.x, y: self.cardInitialCenter.y)
                 //If Swipe right :)
                 if(currTranslation > 0) {
-                    
                     
                     //If user Swiped left :(
                 } else {
                     
-                    
                 }
-                //Load new card.
-                UIView.animate(withDuration: 0.3, animations: { 
+                //Animate cardView with spring animations back to initial location with new data loaded.
+                UIView.animate(withDuration: 0.2, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                    self.cardView.center = self.cardInitialCenter
+                    self.cardView.transform = CGAffineTransform.identity
+                    self.previousXLocation = self.cardInitialCenter.x
                     self.cardView.alpha = 1
                     
+                    //self.cardView.center = CGPoint(x: self.cardInitialCenter.x, y: self.cardInitialCenter.y)
                     }, completion: { (bool: Bool) in
-                        print("activity array count: \(self.activityArray.count)")
-                        print("rest array count: \(self.restArray!.count)")
-
-                        print("Entered completion")
-                        //If next type is activity and there are activities left.
-                        if(self.nextType == 1 && self.activityIndex != self.activityArray.count) {
-                            let nextPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] as? NSDictionary)
-                            self.activityIndex += 1
-                            self.nextType = 0
-                            self.formatCardUI(place: nextPlace)
-                            return
-                        }
-                        //If next type is activity and no activites left.
-                        if(self.nextType == 1 && self.activityIndex == self.activityArray.count) {
-                            //TODO pass in nextPageIndex to load more.
-                            self.nextType = 0
-                            self.activityIndex = 0
-                            return
-                        }
-                        //If next type is rest and there are activities left.
-                        if(self.nextType == 0 && self.restIndex != self.activityArray.count) {
-                            let nextPlace = self.formatPlaceForCard(dict: self.restArray![self.restIndex] as? NSDictionary)
-                            self.restIndex += 1
-                            self.nextType = 1
-                            self.formatCardUI(place: nextPlace)
-                            return
-                        }
-                        //If next type is rest and no activites left.
-                        if(self.nextType == 0 && self.restIndex == self.activityArray.count) {
-                            //TODO pass in nextPageIndex to load more.
-                            self.nextType = 1
-                            self.restIndex = 0
-                            return
-                        }
-                        print("rest Index \(self.restIndex)")
-                        print("activity index \(self.activityIndex)")
-                        print("next type \(self.nextType)")
+                        print("Entered Completion for animation.")
                 })
         })
+       
     }
     
     /*
@@ -260,7 +258,7 @@ class SelectionViewController: UIViewController {
 
                     success(false)
                 } else {
-                    self.restArray = self.restJSON?["results"] as? NSArray
+                    self.restArray = self.restJSON?["results"] as? Array
                     print("See there's something here \(self.restArray)")
                     success(true)
                 }
@@ -278,11 +276,11 @@ class SelectionViewController: UIViewController {
     func fetchActivities(preferences: Preferences, success: @escaping (Bool) -> (), failure: @escaping (Error?) -> ()) {
 
         
-        let types: NSArray = [ "park","amusement_park", "movie_theater", "cafe", "university", "aquarium", "art_gallery", "bowling_alley",  "casino", "jewelry_store", "library",  "museum", "night_club", "shopping_mall", "spa",  "zoo" ]
+        let types: Array = [ "zoo", "park","amusement_park", "movie_theater", "university", "aquarium", "art_gallery", "museum", "night_club", "casino", "cafe", "bowling_alley",  "spa", "jewelry_store", "library"  ]
         var succ: Bool = false
         for s in types {
             //Fetch Activities.
-            let activityParams = formatParams(pageToken: nil, type: s as! String)
+            let activityParams = formatParams(pageToken: nil, type: s )
             print(activityParams)
             Alamofire.request(activityParams).validate().responseJSON { response in
                 switch response.result {
@@ -295,11 +293,16 @@ class SelectionViewController: UIViewController {
                     }
                     if((self.activityJSON?["results"]) == nil) {
                     } else {
-                        let temp = self.activityJSON?["results"] as? NSArray
-                        if let temp = temp {
-                            self.activityArray.addingObjects(from: temp as! [Any])
+                        let temp = self.activityJSON?["results"] as? Array<NSDictionary>
+                        if(temp?.count != 0) {
+                            if let temp = temp {
+                                if(self.activityArray.count == 0) {
+                                    self.activityArray = temp
+                                } else {
+                                    self.activityArray.append(contentsOf: temp)
+                                }
+                            }
                         }
-                        succ = true
                     }
                 case .failure(let error):
                     failure(error)
@@ -350,26 +353,23 @@ class SelectionViewController: UIViewController {
         let place: SelectionsCardFormatted = SelectionsCardFormatted()
         
         let photos = dict?["photos"] as? NSArray
-        let photosDict = photos?[0] as! NSDictionary
-        let reference = photosDict["photo_reference"]
-        let url = URL(string: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=550&photoreference=\(reference!)&key=\(apiKey)")
-        print("\(url)   blahhhh ")
-        
-        
-        //ANOTHER API call to get the photo from the json result.
-        
-        Alamofire.request(url!).responseImage { (
-            response) in
-            if let err = response.error {
-                print("There's an error: \(err.localizedDescription)")
-            }
-            print("something")
-            if let image = response.result.value {
-                self.cardImageView.image = image
-                print("alamofire:  \(image)")
+        if let photos = photos {
+            let photosDict = photos[0] as! NSDictionary
+            let reference = photosDict["photo_reference"]
+            let url = URL(string: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=550&photoreference=\(reference!)&key=\(apiKey)")
+            //ANOTHER API call to get the photo from the json result.
+            Alamofire.request(url!).responseImage { (
+                response) in
+                if let err = response.error {
+                    print("There's an error: \(err.localizedDescription)")
+                }
+                print("something")
+                if let image = response.result.value {
+                    self.cardImageView.image = image
+                    print("alamofire:  \(image)")
+                }
             }
         }
-        
         place.address = dict?["vicinity"] as! String
         
         place.name = dict?["name"] as! String
@@ -378,8 +378,11 @@ class SelectionViewController: UIViewController {
         
         place.types = dict?["types"] as! [String]
         
-        place.rating =  "\((dict!["rating"])!)" + "/5"
-        
+        if dict!["rating"] != nil {
+            place.rating = "\((dict!["rating"])!)" + "/5"
+        } else {
+            place.rating = ""
+        }
         return place
     }
     
