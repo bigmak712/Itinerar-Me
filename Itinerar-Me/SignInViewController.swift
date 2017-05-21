@@ -77,7 +77,7 @@ class SignInViewController: UIViewController {
             if error == nil {
                 let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "locationVC")
-                self.present(vc, animated: false, completion: nil)
+                self.show(vc, sender: nil)
             }else {
                 print(error!.localizedDescription)
             }
