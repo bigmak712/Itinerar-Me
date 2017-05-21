@@ -179,7 +179,7 @@ class SelectionViewController: UIViewController {
     func animateAndLoadNew(currTranslation: Int) {
         
         //Load new card:
-        print(swipedRightArr)
+        print("Cards so far \(swipedRightArr)")
         //If next type is activity and there are activities left.
         if(self.nextType == 1 && self.activityIndex != self.activityArray.count) {
             self.currPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] )
