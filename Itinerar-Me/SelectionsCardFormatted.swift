@@ -13,7 +13,7 @@ class SelectionsCardFormatted: NSObject {
     var address: String!
     var image: UIImage!
     var name: String!
-    var desc: String!
+    //var desc: String!
     var id: String!
     var types: [String]!
     var rating: String!
