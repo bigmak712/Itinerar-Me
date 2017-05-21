@@ -42,7 +42,7 @@ extension CheckViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckCell", for:  indexPath as IndexPath) as! CheckTableViewCell
         
-        //cell.cellLabel.text = selections[indexPath.row]
+        cell.nameLabel.text = selections[indexPath.row].name
         
         return cell
     }

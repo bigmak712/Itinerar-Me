@@ -129,6 +129,13 @@ class SelectionViewController: UIViewController {
         ratingLabel.text = place!.rating
     }
     
+    @IBAction func onDone(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Order", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "checkVC") as! CheckViewController
+        vc.selections = swipedRightArr
+        self.show(vc, sender: nil)
+    }
+    
     @IBAction
     func didPan(sender: UIPanGestureRecognizer) {
         let location = sender.location(in: view)

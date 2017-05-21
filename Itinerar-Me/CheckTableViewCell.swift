@@ -10,7 +10,8 @@ import UIKit
 
 class CheckTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cellLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
