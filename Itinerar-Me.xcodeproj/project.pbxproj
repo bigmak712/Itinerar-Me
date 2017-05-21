@@ -15,6 +15,7 @@
 		126C3D951E9C9DA200C9C291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126C3D941E9C9DA200C9C291 /* Assets.xcassets */; };
 		126C3D981E9C9DA200C9C291 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126C3D961E9C9DA200C9C291 /* LaunchScreen.storyboard */; };
 		126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */; };
+		129EB2CE1ED2515A000DECD5 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08DD37F1EBAC3B1003AA073 /* CheckTableViewCell.swift */; };
 		12AA891F1EA5BD2D00660906 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */; };
 		12AA89211EA5BE6F00660906 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12AA89201EA5BE6F00660906 /* Preferences.storyboard */; };
 		12F3B7071ECAB5E500E6A196 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3B7061ECAB5E500E6A196 /* OrderViewController.swift */; };
@@ -30,7 +31,6 @@
 		C9C60E0C1EA5C9CF0051892D /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E0B1EA5C9CF0051892D /* BudgetViewController.swift */; };
 		D03D2AF81E9D82F8006373DB /* Itinerary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */; };
 		D08DD35D1EBAB868003AA073 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D08DD35C1EBAB868003AA073 /* Order.storyboard */; };
-		D08DD3801EBAC3B1003AA073 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08DD37F1EBAC3B1003AA073 /* CheckTableViewCell.swift */; };
 		D08DD3821EBAC3CA003AA073 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08DD3811EBAC3CA003AA073 /* CheckViewController.swift */; };
 		D0F54FD51EA5BF0F008B18DA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */; };
 		D0F54FD71EA5CC93008B18DA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F54FD61EA5CC93008B18DA /* ProfileViewController.swift */; };
@@ -359,9 +359,7 @@
 				122CD99F1EB1848C000F0390 /* Itinerary.swift in Sources */,
 				D0F54FD91EA5CCC1008B18DA /* FinalItineraryViewController.swift in Sources */,
 				26E5E22E1EA859C3001AA178 /* locationTableViewCell.swift in Sources */,
-				D08DD3801EBAC3B1003AA073 /* CheckTableViewCell.swift in Sources */,
-				2681BFA11EC945C2004835F0 /* SwipableCardView.swift in Sources */,
-				D08DD3801EBAC3B1003AA073 /* OrderCell.swift in Sources */,
+				129EB2CE1ED2515A000DECD5 /* CheckTableViewCell.swift in Sources */,
 				C9259FEE1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift in Sources */,
 				12F3B7091ECAB5F800E6A196 /* OrderTableViewCell.swift in Sources */,
 				26D5C7521EBAD9E7006E5A81 /* SelectionViewController.swift in Sources */,
@@ -495,6 +493,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 336BD453C9C3CFB8020718F6 /* Pods-Itinerar-Me.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Itinerar-Me/Info.plist";
@@ -509,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B54533240FEE61086004E17A /* Pods-Itinerar-Me.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Itinerar-Me/Info.plist";
