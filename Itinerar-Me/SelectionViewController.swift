@@ -36,6 +36,8 @@ class SelectionViewController: UIViewController {
     var nextPageTokenRest: String?
     var nextPageTokenAct: String?
     
+    var swipedRightArr: Array<SelectionsCardFormatted> = Array()
+    var currPlace: SelectionsCardFormatted?
     var restIndex: Int = 0
     var activityIndex: Int = 0
     var maxTranslation: Int?
@@ -63,6 +65,7 @@ class SelectionViewController: UIViewController {
                 //Format first card for view.
                 //So first show a restaurant.
                 let place: SelectionsCardFormatted = self.formatPlaceForCard(dict: self.restArray![self.restIndex] )
+                self.currPlace = place
                 self.formatCardUI(place: place)
                 self.restIndex += 1
                 self.nextType = 1
@@ -176,11 +179,10 @@ class SelectionViewController: UIViewController {
     func animateAndLoadNew(currTranslation: Int) {
         
         //Load new card:
-        var nextPlace: SelectionsCardFormatted?
-        
+        print(swipedRightArr)
         //If next type is activity and there are activities left.
         if(self.nextType == 1 && self.activityIndex != self.activityArray.count) {
-            nextPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] )
+            self.currPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] )
             self.activityIndex += 1
             self.nextType = 0
         //If next type is activity and no activites left.
@@ -191,7 +193,7 @@ class SelectionViewController: UIViewController {
         }
         //If next type is rest and there are activities left.
         else if(self.nextType == 0 && self.restIndex != self.restArray?.count) {
-            nextPlace = self.formatPlaceForCard(dict: self.restArray![self.restIndex] )
+            self.currPlace = self.formatPlaceForCard(dict: self.restArray![self.restIndex] )
             self.restIndex += 1
             self.nextType = 1
         }
@@ -201,7 +203,7 @@ class SelectionViewController: UIViewController {
             self.nextType = 1
             self.restIndex = 0
         }
-        formatCardUI(place: nextPlace)
+        formatCardUI(place: self.currPlace)
 
         
         UIView.animate(withDuration: 0.25, animations: {
@@ -221,7 +223,7 @@ class SelectionViewController: UIViewController {
                     
                     //If user Swiped left :(
                 } else {
-                    
+                    self.swipedRightArr.append(self.currPlace!)
                 }
                 //Animate cardView with spring animations back to initial location with new data loaded.
                 UIView.animate(withDuration: 0.2, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.curveEaseInOut, animations: {
@@ -366,6 +368,7 @@ class SelectionViewController: UIViewController {
                 print("something")
                 if let image = response.result.value {
                     self.cardImageView.image = image
+                    place.image = image
                     print("alamofire:  \(image)")
                 }
             }
@@ -383,6 +386,7 @@ class SelectionViewController: UIViewController {
         } else {
             place.rating = ""
         }
+        
         return place
     }
     
