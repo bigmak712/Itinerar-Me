@@ -13,7 +13,7 @@ class CheckViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var orderings = ["hello my yellow fellow", "Daniel told me", "to do this", "I want a burrito"]
+    var selections: [SelectionsCardFormatted]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +27,7 @@ class CheckViewController: UIViewController {
     
     @IBAction func onDetail(_ sender: Any) {
         let popup = PopupDialog(title: "HELLO", message: "HELLO AGAIN", image: #imageLiteral(resourceName: "Collapse Arrow-50"))
-        let buttonOne = CancelButton(title: "CANCEL") {
-            print("You canceled the car dialog.")
-        }
+        let buttonOne = CancelButton(title: "Cancel", action: nil)
         popup.addButtons([buttonOne])
         
         self.present(popup, animated: true, completion: nil)
@@ -38,13 +36,13 @@ class CheckViewController: UIViewController {
 
 extension CheckViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderings.count
+        return selections.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckCell", for:  indexPath as IndexPath) as! CheckTableViewCell
         
-        cell.cellLabel.text = orderings[indexPath.row]
+        //cell.cellLabel.text = selections[indexPath.row]
         
         return cell
     }
