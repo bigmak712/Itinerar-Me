@@ -21,8 +21,13 @@ class SignInViewController: UIViewController {
 
     var firebaseRef: FIRDatabaseReference!
     
+    let dark_green = UIColor(colorLiteralRed: 12, green: 127, blue: 99, alpha: 1.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //emailField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName: UIColor.init(red: 12, green: 128, blue: 102, alpha: 1)])
+        //passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.cyan])
         
         loginButton.layer.borderWidth = CGFloat(1.0)
         loginButton.layer.cornerRadius = CGFloat(7.0)
@@ -72,7 +77,7 @@ class SignInViewController: UIViewController {
             if error == nil {
                 let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "locationVC")
-                self.present(vc, animated: false, completion: nil)
+                self.show(vc, sender: nil)
             }else {
                 print(error!.localizedDescription)
             }

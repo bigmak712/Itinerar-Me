@@ -1,5 +1,5 @@
 //
-//  OrderCell.swift
+//  CheckTableViewCell.swift
 //  Itinerar-Me
 //
 //  Created by Vicky Tang on 5/3/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderCell: UITableViewCell {
+class CheckTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellLabel: UILabel!
     
