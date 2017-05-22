@@ -12,7 +12,7 @@
         <!--Check View Controller-->
         <scene sceneID="wpQ-ZX-6Ke">
             <objects>
-                <viewController storyboardIdentifier="orderVC" id="4bH-Xx-QC7" customClass="CheckViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="checkVC" id="4bH-Xx-QC7" customClass="CheckViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kZM-80-asL"/>
                         <viewControllerLayoutGuide type="bottom" id="bYv-6L-Do2"/>
@@ -32,8 +32,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA3-yN-3cw">
-                                                    <rect key="frame" x="8" y="30" width="41" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="University of California, San Diego" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA3-yN-3cw">
+                                                    <rect key="frame" x="8" y="30" width="260" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -47,17 +47,27 @@
                                                         <action selector="onDetail:" destination="4bH-Xx-QC7" eventType="touchUpInside" id="SGy-38-2rd"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3520 Lebon DR, San Deigo CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzS-T9-1j3">
+                                                    <rect key="frame" x="8" y="59" width="210" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="RA3-yN-3cw" firstAttribute="top" secondItem="NZW-Ge-GG3" secondAttribute="top" constant="30" id="9aK-x2-l6L"/>
+                                                <constraint firstItem="y7X-it-SDp" firstAttribute="top" secondItem="hzS-T9-1j3" secondAttribute="bottom" constant="-3" id="Dl3-Pv-4BF"/>
                                                 <constraint firstAttribute="bottom" secondItem="y7X-it-SDp" secondAttribute="bottom" constant="8" id="GZf-ho-G68"/>
                                                 <constraint firstAttribute="trailing" secondItem="y7X-it-SDp" secondAttribute="trailing" constant="8" id="PMS-1Y-7cV"/>
                                                 <constraint firstItem="RA3-yN-3cw" firstAttribute="leading" secondItem="NZW-Ge-GG3" secondAttribute="leading" constant="8" id="UPE-8u-cHP"/>
+                                                <constraint firstItem="hzS-T9-1j3" firstAttribute="leading" secondItem="NZW-Ge-GG3" secondAttribute="leading" constant="8" id="sVy-2P-l78"/>
+                                                <constraint firstItem="hzS-T9-1j3" firstAttribute="top" secondItem="RA3-yN-3cw" secondAttribute="bottom" constant="8" id="xGS-da-3lU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outlet property="cellLabel" destination="RA3-yN-3cw" id="0rW-Fv-ISG"/>
+                                            <outlet property="addressLabel" destination="hzS-T9-1j3" id="ait-N3-pT0"/>
+                                            <outlet property="nameLabel" destination="RA3-yN-3cw" id="xfe-5h-aAG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
