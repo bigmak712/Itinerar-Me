@@ -13,6 +13,13 @@ class CheckTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     
+    var selections: SelectionsCardFormatted! {
+        didSet {
+            nameLabel.text = selections.name
+            addressLabel.text = selections.address
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

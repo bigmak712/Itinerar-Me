@@ -12,6 +12,10 @@ class NumberActivitiesViewController: UIViewController, UIPickerViewDelegate, UI
 
     @IBOutlet weak var activitiesTextField: UITextField!
     @IBOutlet weak var restaurantsTextField: UITextField!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    
+    let dark_green = UIColor(red: 12/255, green: 127/255, blue: 99/255, alpha: 1.0)
     
     let pickerView = UIPickerView()
     
@@ -32,7 +36,20 @@ class NumberActivitiesViewController: UIViewController, UIPickerViewDelegate, UI
         activitiesTextField.inputView = pickerView
         restaurantsTextField.inputView = pickerView
         
-        // Do any additional setup after loading the view.
+        backButton.layer.borderWidth = CGFloat(1.0)
+        backButton.layer.cornerRadius = CGFloat(30.0)
+        backButton.layer.borderColor = dark_green.cgColor
+        
+        nextButton.layer.borderWidth = CGFloat(1.0)
+        nextButton.layer.cornerRadius = CGFloat(30.0)
+        nextButton.layer.borderColor = dark_green.cgColor
+    }
+    
+    override func viewDidLayoutSubviews() {
+        activitiesTextField.underlineTextField()
+        restaurantsTextField.underlineTextField()
+        
+        super.viewDidLayoutSubviews()
     }
     
     @IBAction func didEditActivities(_ sender: UITextField) {

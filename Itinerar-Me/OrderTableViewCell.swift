@@ -9,7 +9,8 @@
 import UIKit
 
 class OrderTableViewCell: UITableViewCell {
-    @IBOutlet weak var somethingLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
