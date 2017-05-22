@@ -106,13 +106,13 @@ class LocationViewController: UIViewController  {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (preferences.location == nil) {
-            showAlert(title: "Location Field Empty", message: "Enter a Location")
+            showAlert(title: "Location Not Found", message: "Enter a Location")
         }
         else if (radiusTextField.text?.isEmpty)! {
-            showAlert(title: "Radius Field Empty", message: "Missing Radius")
+            showAlert(title: "Radius Not Found", message: "Enter a Radius")
         }
-        else if Int(radiusTextField.text!)! < 20 {
-            showAlert(title: "Radius Entered is Too Small", message: "Enter a Radius 20 or Larger")
+        else if Int(radiusTextField.text!)! <= 0 {
+            showAlert(title: "Invalid Radius", message: "Enter a Valid Radius")
         }
         
         else if segue.identifier == "toTime" {
