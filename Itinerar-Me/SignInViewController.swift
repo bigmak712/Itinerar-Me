@@ -25,10 +25,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //emailField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName: UIColor.init(red: 12, green: 128, blue: 102, alpha: 1)])
-        //passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.cyan])
-        
+    
         loginButton.layer.borderWidth = CGFloat(1.0)
         loginButton.layer.cornerRadius = CGFloat(7.0)
         loginButton.layer.borderColor = UIColor.white.cgColor
