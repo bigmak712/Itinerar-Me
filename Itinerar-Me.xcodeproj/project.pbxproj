@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				D08DD37E1EBAC391003AA073 /* Order VC's */,
-				26BAE5851EB184A400F42A52 /* SelectionVC's */,
+				26BAE5851EB184A400F42A52 /* Selection VC's */,
 				12AA89291EA8437300660906 /* Sign In VCs */,
 				C9C60E081EA5C9AB0051892D /* Preferences VCs */,
 				D0F54FD61EA5CC93008B18DA /* ProfileViewController.swift */,
@@ -189,12 +189,12 @@
 			name = "Sign In VCs";
 			sourceTree = "<group>";
 		};
-		26BAE5851EB184A400F42A52 /* SelectionVC's */ = {
+		26BAE5851EB184A400F42A52 /* Selection VC's */ = {
 			isa = PBXGroup;
 			children = (
 				26D5C7511EBAD9E7006E5A81 /* SelectionViewController.swift */,
 			);
-			name = "SelectionVC's";
+			name = "Selection VC's";
 			sourceTree = "<group>";
 		};
 		98122A27C2957D7685595D5A /* Pods */ = {

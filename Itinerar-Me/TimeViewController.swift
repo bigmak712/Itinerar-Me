@@ -14,6 +14,8 @@
 
 import UIKit
 
+typealias TimeOfDay = (hour: Int, minute: Int, second: Int)
+
 class TimeViewController: UIViewController {
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
@@ -97,7 +99,26 @@ class TimeViewController: UIViewController {
         preferences.endTime = endTime
     }
     
+    
+    func showAlert(title: String, message: String){
+        // create the alert
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if preferences.startTime == nil {
+            
+        }
+        else if preferences.endTime == nil {
+            
+        }
         if segue.identifier == "toActivities" {
             let activitiesVC = segue.destination as! NumberActivitiesViewController
             activitiesVC.preferences = self.preferences

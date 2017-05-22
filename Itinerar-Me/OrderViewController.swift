@@ -11,7 +11,7 @@ import UIKit
 class OrderViewController: UIViewController {
     @IBOutlet weak var orderTableView: UITableView!
 
-    var orderings = ["hello my yellow fellow", "Daniel told me", "to do this", "I want a burrito"]
+    var selections: [SelectionsCardFormatted]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,11 @@ class OrderViewController: UIViewController {
         
         self.orderTableView.isEditing = true
     }
+    
+    @IBAction func onBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
@@ -33,19 +38,19 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.orderings[sourceIndexPath.row]
-        orderings.remove(at: sourceIndexPath.row)
-        orderings.insert(movedObject, at: destinationIndexPath.row)
+        let movedObject = self.selections[sourceIndexPath.row]
+        selections.remove(at: sourceIndexPath.row)
+        selections.insert(movedObject, at: destinationIndexPath.row)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderings.count
+        return selections.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for:  indexPath as IndexPath) as! OrderTableViewCell
         
-        cell.somethingLabel.text = orderings[indexPath.row]
+        cell.nameLabel.text = selections[indexPath.row].name
         
         return cell
     }
