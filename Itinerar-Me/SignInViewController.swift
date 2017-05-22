@@ -130,8 +130,8 @@ extension SignInViewController: FBSDKLoginButtonDelegate {
             
             MBProgressHUD.hide(for: self.view, animated: true)
 
-            let storyboard = UIStoryboard(name: "Order", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "orderVC")
+            let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "locationVC")
             self.present(vc, animated: false, completion: nil)
         })
     }
