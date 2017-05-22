@@ -84,8 +84,6 @@
                         <constraints>
                             <constraint firstItem="m2F-bL-5dq" firstAttribute="centerX" secondItem="JBx-7j-3Er" secondAttribute="centerX" id="CFZ-1M-7IM"/>
                             <constraint firstItem="m2F-bL-5dq" firstAttribute="leading" secondItem="77o-0N-jgW" secondAttribute="leadingMargin" constant="28" id="HHP-Gc-CHq"/>
-                            <constraint firstItem="YXU-Dw-o1H" firstAttribute="top" relation="greaterThanOrEqual" secondItem="m2F-bL-5dq" secondAttribute="bottom" constant="50" id="NBH-WL-JwV"/>
-                            <constraint firstItem="m2F-bL-5dq" firstAttribute="centerX" secondItem="77o-0N-jgW" secondAttribute="centerX" id="Pg7-Tl-1uk"/>
                             <constraint firstItem="JBx-7j-3Er" firstAttribute="top" secondItem="2yJ-Hf-PXy" secondAttribute="bottom" constant="40" id="aQm-jA-rlk"/>
                             <constraint firstItem="m2F-bL-5dq" firstAttribute="top" secondItem="JBx-7j-3Er" secondAttribute="bottom" constant="45" id="aec-DA-JGW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="m2F-bL-5dq" secondAttribute="trailing" constant="29" id="n80-o7-AYm"/>
