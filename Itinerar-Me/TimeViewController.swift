@@ -14,16 +14,33 @@
 
 import UIKit
 
-typealias TimeOfDay = (hour: Int, minute: Int, second: Int)
-
 class TimeViewController: UIViewController {
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    let dark_green = UIColor(red: 12/255, green: 127/255, blue: 99/255, alpha: 1.0)
     
     var preferences: Preferences!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backButton.layer.borderWidth = CGFloat(1.0)
+        backButton.layer.cornerRadius = CGFloat(30.0)
+        backButton.layer.borderColor = dark_green.cgColor
+        
+        nextButton.layer.borderWidth = CGFloat(1.0)
+        nextButton.layer.cornerRadius = CGFloat(30.0)
+        nextButton.layer.borderColor = dark_green.cgColor
+    }
+    
+    override func viewDidLayoutSubviews() {
+        startTimeTextField.underlineTextField()
+        endTimeTextField.underlineTextField()
+        
+        super.viewDidLayoutSubviews()
     }
     
     @IBAction func startTime(_ sender: UITextField) {
@@ -68,6 +85,25 @@ class TimeViewController: UIViewController {
     }
     
     @IBAction func onNext(_ sender: Any) {
+        
+        // Alert Messages
+        if (startTimeTextField.text?.isEmpty)! {
+            showAlert(title: "Start Time Not Found", message: "Enter a Start Time")
+        }
+        else if (endTimeTextField.text?.isEmpty)!  {
+            showAlert(title: "End Time Not Found", message: "Enter a End Time")
+        }
+        else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == -1) {
+            showAlert(title: "End Time is Before Start Time", message: "Enter Valid Start/End Times")
+        }
+        print("TEST COMPARE" + String(compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!)))
+        /*
+        else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == 0) {
+            showAlert(title: "Warning: Short Time Length", message: "You might not have enough time to do activities")
+        }*/
+        
+
+        
         guard let startTime = startTimeTextField.text, !startTime.isEmpty else {
             return
         }
@@ -80,6 +116,42 @@ class TimeViewController: UIViewController {
         preferences.endTime = endTime
     }
     
+    // Return -1 if the time is invalid
+    // Return 0 if the time is short
+    // Return 1 if the time is longer than an hour
+    func compareTimes(time1: String, time2: String) -> Int {
+        let startTime = Array(time1.characters)
+        let endTime = Array(time2.characters)
+        
+        let meridian1 = String(startTime[time1.characters.count - 2])
+        let meridian2 = String(endTime[time2.characters.count - 2])
+        
+        let hourMinutes1 = time1.components(separatedBy: ":")
+        let hourMinutes2 = time2.components(separatedBy: ":")
+        
+        let hour1 = Int(hourMinutes1[0])!
+        let hour2 = Int(hourMinutes2[0])!
+
+        // startTime is PM, endTime is AM
+        if(meridian1 > meridian2) {
+            return -1
+        }
+        // startTime is AM, endTime is PM
+        else if(meridian1 < meridian2) {
+            if hour1 == 11 && hour2 == 12 {
+                return 0
+            }
+            return 1
+        }
+        
+        // time difference is around an hour
+        if hour2 - hour1 <= 1 {
+            return 0
+        }
+        
+        // time difference is longer than an hour
+        return 1
+    }
     
     func showAlert(title: String, message: String){
         // create the alert
@@ -94,12 +166,6 @@ class TimeViewController: UIViewController {
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if preferences.startTime == nil {
-            
-        }
-        else if preferences.endTime == nil {
-            
-        }
         if segue.identifier == "toActivities" {
             let activitiesVC = segue.destination as! NumberActivitiesViewController
             activitiesVC.preferences = self.preferences
