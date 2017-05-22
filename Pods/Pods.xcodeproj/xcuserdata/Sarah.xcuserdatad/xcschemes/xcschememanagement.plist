@@ -6,87 +6,68 @@
 	<dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>AlamofireImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>FBSDKLoginKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>Pods-Itinerar-Me.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>PopupDialog.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TimelineTableViewCell-TimelineTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TimelineTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C126F0BDDDA76B964E9C03BA63F8297</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>139FFB7C6E0DD881B688420AC05D53EA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>14307A2AFF9AF3129AC4A3A121D3FC04</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -106,12 +87,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8B3340ED114A6D6B568C611F69C05BF6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8D30E8976500B78E3881DCED20D82DBE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF29215B9856140AA797FA0C7EBB88F5</key>
+		<key>A2A9D1DB0B11FF61CFF3368D7AF7B125</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A43FA81BA350D2BF602EED96B2408BE7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

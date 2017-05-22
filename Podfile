@@ -16,5 +16,6 @@ target 'Itinerar-Me' do
  pod 'FBSDKLoginKit'
  pod 'GooglePlaces'
  pod 'PopupDialog'
+ pod 'TimelineTableViewCell'
 
 end
