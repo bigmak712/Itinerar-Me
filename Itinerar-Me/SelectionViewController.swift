@@ -108,7 +108,9 @@ class SelectionViewController: UIViewController {
         cardView.addGestureRecognizer(panGestureRec)
 
         //For Tinder animation.
-        cardInitialCenter = cardView.center
+        cardInitialCenter = self.view.center
+        print(cardInitialCenter)
+        print(cardView.center)
         previousXLocation = cardInitialCenter.x
         
     }
@@ -186,6 +188,7 @@ class SelectionViewController: UIViewController {
     /* When user swipes far enough to left or right animate a new card onto the screen.*/
     func animateAndLoadNew(currTranslation: Int) {
         
+        let temp = currPlace
         
         //Load new card:
         print("Cards so far \(swipedRightArr)")
@@ -214,7 +217,6 @@ class SelectionViewController: UIViewController {
         }
         formatCardUI(place: self.currPlace)
 
-        
         UIView.animate(withDuration: 0.25, animations: {
             
             self.cardView.alpha = 0
@@ -229,7 +231,7 @@ class SelectionViewController: UIViewController {
                 //TODO: Do something here.. Either add to itinerary array, or don't
                 //If Swipe right :)
                 if(currTranslation > 0) {
-                    self.swipedRightArr.append(self.currPlace!)
+                    self.swipedRightArr.append(temp!)
                     //If user Swiped left :(
                 } else {
                 }
