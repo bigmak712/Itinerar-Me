@@ -124,8 +124,11 @@ class SelectionViewController: UIViewController {
         nameLabel.text = place!.name
         addressLabel.text = place!.address
         
-        for i in place!.types {
-            categoriesLabel.text = categoriesLabel.text! + ", " + i
+        categoriesLabel.text = "Categories: \(place!.types[0])"
+        var i = 1
+        while(i < place!.types.count) {
+            categoriesLabel.text = categoriesLabel.text! + ", " + place!.types[i]
+            i += 1
         }
         
         ratingLabel.text = place!.rating
