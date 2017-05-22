@@ -166,7 +166,7 @@ class TimeViewController: UIViewController {
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toActivities" {
+        if segue.identifier == "toNumOfActivitiesVC" {
             let activitiesVC = segue.destination as! NumberActivitiesViewController
             activitiesVC.preferences = self.preferences
         }
