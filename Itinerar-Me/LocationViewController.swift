@@ -11,13 +11,12 @@ import GooglePlaces
 
 class LocationViewController: UIViewController  {
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var backgroundView: UIImageView!
+    @IBOutlet weak var radiusTextField: UITextField!
     
     var pickedLocation: GMSPlace?
     var preferences = Preferences()
     var locationPicked = false
-    
-    @IBOutlet weak var backgroundView: UIImageView!
-    @IBOutlet weak var radiusTextField: UITextField!
     
     //Instance of autocomplete view controller for the class.
     let autoCompleteCtllr = GMSAutocompleteViewController()
@@ -93,8 +92,30 @@ class LocationViewController: UIViewController  {
         preferences.radius = radiusTextField.text
     }
     
+    func showAlert(title: String, message: String){
+        // create the alert
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toTime" {
+        
+        if (preferences.location == nil) {
+            showAlert(title: "Location Field Empty", message: "Enter a Location")
+        }
+        else if (radiusTextField.text?.isEmpty)! {
+            showAlert(title: "Radius Field Empty", message: "Missing Radius")
+        }
+        else if Int(radiusTextField.text!)! < 20 {
+            showAlert(title: "Radius Entered is Too Small", message: "Enter a Radius 20 or Larger")
+        }
+        
+        else if segue.identifier == "toTime" {
             let timeVC = segue.destination as! TimeViewController
             timeVC.preferences = self.preferences
         }
@@ -124,6 +145,7 @@ extension LocationViewController: GMSAutocompleteViewControllerDelegate {
         
         locationPicked = false
         textField.text = "Select location..."
+        preferences.location = nil
         dismiss(animated: true, completion: nil)
         
     }
