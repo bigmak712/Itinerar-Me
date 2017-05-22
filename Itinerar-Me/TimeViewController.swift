@@ -85,6 +85,25 @@ class TimeViewController: UIViewController {
     }
     
     @IBAction func onNext(_ sender: Any) {
+        
+        // Alert Messages
+        if (startTimeTextField.text?.isEmpty)! {
+            showAlert(title: "Start Time Not Found", message: "Enter a Start Time")
+        }
+        else if (endTimeTextField.text?.isEmpty)!  {
+            showAlert(title: "End Time Not Found", message: "Enter a End Time")
+        }
+        else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == -1) {
+            showAlert(title: "End Time is Before Start Time", message: "Enter Valid Start/End Times")
+        }
+        print("TEST COMPARE" + String(compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!)))
+        /*
+        else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == 0) {
+            showAlert(title: "Warning: Short Time Length", message: "You might not have enough time to do activities")
+        }*/
+        
+
+        
         guard let startTime = startTimeTextField.text, !startTime.isEmpty else {
             return
         }
@@ -122,6 +141,7 @@ class TimeViewController: UIViewController {
             if hour1 == 11 && hour2 == 12 {
                 return 0
             }
+            return 1
         }
         
         // time difference is around an hour
@@ -146,21 +166,7 @@ class TimeViewController: UIViewController {
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (startTimeTextField.text?.isEmpty)! {
-            showAlert(title: "Start Time Not Found", message: "Enter a Start Time")
-        }
-        else if (endTimeTextField.text?.isEmpty)!  {
-            showAlert(title: "End Time Not Found", message: "Enter a End Time")
-        }
-        else if (compareTimes(time1: preferences.startTime!, time2: preferences.endTime!) == -1) {
-            showAlert(title: "End Time is Before Start Time", message: "Enter Valid Start/End Times")
-        }
-        else if segue.identifier == "toActivities" {
-            
-            if (compareTimes(time1: preferences.startTime!, time2: preferences.endTime!) == 0) {
-                showAlert(title: "Warning: Short Time Length", message: "You might not have enough time to do activities")
-            }
-            
+        if segue.identifier == "toActivities" {
             let activitiesVC = segue.destination as! NumberActivitiesViewController
             activitiesVC.preferences = self.preferences
         }

@@ -66,7 +66,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onNext:" destination="WD4-UM-D7U" eventType="touchUpInside" id="46h-hw-so9"/>
-                                    <segue destination="6BP-VA-RqE" kind="presentation" id="ds4-W2-E4Q"/>
+                                    <segue destination="6BP-VA-RqE" kind="presentation" identifier="toTimeVC" id="ds4-W2-E4Q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -370,6 +370,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oZt-mE-H3C"/>
+        <segue reference="ds4-W2-E4Q"/>
     </inferredMetricsTieBreakers>
 </document>
