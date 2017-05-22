@@ -21,7 +21,7 @@ class SignInViewController: UIViewController {
 
     var firebaseRef: FIRDatabaseReference!
     
-    let dark_green = UIColor(colorLiteralRed: 12, green: 127, blue: 99, alpha: 1.0)
+    let dark_green = UIColor(red: 12/255, green: 127/255, blue: 99/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()

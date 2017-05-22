@@ -17,11 +17,30 @@ import UIKit
 class TimeViewController: UIViewController {
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    let dark_green = UIColor(red: 12/255, green: 127/255, blue: 99/255, alpha: 1.0)
     
     var preferences: Preferences!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backButton.layer.borderWidth = CGFloat(1.0)
+        backButton.layer.cornerRadius = CGFloat(30.0)
+        backButton.layer.borderColor = dark_green.cgColor
+        
+        nextButton.layer.borderWidth = CGFloat(1.0)
+        nextButton.layer.cornerRadius = CGFloat(30.0)
+        nextButton.layer.borderColor = dark_green.cgColor
+    }
+    
+    override func viewDidLayoutSubviews() {
+        startTimeTextField.underlineTextField()
+        endTimeTextField.underlineTextField()
+        
+        super.viewDidLayoutSubviews()
     }
     
     @IBAction func startTime(_ sender: UITextField) {
