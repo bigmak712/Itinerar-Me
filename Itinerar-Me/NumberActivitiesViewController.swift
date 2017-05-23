@@ -56,12 +56,12 @@ class NumberActivitiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onFinish(_ sender: Any) {
-        guard activitiesTextField.text != nil else {
+        guard !(activitiesTextField.text?.isEmpty)! else {
             showAlert(title: "Number of Activities Not Found", message: "Enter the Number of Activities")
             return
         }
         
-        guard restaurantsTextField.text != nil else {
+        guard !(restaurantsTextField.text?.isEmpty)! else {
             showAlert(title: "Number of Restaurants Not Found", message: "Enter the Number of Restaurants")
             return
         }
