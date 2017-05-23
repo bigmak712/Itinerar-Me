@@ -29,7 +29,6 @@
 		C9259FEE1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9259FED1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift */; };
 		C9C60E071EA5C8910051892D /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E061EA5C8910051892D /* TimeViewController.swift */; };
 		C9C60E0A1EA5C9C20051892D /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E091EA5C9C20051892D /* LocationViewController.swift */; };
-		C9C60E0C1EA5C9CF0051892D /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E0B1EA5C9CF0051892D /* BudgetViewController.swift */; };
 		D03D2AF81E9D82F8006373DB /* Itinerary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */; };
 		D08DD35D1EBAB868003AA073 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D08DD35C1EBAB868003AA073 /* Order.storyboard */; };
 		D08DD3821EBAC3CA003AA073 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08DD3811EBAC3CA003AA073 /* CheckViewController.swift */; };
@@ -64,7 +63,6 @@
 		C9259FED1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberActivitiesViewController.swift; sourceTree = "<group>"; };
 		C9C60E061EA5C8910051892D /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		C9C60E091EA5C9C20051892D /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		C9C60E0B1EA5C9CF0051892D /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Itinerary.storyboard; sourceTree = "<group>"; };
 		D08DD35C1EBAB868003AA073 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		D08DD37F1EBAC3B1003AA073 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 			children = (
 				C9C60E061EA5C8910051892D /* TimeViewController.swift */,
 				C9C60E091EA5C9C20051892D /* LocationViewController.swift */,
-				C9C60E0B1EA5C9CF0051892D /* BudgetViewController.swift */,
 				C9259FED1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift */,
 			);
 			name = "Preferences VCs";
@@ -376,7 +373,6 @@
 				26D5C7521EBAD9E7006E5A81 /* SelectionViewController.swift in Sources */,
 				122CD99D1EB18295000F0390 /* Preferences.swift in Sources */,
 				12F3B7071ECAB5E500E6A196 /* OrderViewController.swift in Sources */,
-				C9C60E0C1EA5C9CF0051892D /* BudgetViewController.swift in Sources */,
 				26F72EFF1EC762CA00E58E95 /* SelectionsCardFormatted.swift in Sources */,
 				12B262FE1ED3E29600E15E4F /* KeyboardHelper.swift in Sources */,
 				126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */,
