@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '88E9EC28B8B46C3631E6B242B50F4442'
-               BlueprintName = 'Alamofire'
+               BlueprintIdentifier = 'A43FA81BA350D2BF602EED96B2408BE7'
+               BlueprintName = 'TimelineTableViewCell-TimelineTableViewCell'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Alamofire.framework'>
+               BuildableName = 'TimelineTableViewCell.bundle'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TimelineTableViewCell
 
 class OrderViewController: UIViewController {
     @IBOutlet weak var orderTableView: UITableView!
@@ -20,9 +19,9 @@ class OrderViewController: UIViewController {
         orderTableView.delegate = self
         orderTableView.dataSource = self
         
-        /*let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle(for: TimelineTableViewCell.self))
-        self.orderTableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")*/
-        
+//        let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle(for: TimelineTableViewCell.self))
+//        self.orderTableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")
+    
         self.orderTableView.isEditing = true
     }
     
