@@ -89,7 +89,6 @@ class TimeViewController: UIViewController {
     }
     
     @IBAction func onNext(_ sender: Any) {
-        
         // Alert Messages
         if (startTimeTextField.text?.isEmpty)! {
             showAlert(title: "Start Time Not Found", message: "Enter a Start Time")
@@ -105,8 +104,6 @@ class TimeViewController: UIViewController {
         else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == 0) {
             showAlert(title: "Warning: Short Time Length", message: "You might not have enough time to do activities")
         }*/
-        
-
         
         guard let startTime = startTimeTextField.text, !startTime.isEmpty else {
             return
