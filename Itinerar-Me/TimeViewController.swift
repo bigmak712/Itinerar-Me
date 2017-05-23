@@ -64,6 +64,10 @@ class TimeViewController: UIViewController {
         datePickerView.addTarget(self, action: #selector(TimeViewController.endPickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func startPickerValueChanged(_ sender:UIDatePicker) {
         
         let dateFormatter = DateFormatter()
@@ -124,7 +128,7 @@ class TimeViewController: UIViewController {
         let endTime = Array(time2.characters)
         
         let meridian1 = startTime[time1.characters.count - 2]
-        let meridian2 = String(endTime[Int(time2.characters.count) - 2])
+        let meridian2 = endTime[time2.characters.count - 2]
         
         let hourMinutes1 = time1.components(separatedBy: ":")
         let hourMinutes2 = time2.components(separatedBy: ":")
@@ -145,8 +149,10 @@ class TimeViewController: UIViewController {
             return 1
         }
         
+        // startTime & endTime are either both AM or PM
+        
         // time difference is around an hour
-        if hour2 - hour1 <= 1 {
+        if abs(hour2 - hour1) <= 1 {
             return 0
         }
         

@@ -12,8 +12,9 @@ class NumberActivitiesViewController: UIViewController, UIPickerViewDelegate, UI
 
     @IBOutlet weak var activitiesTextField: UITextField!
     @IBOutlet weak var restaurantsTextField: UITextField!
-    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var finishButton: UIButton!
+    
     
     let dark_green = UIColor(red: 12/255, green: 127/255, blue: 99/255, alpha: 1.0)
     
@@ -40,9 +41,9 @@ class NumberActivitiesViewController: UIViewController, UIPickerViewDelegate, UI
         backButton.layer.cornerRadius = CGFloat(30.0)
         backButton.layer.borderColor = dark_green.cgColor
         
-        nextButton.layer.borderWidth = CGFloat(1.0)
-        nextButton.layer.cornerRadius = CGFloat(30.0)
-        nextButton.layer.borderColor = dark_green.cgColor
+        finishButton.layer.borderWidth = CGFloat(1.0)
+        finishButton.layer.cornerRadius = CGFloat(30.0)
+        finishButton.layer.borderColor = dark_green.cgColor
     }
     
     override func viewDidLayoutSubviews() {
@@ -86,6 +87,9 @@ class NumberActivitiesViewController: UIViewController, UIPickerViewDelegate, UI
         }
     }
     
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func onFinish(_ sender: Any) {
         preferences.numOfActivities = numActivities
