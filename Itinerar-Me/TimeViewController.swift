@@ -123,8 +123,8 @@ class TimeViewController: UIViewController {
         let startTime = Array(time1.characters)
         let endTime = Array(time2.characters)
         
-        let meridian1 = String(startTime[time1.characters.count - 2])
-        let meridian2 = String(endTime[time2.characters.count - 2])
+        let meridian1 = startTime[time1.characters.count - 2]
+        let meridian2 = String(endTime[Int(time2.characters.count) - 2])
         
         let hourMinutes1 = time1.components(separatedBy: ":")
         let hourMinutes2 = time2.components(separatedBy: ":")
@@ -132,12 +132,13 @@ class TimeViewController: UIViewController {
         let hour1 = Int(hourMinutes1[0])!
         let hour2 = Int(hourMinutes2[0])!
 
+    
         // startTime is PM, endTime is AM
-        if(meridian1 > meridian2) {
+        if(String(meridian1) > String(meridian2)) {
             return -1
         }
         // startTime is AM, endTime is PM
-        else if(meridian1 < meridian2) {
+        else if(String(meridian1) <= String(meridian2)) {
             if hour1 == 11 && hour2 == 12 {
                 return 0
             }
