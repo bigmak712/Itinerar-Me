@@ -47,7 +47,6 @@ class SignInViewController: UIViewController {
                 // No user is signed in.
             }
         }
-        
         firebaseRef = FIRDatabase.database().reference()
         
         facebookButton.delegate = self
