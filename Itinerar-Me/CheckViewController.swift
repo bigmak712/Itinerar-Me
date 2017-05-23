@@ -71,7 +71,6 @@ extension CheckViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
         //finalSelections.remove(at: indexPath.row)
     }
 }
