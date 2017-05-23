@@ -100,7 +100,7 @@ class TimeViewController: UIViewController {
         else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == -1) {
             showAlert(title: "End Time is Before Start Time", message: "Enter Valid Start/End Times")
         }
-        print("TEST COMPARE" + String(compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!)))
+        
         /*
         else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == 0) {
             showAlert(title: "Warning: Short Time Length", message: "You might not have enough time to do activities")
