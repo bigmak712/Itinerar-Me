@@ -18,6 +18,7 @@
 		129EB2CE1ED2515A000DECD5 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08DD37F1EBAC3B1003AA073 /* CheckTableViewCell.swift */; };
 		12AA891F1EA5BD2D00660906 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */; };
 		12AA89211EA5BE6F00660906 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12AA89201EA5BE6F00660906 /* Preferences.storyboard */; };
+		12B262FE1ED3E29600E15E4F /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B262FD1ED3E29600E15E4F /* KeyboardHelper.swift */; };
 		12F3B7071ECAB5E500E6A196 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3B7061ECAB5E500E6A196 /* OrderViewController.swift */; };
 		12F3B7091ECAB5F800E6A196 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3B7081ECAB5F800E6A196 /* OrderTableViewCell.swift */; };
 		26BAE5801EB17DD700F42A52 /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26BAE57F1EB17DD700F42A52 /* Selection.storyboard */; };
@@ -50,6 +51,7 @@
 		126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		12AA891E1EA5BD2D00660906 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12AA89201EA5BE6F00660906 /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
+		12B262FD1ED3E29600E15E4F /* KeyboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		12F3B7061ECAB5E500E6A196 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		12F3B7081ECAB5F800E6A196 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		26BAE57F1EB17DD700F42A52 /* Selection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Selection.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				12AA89251EA5CEDF00660906 /* APIs */,
+				12B262FC1ED3E28000E15E4F /* Helpers */,
 				12AA89241EA5CED700660906 /* Views */,
 				12AA89231EA5CED000660906 /* Models */,
 				126C3DD01EA5987600C9C291 /* View Controllers */,
@@ -187,6 +190,14 @@
 				126C3DD11EA5988A00C9C291 /* SignUpViewController.swift */,
 			);
 			name = "Sign In VCs";
+			sourceTree = "<group>";
+		};
+		12B262FC1ED3E28000E15E4F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				12B262FD1ED3E29600E15E4F /* KeyboardHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		26BAE5851EB184A400F42A52 /* Selection VC's */ = {
@@ -367,6 +378,7 @@
 				12F3B7071ECAB5E500E6A196 /* OrderViewController.swift in Sources */,
 				C9C60E0C1EA5C9CF0051892D /* BudgetViewController.swift in Sources */,
 				26F72EFF1EC762CA00E58E95 /* SelectionsCardFormatted.swift in Sources */,
+				12B262FE1ED3E29600E15E4F /* KeyboardHelper.swift in Sources */,
 				126C3DD21EA5988A00C9C291 /* SignUpViewController.swift in Sources */,
 				C9C60E071EA5C8910051892D /* TimeViewController.swift in Sources */,
 				126C3D901E9C9DA200C9C291 /* SignInViewController.swift in Sources */,
