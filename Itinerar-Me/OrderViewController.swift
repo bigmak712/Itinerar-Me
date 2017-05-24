@@ -26,6 +26,12 @@ class OrderViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func onFinish(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Itinerary", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "itineraryVC") as! FinalItineraryViewController
+        vc.itinerary = self.selections
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {

@@ -168,6 +168,11 @@
                                                 <action selector="onBack:" destination="k0D-VM-eVd" id="u0P-VV-Zpb"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Finish" id="hHy-xz-Fm5">
+                                            <connections>
+                                                <action selector="onFinish:" destination="k0D-VM-eVd" id="WwO-cj-76e"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
