@@ -97,6 +97,8 @@ class SelectionViewController: UIViewController {
         cardView.layer.borderColor = UIColor.lightGray.cgColor
         cardView.layer.borderWidth = 1
         cardView.layer.cornerRadius = 6
+        cardView.layer.shadowOpacity = 0.5
+        cardView.layer.shadowColor = UIColor.lightGray.cgColor
         
         //Initialize indeces for places
         restIndex = 0
@@ -231,7 +233,8 @@ class SelectionViewController: UIViewController {
                 self.cardView.center = CGPoint(x: self.cardInitialCenter.x - self.view.frame.width, y: self.cardInitialCenter.y)
             }
             }, completion: { (bool: Bool) in
-                
+                self.cardView.alpha = 1
+
                 //TODO: Do something here.. Either add to itinerary array, or don't
                 //If Swipe right :)
                 if(currTranslation > 0) {
@@ -244,7 +247,6 @@ class SelectionViewController: UIViewController {
                     self.cardView.center = self.cardInitialCenter
                     self.cardView.transform = CGAffineTransform.identity
                     self.previousXLocation = self.cardInitialCenter.x
-                    self.cardView.alpha = 1
                     
                     //self.cardView.center = CGPoint(x: self.cardInitialCenter.x, y: self.cardInitialCenter.y)
                     }, completion: { (bool: Bool) in
@@ -289,7 +291,6 @@ class SelectionViewController: UIViewController {
      */
     
     func fetchActivities(preferences: Preferences, success: @escaping (Bool) -> (), failure: @escaping (Error?) -> ()) {
-
         
         let types: Array = [ "zoo", "park","amusement_park", "movie_theater", "university", "aquarium", "art_gallery", "museum", "night_club", "casino", "cafe", "bowling_alley",  "spa", "jewelry_store", "library"  ]
         var succ: Bool = false
