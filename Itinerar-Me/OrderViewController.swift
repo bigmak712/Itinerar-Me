@@ -20,8 +20,8 @@ class OrderViewController: UIViewController {
         orderTableView.delegate = self
         orderTableView.dataSource = self
         
-        /*let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle(for: TimelineTableViewCell.self))
-        self.orderTableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")*/
+        let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle(for: TimelineTableViewCell.self))
+        self.orderTableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")
         
         self.orderTableView.isEditing = true
     }
@@ -52,12 +52,11 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for:  indexPath as IndexPath) as! OrderTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for:  indexPath as IndexPath) as! TimelineTableViewCell
         
-        cell.nameLabel.text = selections[indexPath.row].name
+        cell.titleLabel.text = selections[indexPath.row].name
         
-
-       // var timelineFrontColor = UIColor.clear
+        var timelineFrontColor = UIColor.clear
        
         /*if (indexPath.row > 0) {
             timelineFrontColor = sectionData[indexPath.row - 1].1
