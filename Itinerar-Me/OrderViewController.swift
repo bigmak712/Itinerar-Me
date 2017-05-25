@@ -18,7 +18,7 @@ class OrderViewController: UIViewController {
 
         orderTableView.delegate = self
         orderTableView.dataSource = self
-    
+        
         self.orderTableView.isEditing = true
     }
     
@@ -56,10 +56,28 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for:  indexPath as IndexPath) as! OrderTableViewCell
         
-        cell.nameLabel.text = selections[indexPath.row].name
+      //  cell.titleLabel.text = selections[indexPath.row].name
         
+        var timelineFrontColor = UIColor.clear
+       
+        /*if (indexPath.row > 0) {
+            timelineFrontColor = sectionData[indexPath.row - 1].1
+        }*/
+       /* cell.timelinePoint = timelinePoint
+        cell.timeline.frontColor = timelineFrontColor
+        cell.timeline.backColor = timelineBackColor
+        cell.titleLabel.text = title
+        cell.descriptionLabel.text = description
+        cell.lineInfoLabel.text = lineInfo
+        if let thumbnail = thumbnail {
+            cell.thumbnailImageView.image = UIImage(named: thumbnail)
+        }*/
+        
+        
+
         return cell
     }
 }
