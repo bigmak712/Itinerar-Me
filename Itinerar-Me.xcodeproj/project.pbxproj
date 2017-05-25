@@ -32,7 +32,6 @@
 		D03D2AF81E9D82F8006373DB /* Itinerary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */; };
 		D08DD35D1EBAB868003AA073 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D08DD35C1EBAB868003AA073 /* Order.storyboard */; };
 		D08DD3821EBAC3CA003AA073 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08DD3811EBAC3CA003AA073 /* CheckViewController.swift */; };
-		D0F54FD51EA5BF0F008B18DA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */; };
 		D0F54FD71EA5CC93008B18DA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F54FD61EA5CC93008B18DA /* ProfileViewController.swift */; };
 		D0F54FD91EA5CCC1008B18DA /* FinalItineraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F54FD81EA5CCC1008B18DA /* FinalItineraryViewController.swift */; };
 /* End PBXBuildFile section */
@@ -67,7 +66,6 @@
 		D08DD35C1EBAB868003AA073 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		D08DD37F1EBAC3B1003AA073 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
 		D08DD3811EBAC3CA003AA073 /* CheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
-		D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		D0F54FD61EA5CC93008B18DA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D0F54FD81EA5CCC1008B18DA /* FinalItineraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalItineraryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,7 +146,6 @@
 				26BAE57F1EB17DD700F42A52 /* Selection.storyboard */,
 				D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */,
 				12AA89201EA5BE6F00660906 /* Preferences.storyboard */,
-				D0F54FD41EA5BF0F008B18DA /* Profile.storyboard */,
 				D08DD35C1EBAB868003AA073 /* Order.storyboard */,
 			);
 			name = Storyboards;
@@ -296,7 +293,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0F54FD51EA5BF0F008B18DA /* Profile.storyboard in Resources */,
 				26BAE5801EB17DD700F42A52 /* Selection.storyboard in Resources */,
 				126C3D981E9C9DA200C9C291 /* LaunchScreen.storyboard in Resources */,
 				D03D2AF81E9D82F8006373DB /* Itinerary.storyboard in Resources */,
