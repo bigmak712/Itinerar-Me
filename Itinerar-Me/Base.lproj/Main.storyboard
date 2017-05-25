@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcI-fu-UUK" userLabel="Signup Stack View">
-                                <rect key="frame" x="75" y="587" width="225" height="30"/>
+                                <rect key="frame" x="75" y="562.5" width="225" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV4-O5-QH6">
                                         <rect key="frame" x="0.0" y="0.0" width="160.5" height="30"/>
@@ -126,10 +126,10 @@
                             <constraint firstAttribute="trailing" secondItem="qcI-fu-UUK" secondAttribute="trailing" constant="75" id="jIC-ga-Xu8"/>
                             <constraint firstItem="B9M-Uc-wmC" firstAttribute="top" secondItem="Itx-4z-2MB" secondAttribute="bottom" constant="30" id="lBU-JA-BX8"/>
                             <constraint firstItem="sPw-qt-A8s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="100" id="mKU-D8-bEI"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qcI-fu-UUK" secondAttribute="bottom" constant="50" id="rEj-ZK-ddM"/>
                             <constraint firstItem="QfK-tI-Dd5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="skx-4a-hOX"/>
                             <constraint firstItem="uXf-Rf-m8I" firstAttribute="top" secondItem="MB6-kD-zrV" secondAttribute="bottom" constant="70" id="uja-rG-QQQ"/>
                             <constraint firstItem="MB6-kD-zrV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vPP-a8-4Vb"/>
+                            <constraint firstItem="qcI-fu-UUK" firstAttribute="top" secondItem="sPw-qt-A8s" secondAttribute="bottom" constant="80" id="wl6-Zb-VPq"/>
                             <constraint firstItem="3y2-fD-O59" firstAttribute="top" secondItem="Itx-4z-2MB" secondAttribute="bottom" constant="40" id="xtD-DR-bAv"/>
                             <constraint firstItem="Itx-4z-2MB" firstAttribute="top" secondItem="Sfp-7J-KXg" secondAttribute="bottom" constant="50" id="xua-xg-SG5"/>
                         </constraints>
