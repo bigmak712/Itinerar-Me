@@ -25,6 +25,9 @@ class FinalItineraryViewController: UIViewController {
         let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell",
                                              bundle: Bundle(url: nibUrl!)!)
         itineraryTableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")
+        
+        self.itineraryTableView.estimatedRowHeight = 300
+        self.itineraryTableView.rowHeight = UITableViewAutomaticDimension
     }
 }
 
@@ -41,7 +44,7 @@ extension FinalItineraryViewController: UITableViewDelegate, UITableViewDataSour
 //        itineraryCell.addressLabel.text = itinerary[indexPath.row].address
         
         timelineCell.titleLabel.text = "8:00AM"
-        timelineCell.descriptionLabel.font = timelineCell.descriptionLabel.font.withSize(18)
+        timelineCell.descriptionLabel.font = timelineCell.descriptionLabel.font.withSize(16)
         timelineCell.descriptionLabel.text = "\(itinerary[indexPath.row].name!)\r\(itinerary[indexPath.row].address!)"
         
         return timelineCell
