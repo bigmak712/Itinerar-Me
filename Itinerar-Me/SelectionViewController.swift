@@ -138,6 +138,7 @@ class SelectionViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Order", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "checkVC") as! CheckViewController
         vc.selections = swipedRightArr
+        vc.preferences = preferences
         self.show(vc, sender: nil)
     }
     
