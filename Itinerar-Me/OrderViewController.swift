@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TimelineTableViewCell
 
 class OrderViewController: UIViewController {
     @IBOutlet weak var orderTableView: UITableView!
@@ -20,9 +19,6 @@ class OrderViewController: UIViewController {
         orderTableView.delegate = self
         orderTableView.dataSource = self
         
-        let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle(for: TimelineTableViewCell.self))
-        self.orderTableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")
-        
         self.orderTableView.isEditing = true
     }
     
@@ -30,6 +26,12 @@ class OrderViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func onFinish(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Itinerary", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "itineraryVC") as! FinalItineraryViewController
+        vc.itinerary = self.selections
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
@@ -52,9 +54,10 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for:  indexPath as IndexPath) as! TimelineTableViewCell
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for:  indexPath as IndexPath) as! OrderTableViewCell
         
-        cell.titleLabel.text = selections[indexPath.row].name
+      //  cell.titleLabel.text = selections[indexPath.row].name
         
         var timelineFrontColor = UIColor.clear
        
@@ -72,6 +75,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         }*/
         
         
+
         return cell
     }
 }

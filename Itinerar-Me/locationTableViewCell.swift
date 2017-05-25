@@ -1,5 +1,5 @@
 //
-//  locationTableViewCell.swift
+//  LocationTableViewCell.swift
 //  Itinerar-Me
 //
 //  Created by Sarah Gemperle on 4/19/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class locationTableViewCell: UICollectionViewCell {
+class LocationTableViewCell: UICollectionViewCell {
     
     var locationName: String!
     

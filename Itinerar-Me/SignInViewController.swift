@@ -26,6 +26,8 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        self.hideKeyboardWhenTappedAround()
+        
         loginButton.layer.borderWidth = CGFloat(1.0)
         loginButton.layer.cornerRadius = CGFloat(7.0)
         loginButton.layer.borderColor = UIColor.white.cgColor
@@ -45,7 +47,6 @@ class SignInViewController: UIViewController {
                 // No user is signed in.
             }
         }
-        
         firebaseRef = FIRDatabase.database().reference()
         
         facebookButton.delegate = self

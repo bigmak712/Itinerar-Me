@@ -64,6 +64,10 @@ class TimeViewController: UIViewController {
         datePickerView.addTarget(self, action: #selector(TimeViewController.endPickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func startPickerValueChanged(_ sender:UIDatePicker) {
         
         let dateFormatter = DateFormatter()
@@ -85,7 +89,6 @@ class TimeViewController: UIViewController {
     }
     
     @IBAction func onNext(_ sender: Any) {
-        
         // Alert Messages
         if (startTimeTextField.text?.isEmpty)! {
             showAlert(title: "Start Time Not Found", message: "Enter a Start Time")
@@ -96,13 +99,11 @@ class TimeViewController: UIViewController {
         else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == -1) {
             showAlert(title: "End Time is Before Start Time", message: "Enter Valid Start/End Times")
         }
-        print("TEST COMPARE" + String(compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!)))
+        
         /*
         else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == 0) {
             showAlert(title: "Warning: Short Time Length", message: "You might not have enough time to do activities")
         }*/
-        
-
         
         guard let startTime = startTimeTextField.text, !startTime.isEmpty else {
             return
@@ -123,8 +124,8 @@ class TimeViewController: UIViewController {
         let startTime = Array(time1.characters)
         let endTime = Array(time2.characters)
         
-        let meridian1 = String(startTime[time1.characters.count - 2])
-        let meridian2 = String(endTime[time2.characters.count - 2])
+        let meridian1 = startTime[time1.characters.count - 2]
+        let meridian2 = endTime[time2.characters.count - 2]
         
         let hourMinutes1 = time1.components(separatedBy: ":")
         let hourMinutes2 = time2.components(separatedBy: ":")
@@ -132,20 +133,23 @@ class TimeViewController: UIViewController {
         let hour1 = Int(hourMinutes1[0])!
         let hour2 = Int(hourMinutes2[0])!
 
+    
         // startTime is PM, endTime is AM
-        if(meridian1 > meridian2) {
+        if(String(meridian1) > String(meridian2)) {
             return -1
         }
         // startTime is AM, endTime is PM
-        else if(meridian1 < meridian2) {
+        else if(String(meridian1) <= String(meridian2)) {
             if hour1 == 11 && hour2 == 12 {
                 return 0
             }
             return 1
         }
         
+        // startTime & endTime are either both AM or PM
+        
         // time difference is around an hour
-        if hour2 - hour1 <= 1 {
+        if abs(hour2 - hour1) <= 1 {
             return 0
         }
         

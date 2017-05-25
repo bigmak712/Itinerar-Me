@@ -23,6 +23,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         firebaseRef = FIRDatabase.database().reference()
         
         let buttonBorderWidth = CGFloat(1.0)
