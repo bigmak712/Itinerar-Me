@@ -27,6 +27,8 @@ class OrderViewController: UIViewController {
     }
     
     @IBAction func onFinish(_ sender: Any) {
+        //Store itinerary into database
+        
         let storyboard = UIStoryboard(name: "Itinerary", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "itineraryVC") as! FinalItineraryViewController
         vc.itinerary = self.selections

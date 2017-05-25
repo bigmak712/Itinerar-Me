@@ -71,9 +71,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oHw-s5-mIs" firstAttribute="top" secondItem="zA4-dR-Lhn" secondAttribute="bottom" id="6dl-n9-WT8"/>
+                            <constraint firstItem="oHw-s5-mIs" firstAttribute="leading" secondItem="hRk-ey-gIx" secondAttribute="leading" id="81D-3M-ktz"/>
                             <constraint firstItem="fO4-HM-PcX" firstAttribute="top" secondItem="oHw-s5-mIs" secondAttribute="bottom" id="HDw-mQ-3za"/>
                             <constraint firstAttribute="trailing" secondItem="oHw-s5-mIs" secondAttribute="trailing" id="hgU-Zn-Mcw"/>
-                            <constraint firstItem="oHw-s5-mIs" firstAttribute="leading" secondItem="hRk-ey-gIx" secondAttribute="leading" id="sf6-io-QcI"/>
                         </constraints>
                     </view>
                     <connections>
