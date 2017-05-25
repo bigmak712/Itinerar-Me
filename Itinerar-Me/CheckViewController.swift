@@ -16,6 +16,8 @@ class CheckViewController: UIViewController {
     var selections: [SelectionsCardFormatted]!
     var finalSelections = [SelectionsCardFormatted]()
     
+    var preferences: Preferences?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
