@@ -36,10 +36,10 @@ class SignUpViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        fullNameField.underLineTextField()
-        emailField.underLineTextField()
-        passwordField.underLineTextField()
-        confirmPasswordField.underLineTextField()
+        fullNameField.whiteUnderlineTextField()
+        emailField.whiteUnderlineTextField()
+        passwordField.whiteUnderlineTextField()
+        confirmPasswordField.whiteUnderlineTextField()
         
         super.viewDidLayoutSubviews()
     }
@@ -83,19 +83,5 @@ class SignUpViewController: UIViewController {
     
     @IBAction func onDismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension UITextField{
-    func underLineTextField(){
-        let border = CALayer()
-        let width = CGFloat(0.75)
-        border.borderColor = UIColor.white.cgColor
-        //border.borderColor = UIColor.darkGray.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
-        
-        border.borderWidth = width
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
     }
 }

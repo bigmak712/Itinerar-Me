@@ -39,8 +39,8 @@ class LocationViewController: UIViewController  {
     }
    
     override func viewDidLayoutSubviews() {
-        textField.underlineTextField()
-        radiusTextField.underlineTextField()
+        textField.greenUnderlineTextField()
+        radiusTextField.greenUnderlineTextField()
         
         super.viewDidLayoutSubviews()
     }
@@ -169,18 +169,3 @@ extension LocationViewController: GMSAutocompleteViewControllerDelegate {
     }
 
 }
-
-extension UITextField{
-    func underlineTextField(){
-        let border = CALayer()
-        let width = CGFloat(0.75)
-        border.borderColor = UIColor.darkGray.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
-        
-        border.borderWidth = width
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
-    }
-}
-
-
