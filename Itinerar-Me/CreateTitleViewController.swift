@@ -22,6 +22,8 @@ class CreateTitleViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideKeyboardWhenTappedAround()
+        
         backButton.layer.borderWidth = CGFloat(1.0)
         backButton.layer.cornerRadius = CGFloat(30.0)
         backButton.layer.borderColor = dark_green.cgColor
