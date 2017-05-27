@@ -20,6 +20,9 @@ class SelectionViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var checkImg: UIImageView!
+    @IBOutlet weak var noImg: UIImageView!
     
     let apiKey = "AIzaSyDWgrglpRDRqRVwPJMo-SkTq5xg7kJS0hk"
     
@@ -99,6 +102,13 @@ class SelectionViewController: UIViewController {
         cardView.layer.cornerRadius = 6
         cardView.layer.shadowOpacity = 0.5
         cardView.layer.shadowColor = UIColor.lightGray.cgColor
+        doneButton.layer.borderColor = UIColor.lightGray.cgColor
+        doneButton.layer.borderWidth = 1
+        doneButton.layer.cornerRadius = 33
+        
+        //Set images
+        noImg.image = #imageLiteral(resourceName: "Delete-48")
+        checkImg.image = #imageLiteral(resourceName: "Checkmark-48")
         
         //Initialize indeces for places
         restIndex = 0
@@ -206,25 +216,14 @@ class SelectionViewController: UIViewController {
         //If next type is activity and no activites left.
         } else if(self.nextType == 1 && self.activityIndex == self.activityArray.count) {
             
-            fetchActivities(preferences: preferences, success: { (success: Bool) in
-                if(success ) {
                     if(self.activityArray.count == 0) {
+                        self.activityArray.removeAll()
                         let outOfActivitiesAlertCont = UIAlertController(title: "Done With Activities", message: "We have no more activity results for you! If you would like more try increasing your radius in your preference.", preferredStyle: UIAlertControllerStyle.alert)
                         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                         outOfActivitiesAlertCont.addAction(action)
                         
                         self.present(outOfActivitiesAlertCont, animated: true, completion: nil)
-                    } else {
-                        self.activityIndex = 0
-                        self.currPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] )
-                        self.activityIndex += 1
-                        self.nextType = 0
                     }
-                }
-                }, failure: { (error: Error?) in
-                    print(error?.localizedDescription)
-            })
-           
         }
         //If next type is rest and there are activities left.
         else if(self.nextType == 0 && self.restIndex != self.restArray?.count) {
@@ -232,32 +231,32 @@ class SelectionViewController: UIViewController {
             self.restIndex += 1
             self.nextType = 1
         }
-        //If next type is rest and no activites left.
+        //If next type is rest and no rests left.
         else  {
-            restArray?.removeAll()
-            
-            fetchRestauraunts(preferences: preferences, success: { (success: Bool) in
-                if(success ) {
-                    if(self.restArray?.count == 0) {
-                        let outOfRestaurantsAlertCont = UIAlertController(title: "Done With Restaurants", message: "We have no more restaurant results for you! If you would like more try increasing your radius in your preference.", preferredStyle: UIAlertControllerStyle.alert)
-                        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-                        outOfRestaurantsAlertCont.addAction(action)
-
-                        self.present(outOfRestaurantsAlertCont, animated: true, completion: nil)
-                    } else {
-                        self.nextType = 0
-                        self.restIndex = 0
-                        self.currPlace = self.formatPlaceForCard(dict: self.restArray?[self.restIndex])
-                        self.restIndex += 1
+            if(self.restArray?.count == 0) {
+                fetchRestauraunts(preferences: preferences, success: { (success: Bool) in
+                    if(success ) {
+                        if(self.restArray?.count == 0) {
+                            let outOfRestaurantsAlertCont = UIAlertController(title: "Done With Restaurants", message: "We have no more restauraunt results for you! If you would like more try increasing your radius in your preference.", preferredStyle: UIAlertControllerStyle.alert)
+                            let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                            outOfRestaurantsAlertCont.addAction(action)
+                            
+                            self.present(outOfRestaurantsAlertCont, animated: true, completion: nil)
+                        } else {
+                            self.restIndex = 0
+                            self.currPlace = self.formatPlaceForCard(dict: self.restArray?[self.restIndex] )
+                            self.restIndex += 1
+                            self.nextType = 1
+                        }
                     }
-                }
-                }, failure: { (error: Error?) in
-                    print(error?.localizedDescription)
-            })
+                    }, failure: { (error: Error?) in
+                        print(error?.localizedDescription)
+                })
             
+            }
         }
         
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             
             self.cardView.alpha = 0
             
@@ -275,18 +274,17 @@ class SelectionViewController: UIViewController {
                     self.swipedRightArr.append(temp!)
                     //If user Swiped left :(
                 }
+            })
+            
+            //Animate cardView with spring animations back to initial location with new data loaded.
+            UIView.animate(withDuration: 0.5, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                self.cardView.center = self.cardInitialCenter
+                self.cardView.transform = CGAffineTransform.identity
+                self.previousXLocation = self.cardInitialCenter.x
                 
-                //Animate cardView with spring animations back to initial location with new data loaded.
-                UIView.animate(withDuration: 0.3, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-                    self.cardView.center = self.cardInitialCenter
-                    self.cardView.transform = CGAffineTransform.identity
-                    self.previousXLocation = self.cardInitialCenter.x
-                    
-                    //self.cardView.center = CGPoint(x: self.cardInitialCenter.x, y: self.cardInitialCenter.y)
-                    }, completion: { (bool: Bool) in
+                }, completion: { (bool: Bool) in
                         print("Entered Completion for animation.")
-                })
-        })
+            })
     }
     
     /*
@@ -294,7 +292,7 @@ class SelectionViewController: UIViewController {
      */
     func fetchRestauraunts(preferences: Preferences, success: @escaping (Bool) -> (), failure: @escaping (Error?) -> ()) {
         //Fetch Restaurants.
-        let restParams = formatParams(pageToken: self.nextPageTokenRest, type: "query=restaurants")
+        let restParams = self.formatParams(pageToken: self.nextPageTokenRest, type: "restaurant&keyword=dining")
         print(restParams)
         Alamofire.request(restParams).validate().responseJSON { response in
             switch response.result {
@@ -326,26 +324,19 @@ class SelectionViewController: UIViewController {
     
     func fetchActivities(preferences: Preferences, success: @escaping (Bool) -> (), failure: @escaping (Error?) -> ()) {
         
-       // let types: Array = [ "zoo", "park","amusement_park", "movie_theater", "university", "aquarium", "art_gallery", "museum", "night_club", "casino", "cafe", "bowling_alley",  "spa", "jewelry_store", "library"  ]
+        let types: Array = [ "zoo", "park","amusement_park", "movie_theater", "university", "aquarium", "art_gallery", "museum", "night_club", "casino", "cafe", "bowling_alley",  "spa", "jewelry_store", "library"  ]
         
         var succ: Bool = false
-       // for s in types {
+        for s in types {
             //Fetch Activities.
-            let placeName = preferences.location?.name
-            let placeNameParam = placeName?.replacingOccurrences(of: " ", with: "+")
-        
-            let activityParams = formatParams(pageToken: nil, type: "things+to+do+in+\(placeNameParam)" )
-            print(activityParams)
-        
-            Alamofire.request(activityParams).validate().responseJSON { response in
+            let params = formatParams(pageToken: self.nextPageTokenAct, type: s)
+            
+            Alamofire.request(params).validate().responseJSON { response in
                 switch response.result {
                 case .success:
                     self.activityJSON = response.result.value as! NSDictionary?
                     
-                    //If there are more places to be pulled.
-                    if (self.activityJSON?["next_page_token"] != nil) {
-                        self.nextPageTokenAct = self.activityJSON?["next_page_token"] as! String?
-                    }
+                    //If there are more places to be
                     if((self.activityJSON?["results"]) == nil) {
                     } else {
                         let temp = self.activityJSON?["results"] as? Array<NSDictionary>
@@ -364,7 +355,7 @@ class SelectionViewController: UIViewController {
                     succ = false
                 }
             }
-        //}
+        }
         success(succ)
     }
     
