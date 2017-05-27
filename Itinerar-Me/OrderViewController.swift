@@ -35,7 +35,8 @@ class OrderViewController: UIViewController {
         //Store itinerary into database
         let key = firebaseRef.child("itineraries").childByAutoId().key
         for selection in selections {
-            let itinerary = ["address": selection.address,
+            let itinerary = ["title": preferences.title!,
+                "address": selection.address,
                 //image: UIImage!
                 "name": selection.name!,
                 "id": selection.id!,
@@ -45,7 +46,7 @@ class OrderViewController: UIViewController {
             
             itineraries.append(itinerary)
         }
-        let childUpdates = ["users/\((FIRAuth.auth()?.currentUser?.uid)!)/\(key)/\(preferences.title!)": itineraries]
+        let childUpdates = ["users/\((FIRAuth.auth()?.currentUser?.uid)!)/itineraries/\(key)": itineraries]
         firebaseRef.updateChildValues(childUpdates)
         
         let storyboard = UIStoryboard(name: "Itinerary", bundle: nil)
