@@ -197,17 +197,34 @@ class SelectionViewController: UIViewController {
         let temp = currPlace
         
         //Load new card:
-        print("Cards so far \(swipedRightArr)")
         //If next type is activity and there are activities left.
         if(self.nextType == 1 && self.activityIndex != self.activityArray.count) {
             self.currPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] )
             self.activityIndex += 1
             self.nextType = 0
+            
         //If next type is activity and no activites left.
         } else if(self.nextType == 1 && self.activityIndex == self.activityArray.count) {
-            //TODO pass in nextPageIndex to load more.
-            self.nextType = 0
-            self.activityIndex = 0
+            
+            fetchActivities(preferences: preferences, success: { (success: Bool) in
+                if(success ) {
+                    if(self.activityArray.count == 0) {
+                        let outOfActivitiesAlertCont = UIAlertController(title: "Done With Activities", message: "We have no more activity results for you! If you would like more try increasing your radius in your preference.", preferredStyle: UIAlertControllerStyle.alert)
+                        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                        outOfActivitiesAlertCont.addAction(action)
+                        
+                        self.present(outOfActivitiesAlertCont, animated: true, completion: nil)
+                    } else {
+                        self.activityIndex = 0
+                        self.currPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] )
+                        self.activityIndex += 1
+                        self.nextType = 0
+                    }
+                }
+                }, failure: { (error: Error?) in
+                    print(error?.localizedDescription)
+            })
+           
         }
         //If next type is rest and there are activities left.
         else if(self.nextType == 0 && self.restIndex != self.restArray?.count) {
@@ -217,12 +234,29 @@ class SelectionViewController: UIViewController {
         }
         //If next type is rest and no activites left.
         else  {
-            //TODO pass in nextPageIndex to load more.
-            self.nextType = 1
-            self.restIndex = 0
-        }
-        formatCardUI(place: self.currPlace)
+            restArray?.removeAll()
+            
+            fetchRestauraunts(preferences: preferences, success: { (success: Bool) in
+                if(success ) {
+                    if(self.restArray?.count == 0) {
+                        let outOfRestaurantsAlertCont = UIAlertController(title: "Done With Restaurants", message: "We have no more restaurant results for you! If you would like more try increasing your radius in your preference.", preferredStyle: UIAlertControllerStyle.alert)
+                        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                        outOfRestaurantsAlertCont.addAction(action)
 
+                        self.present(outOfRestaurantsAlertCont, animated: true, completion: nil)
+                    } else {
+                        self.nextType = 0
+                        self.restIndex = 0
+                        self.currPlace = self.formatPlaceForCard(dict: self.restArray?[self.restIndex])
+                        self.restIndex += 1
+                    }
+                }
+                }, failure: { (error: Error?) in
+                    print(error?.localizedDescription)
+            })
+            
+        }
+        
         UIView.animate(withDuration: 0.25, animations: {
             
             self.cardView.alpha = 0
@@ -235,15 +269,15 @@ class SelectionViewController: UIViewController {
             }, completion: { (bool: Bool) in
                 self.cardView.alpha = 1
 
-                //TODO: Do something here.. Either add to itinerary array, or don't
+                //Either add to itinerary array, or don't
                 //If Swipe right :)
                 if(currTranslation > 0) {
                     self.swipedRightArr.append(temp!)
                     //If user Swiped left :(
-                } else {
                 }
+                
                 //Animate cardView with spring animations back to initial location with new data loaded.
-                UIView.animate(withDuration: 0.2, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                UIView.animate(withDuration: 0.3, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                     self.cardView.center = self.cardInitialCenter
                     self.cardView.transform = CGAffineTransform.identity
                     self.previousXLocation = self.cardInitialCenter.x
@@ -260,7 +294,7 @@ class SelectionViewController: UIViewController {
      */
     func fetchRestauraunts(preferences: Preferences, success: @escaping (Bool) -> (), failure: @escaping (Error?) -> ()) {
         //Fetch Restaurants.
-        let restParams = formatParams(pageToken: nil, type: "restaurant")
+        let restParams = formatParams(pageToken: self.nextPageTokenRest, type: "query=restaurants")
         print(restParams)
         Alamofire.request(restParams).validate().responseJSON { response in
             switch response.result {
@@ -269,8 +303,9 @@ class SelectionViewController: UIViewController {
                 print("When getting restuarants: Validation Successful")
 
                 self.restJSON = response.result.value as! NSDictionary?
-                
-                self.nextPageTokenRest = self.restJSON?["next_page_token"] as! String?
+                if (self.restJSON?["next_page_token"] != nil) {
+                    self.nextPageTokenRest = self.restJSON?["next_page_token"] as! String?
+                }
                 if((self.restJSON?["results"]) == nil) {
 
                     success(false)
@@ -283,7 +318,6 @@ class SelectionViewController: UIViewController {
                 failure(error)
             }
         }
-
     }
     
     /*
@@ -292,12 +326,17 @@ class SelectionViewController: UIViewController {
     
     func fetchActivities(preferences: Preferences, success: @escaping (Bool) -> (), failure: @escaping (Error?) -> ()) {
         
-        let types: Array = [ "zoo", "park","amusement_park", "movie_theater", "university", "aquarium", "art_gallery", "museum", "night_club", "casino", "cafe", "bowling_alley",  "spa", "jewelry_store", "library"  ]
+       // let types: Array = [ "zoo", "park","amusement_park", "movie_theater", "university", "aquarium", "art_gallery", "museum", "night_club", "casino", "cafe", "bowling_alley",  "spa", "jewelry_store", "library"  ]
+        
         var succ: Bool = false
-        for s in types {
+       // for s in types {
             //Fetch Activities.
-            let activityParams = formatParams(pageToken: nil, type: s )
+            let placeName = preferences.location?.name
+            let placeNameParam = placeName?.replacingOccurrences(of: " ", with: "+")
+        
+            let activityParams = formatParams(pageToken: nil, type: "things+to+do+in+\(placeNameParam)" )
             print(activityParams)
+        
             Alamofire.request(activityParams).validate().responseJSON { response in
                 switch response.result {
                 case .success:
@@ -325,7 +364,7 @@ class SelectionViewController: UIViewController {
                     succ = false
                 }
             }
-        }
+        //}
         success(succ)
     }
     
@@ -333,6 +372,13 @@ class SelectionViewController: UIViewController {
     func formatParams(pageToken: String?, type: String) -> String {
         
         var params: String = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
+        
+        //If querying for more results from page.
+        if let pageToken = pageToken {
+            params.append("pagetoken=\(pageToken)")
+            params.append("&key=\(apiKey)")
+            return params
+        }
         
         //Get coordinates/radius
         let location = preferences.location?.coordinate
