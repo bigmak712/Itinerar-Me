@@ -26,4 +26,22 @@ class OrderTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    @IBAction func setStartTime(_ sender: UITextField) {
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.time
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(TimeViewController.startPickerValueChanged), for: UIControlEvents.valueChanged)
+    }
+    func startPickerValueChanged(_ sender:UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        
+        startTimeTextField.text = dateFormatter.string(from: sender.date)
+        
+    }
 }
