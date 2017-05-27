@@ -54,8 +54,8 @@ class SignInViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        emailField.underLineTextField()
-        passwordField.underLineTextField()
+        emailField.whiteUnderlineTextField()
+        passwordField.whiteUnderlineTextField()
         
         super.viewDidLayoutSubviews()
     }

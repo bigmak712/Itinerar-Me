@@ -32,7 +32,7 @@ class CreateTitleViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLayoutSubviews() {
-        titleTextField.underlineTextField()
+        titleTextField.greenUnderlineTextField()
         
         super.viewDidLayoutSubviews()
     }

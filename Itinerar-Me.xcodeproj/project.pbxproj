@@ -20,6 +20,7 @@
 		12B262FE1ED3E29600E15E4F /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B262FD1ED3E29600E15E4F /* KeyboardHelper.swift */; };
 		12B263001ED550D000E15E4F /* FinalItineraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B262FF1ED550D000E15E4F /* FinalItineraryTableViewCell.swift */; };
 		12B263021ED9FC3800E15E4F /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B263011ED9FC3800E15E4F /* ProfileTableViewCell.swift */; };
+		12B263041EDA157000E15E4F /* TextfieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B263031EDA157000E15E4F /* TextfieldHelper.swift */; };
 		12F3B7071ECAB5E500E6A196 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3B7061ECAB5E500E6A196 /* OrderViewController.swift */; };
 		12F3B7091ECAB5F800E6A196 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3B7081ECAB5F800E6A196 /* OrderTableViewCell.swift */; };
 		26BAE5801EB17DD700F42A52 /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26BAE57F1EB17DD700F42A52 /* Selection.storyboard */; };
@@ -52,6 +53,7 @@
 		12B262FD1ED3E29600E15E4F /* KeyboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		12B262FF1ED550D000E15E4F /* FinalItineraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalItineraryTableViewCell.swift; sourceTree = "<group>"; };
 		12B263011ED9FC3800E15E4F /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		12B263031EDA157000E15E4F /* TextfieldHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextfieldHelper.swift; sourceTree = "<group>"; };
 		12F3B7061ECAB5E500E6A196 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		12F3B7081ECAB5F800E6A196 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		26BAE57F1EB17DD700F42A52 /* Selection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Selection.storyboard; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				12B262FD1ED3E29600E15E4F /* KeyboardHelper.swift */,
+				12B263031EDA157000E15E4F /* TextfieldHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				C9C60E071EA5C8910051892D /* TimeViewController.swift in Sources */,
 				126C3D901E9C9DA200C9C291 /* SignInViewController.swift in Sources */,
 				D0F54FD71EA5CC93008B18DA /* ProfileViewController.swift in Sources */,
+				12B263041EDA157000E15E4F /* TextfieldHelper.swift in Sources */,
 				126C3D8E1E9C9DA200C9C291 /* AppDelegate.swift in Sources */,
 				D08DD3821EBAC3CA003AA073 /* CheckViewController.swift in Sources */,
 			);

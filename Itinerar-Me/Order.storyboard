@@ -131,8 +131,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose a start time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LID-yV-nLm">
-                                                    <rect key="frame" x="8" y="8" width="150" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose a start time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LID-yV-nLm">
+                                                    <rect key="frame" x="8" y="8" width="150" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="r4C-se-w0s"/>
                                                     </constraints>
@@ -141,13 +141,13 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Diego Zoo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scw-96-9St">
-                                                    <rect key="frame" x="8" y="46" width="112.5" height="21"/>
+                                                    <rect key="frame" x="8" y="33" width="112.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Diego Zoo, San Diego CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZQ-a7-fNw">
-                                                    <rect key="frame" x="8" y="75" width="203" height="18"/>
+                                                    <rect key="frame" x="8" y="62" width="203" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>

@@ -39,8 +39,8 @@ class TimeViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        startTimeTextField.underlineTextField()
-        endTimeTextField.underlineTextField()
+        startTimeTextField.greenUnderlineTextField()
+        endTimeTextField.greenUnderlineTextField()
         
         super.viewDidLayoutSubviews()
     }
