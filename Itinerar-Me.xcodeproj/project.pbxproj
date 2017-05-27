@@ -19,6 +19,7 @@
 		12AA89211EA5BE6F00660906 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12AA89201EA5BE6F00660906 /* Preferences.storyboard */; };
 		12B262FE1ED3E29600E15E4F /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B262FD1ED3E29600E15E4F /* KeyboardHelper.swift */; };
 		12B263001ED550D000E15E4F /* FinalItineraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B262FF1ED550D000E15E4F /* FinalItineraryTableViewCell.swift */; };
+		12B263021ED9FC3800E15E4F /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B263011ED9FC3800E15E4F /* ProfileTableViewCell.swift */; };
 		12F3B7071ECAB5E500E6A196 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3B7061ECAB5E500E6A196 /* OrderViewController.swift */; };
 		12F3B7091ECAB5F800E6A196 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3B7081ECAB5F800E6A196 /* OrderTableViewCell.swift */; };
 		26BAE5801EB17DD700F42A52 /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26BAE57F1EB17DD700F42A52 /* Selection.storyboard */; };
@@ -50,6 +51,7 @@
 		12AA89201EA5BE6F00660906 /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		12B262FD1ED3E29600E15E4F /* KeyboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		12B262FF1ED550D000E15E4F /* FinalItineraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalItineraryTableViewCell.swift; sourceTree = "<group>"; };
+		12B263011ED9FC3800E15E4F /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		12F3B7061ECAB5E500E6A196 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		12F3B7081ECAB5F800E6A196 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		26BAE57F1EB17DD700F42A52 /* Selection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Selection.storyboard; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				D08DD37F1EBAC3B1003AA073 /* CheckTableViewCell.swift */,
 				12F3B7081ECAB5F800E6A196 /* OrderTableViewCell.swift */,
 				12B262FF1ED550D000E15E4F /* FinalItineraryTableViewCell.swift */,
+				12B263011ED9FC3800E15E4F /* ProfileTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				12B263001ED550D000E15E4F /* FinalItineraryTableViewCell.swift in Sources */,
 				C9259FEE1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift in Sources */,
 				12F3B7091ECAB5F800E6A196 /* OrderTableViewCell.swift in Sources */,
+				12B263021ED9FC3800E15E4F /* ProfileTableViewCell.swift in Sources */,
 				26D5C7521EBAD9E7006E5A81 /* SelectionViewController.swift in Sources */,
 				122CD99D1EB18295000F0390 /* Preferences.swift in Sources */,
 				12F3B7071ECAB5E500E6A196 /* OrderViewController.swift in Sources */,

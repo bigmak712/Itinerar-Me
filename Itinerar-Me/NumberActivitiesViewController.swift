@@ -10,7 +10,6 @@ import UIKit
 
 class NumberActivitiesViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var activitiesTextField: UITextField!
     @IBOutlet weak var restaurantsTextField: UITextField!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var finishButton: UIButton!
@@ -33,7 +32,6 @@ class NumberActivitiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLayoutSubviews() {
-        activitiesTextField.underlineTextField()
         restaurantsTextField.underlineTextField()
         
         super.viewDidLayoutSubviews()
@@ -56,18 +54,10 @@ class NumberActivitiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onFinish(_ sender: Any) {
-        guard !(activitiesTextField.text?.isEmpty)! else {
-            showAlert(title: "Number of Activities Not Found", message: "Enter the Number of Activities")
-            return
-        }
-        
         guard !(restaurantsTextField.text?.isEmpty)! else {
             showAlert(title: "Number of Restaurants Not Found", message: "Enter the Number of Restaurants")
             return
         }
-        
-        preferences.numOfActivities = Int(activitiesTextField.text!)
-        preferences.numOfRestaurants = Int(restaurantsTextField.text!)
         
         let storyboard = UIStoryboard(name: "Selection", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SelectionVC") as! SelectionViewController
