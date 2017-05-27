@@ -34,8 +34,16 @@ class SignInViewController: UIViewController {
         
         facebookButton.setBackgroundImage(nil, for: .normal)
         facebookButton.setBackgroundImage(nil, for: .highlighted)
-        facebookButton.setTitleColor(UIColor.init(displayP3Red: 0, green: 0, blue: 255, alpha: 0.5), for: .normal)
-        facebookButton.tintColor = UIColor.init(displayP3Red: 0, green: 0, blue: 255, alpha: 0.5)
+        if #available(iOS 10.0, *) {
+            facebookButton.setTitleColor(UIColor.init(displayP3Red: 0, green: 0, blue: 255, alpha: 0.5), for: .normal)
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 10.0, *) {
+            facebookButton.tintColor = UIColor.init(displayP3Red: 0, green: 0, blue: 255, alpha: 0.5)
+        } else {
+            // Fallback on earlier versions
+        }
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let _ = user {
