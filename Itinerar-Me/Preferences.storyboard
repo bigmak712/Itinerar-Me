@@ -66,7 +66,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onNext:" destination="WD4-UM-D7U" eventType="touchUpInside" id="46h-hw-so9"/>
-                                    <segue destination="6BP-VA-RqE" kind="presentation" identifier="toTimeVC" id="ds4-W2-E4Q"/>
+                                    <segue destination="6BP-VA-RqE" kind="show" identifier="toTimeVC" id="ds4-W2-E4Q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -205,7 +205,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onNext:" destination="6BP-VA-RqE" eventType="touchUpInside" id="kDt-Fe-Edi"/>
-                                    <segue destination="fNa-Ik-rLD" kind="presentation" identifier="toNumOfActivitiesVC" id="ij5-uu-tN3"/>
+                                    <segue destination="fNa-Ik-rLD" kind="show" identifier="toCreateTitleVC" id="ij5-uu-tN3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -245,10 +245,10 @@
             </objects>
             <point key="canvasLocation" x="2160.8000000000002" y="151.57421289355324"/>
         </scene>
-        <!--Number Activities View Controller-->
+        <!--Create Title View Controller-->
         <scene sceneID="CK0-rV-wr2">
             <objects>
-                <viewController id="fNa-Ik-rLD" customClass="NumberActivitiesViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fNa-Ik-rLD" customClass="CreateTitleViewController" customModule="Itinerar_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lSa-fb-Cq5"/>
                         <viewControllerLayoutGuide type="bottom" id="3Hl-du-het"/>
@@ -320,7 +320,7 @@
                     <connections>
                         <outlet property="backButton" destination="jSI-Cc-3RM" id="9Cj-wC-kwL"/>
                         <outlet property="finishButton" destination="7Vw-mT-omW" id="TtW-zl-gal"/>
-                        <outlet property="restaurantsTextField" destination="qMD-zs-uhI" id="gtc-RM-Lza"/>
+                        <outlet property="titleTextField" destination="qMD-zs-uhI" id="GaT-HX-cAJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4a-i5-3qZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

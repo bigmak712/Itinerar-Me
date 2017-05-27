@@ -1,5 +1,5 @@
 //
-//  NumberActivitiesViewController.swift
+//  CreateTitleViewController.swift
 //  Itinerar-Me
 //
 //  Created by Timothy Mak on 5/3/17.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class NumberActivitiesViewController: UIViewController, UITextFieldDelegate {
+class CreateTitleViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var restaurantsTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var finishButton: UIButton!
     
@@ -32,7 +32,7 @@ class NumberActivitiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLayoutSubviews() {
-        restaurantsTextField.underlineTextField()
+        titleTextField.underlineTextField()
         
         super.viewDidLayoutSubviews()
     }
@@ -54,10 +54,12 @@ class NumberActivitiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onFinish(_ sender: Any) {
-        guard !(restaurantsTextField.text?.isEmpty)! else {
-            showAlert(title: "Number of Restaurants Not Found", message: "Enter the Number of Restaurants")
+        guard !(titleTextField.text?.isEmpty)! else {
+            showAlert(title: "Enter in a title!", message: "")
             return
         }
+        
+        preferences.title = titleTextField.text
         
         let storyboard = UIStoryboard(name: "Selection", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SelectionVC") as! SelectionViewController

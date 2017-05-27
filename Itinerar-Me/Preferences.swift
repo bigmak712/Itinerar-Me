@@ -15,6 +15,5 @@ class Preferences: NSObject {
     var maxPrice: Int?
     var startTime: String?
     var endTime: String?
-    var numOfActivities: Int?
-    var numOfRestaurants: Int?
+    var title: String?
 }

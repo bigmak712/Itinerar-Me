@@ -175,9 +175,9 @@ class TimeViewController: UIViewController {
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toNumOfActivitiesVC" {
-            let activitiesVC = segue.destination as! NumberActivitiesViewController
-            activitiesVC.preferences = self.preferences
+        if segue.identifier == "toCreateTitleVC" {
+            let createTitleVC = segue.destination as! CreateTitleViewController
+            createTitleVC.preferences = self.preferences
         }
     }
 }
