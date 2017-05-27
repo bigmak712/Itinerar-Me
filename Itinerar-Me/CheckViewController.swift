@@ -31,7 +31,8 @@ class CheckViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toOrderVC" {
             let orderVC = segue.destination as! OrderViewController
-            orderVC.selections = finalSelections
+            orderVC.selections = self.finalSelections
+            orderVC.preferences = self.preferences
         }
     }
     

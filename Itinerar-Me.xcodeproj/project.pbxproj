@@ -27,7 +27,7 @@
 		26E5E22E1EA859C3001AA178 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5E22D1EA859C3001AA178 /* LocationTableViewCell.swift */; };
 		26F72EFF1EC762CA00E58E95 /* SelectionsCardFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F72EFE1EC762CA00E58E95 /* SelectionsCardFormatted.swift */; };
 		AC9D2719E6CA35BABE75993F /* Pods_Itinerar_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */; };
-		C9259FEE1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9259FED1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift */; };
+		C9259FEE1EBAB8AC00ED35DF /* CreateTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9259FED1EBAB8AC00ED35DF /* CreateTitleViewController.swift */; };
 		C9C60E071EA5C8910051892D /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E061EA5C8910051892D /* TimeViewController.swift */; };
 		C9C60E0A1EA5C9C20051892D /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C60E091EA5C9C20051892D /* LocationViewController.swift */; };
 		D03D2AF81E9D82F8006373DB /* Itinerary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */; };
@@ -61,7 +61,7 @@
 		336BD453C9C3CFB8020718F6 /* Pods-Itinerar-Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerar-Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Itinerar-Me/Pods-Itinerar-Me.debug.xcconfig"; sourceTree = "<group>"; };
 		B54533240FEE61086004E17A /* Pods-Itinerar-Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerar-Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itinerar-Me/Pods-Itinerar-Me.release.xcconfig"; sourceTree = "<group>"; };
 		C2D4E2050CD3C95B963C0DBA /* Pods_Itinerar_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itinerar_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9259FED1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberActivitiesViewController.swift; sourceTree = "<group>"; };
+		C9259FED1EBAB8AC00ED35DF /* CreateTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTitleViewController.swift; sourceTree = "<group>"; };
 		C9C60E061EA5C8910051892D /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		C9C60E091EA5C9C20051892D /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		D03D2AF71E9D82F8006373DB /* Itinerary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Itinerary.storyboard; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 			children = (
 				C9C60E061EA5C8910051892D /* TimeViewController.swift */,
 				C9C60E091EA5C9C20051892D /* LocationViewController.swift */,
-				C9259FED1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift */,
+				C9259FED1EBAB8AC00ED35DF /* CreateTitleViewController.swift */,
 			);
 			name = "Preferences VCs";
 			sourceTree = "<group>";
@@ -367,7 +367,7 @@
 				26E5E22E1EA859C3001AA178 /* LocationTableViewCell.swift in Sources */,
 				129EB2CE1ED2515A000DECD5 /* CheckTableViewCell.swift in Sources */,
 				12B263001ED550D000E15E4F /* FinalItineraryTableViewCell.swift in Sources */,
-				C9259FEE1EBAB8AC00ED35DF /* NumberActivitiesViewController.swift in Sources */,
+				C9259FEE1EBAB8AC00ED35DF /* CreateTitleViewController.swift in Sources */,
 				12F3B7091ECAB5F800E6A196 /* OrderTableViewCell.swift in Sources */,
 				12B263021ED9FC3800E15E4F /* ProfileTableViewCell.swift in Sources */,
 				26D5C7521EBAD9E7006E5A81 /* SelectionViewController.swift in Sources */,

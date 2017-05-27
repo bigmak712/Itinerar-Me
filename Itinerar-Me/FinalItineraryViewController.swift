@@ -11,6 +11,7 @@ import TimelineTableViewCell
 
 class FinalItineraryViewController: UIViewController {
     var itinerary: [SelectionsCardFormatted]!
+    var preferences: Preferences!
 
     @IBOutlet weak var itineraryTableView: UITableView!
     
