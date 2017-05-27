@@ -14,6 +14,6 @@ class SelectionsCardFormatted: NSObject {
     var name: String!
     var id: String!
     var types: [String]!
-    var rating: String!
+    var rating: Double!
     var startTime: String!
 }

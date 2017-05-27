@@ -26,24 +26,25 @@
                                             <constraint firstAttribute="height" constant="250" id="EDn-Da-xrv"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-Oh-nco">
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdd-Fc-vwI">
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.19225463470000001" green="0.63609775639999999" blue="0.52878512079999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories: " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZ3-Fl-Ebb">
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-Hz-5ii">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-Hz-5ii">
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                         <color key="textColor" red="0.19225463469547793" green="0.63609775641025634" blue="0.52878512081364981" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXr-v3-NC8">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="Ppv-DS-5zt"/>
+                                            <constraint firstAttribute="width" constant="77" id="aqD-fb-1Yy"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-Oh-nco">
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="17"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -53,19 +54,19 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eZ3-Fl-Ebb" secondAttribute="trailing" constant="8" id="2H3-ao-E2Q"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PVS-Hz-5ii" secondAttribute="trailing" constant="8" id="5qh-4L-FuE"/>
                                     <constraint firstItem="eZ3-Fl-Ebb" firstAttribute="leading" secondItem="m2F-bL-5dq" secondAttribute="leading" constant="8" id="7gj-Tx-Hgi"/>
-                                    <constraint firstItem="PVS-Hz-5ii" firstAttribute="top" secondItem="ebx-Oh-nco" secondAttribute="bottom" constant="8" id="8nA-nZ-HDK"/>
+                                    <constraint firstItem="eXr-v3-NC8" firstAttribute="leading" secondItem="ebx-Oh-nco" secondAttribute="leading" id="BQH-zG-9l1"/>
                                     <constraint firstItem="ebx-Oh-nco" firstAttribute="leading" secondItem="m2F-bL-5dq" secondAttribute="leading" constant="8" id="BSq-2N-lDB"/>
                                     <constraint firstAttribute="trailing" secondItem="x4D-RP-0on" secondAttribute="trailing" id="Pvg-pJ-MWK"/>
                                     <constraint firstItem="PVS-Hz-5ii" firstAttribute="leading" secondItem="m2F-bL-5dq" secondAttribute="leading" constant="8" id="YYa-hz-Ws6"/>
-                                    <constraint firstItem="ebx-Oh-nco" firstAttribute="top" secondItem="x4D-RP-0on" secondAttribute="bottom" constant="22" id="ZTW-VZ-hN9"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ebx-Oh-nco" secondAttribute="trailing" constant="8" id="Yva-s2-9mL"/>
+                                    <constraint firstItem="ebx-Oh-nco" firstAttribute="top" secondItem="x4D-RP-0on" secondAttribute="bottom" constant="8" id="ZTW-VZ-hN9"/>
                                     <constraint firstAttribute="trailing" secondItem="x4D-RP-0on" secondAttribute="trailing" id="eAA-k6-vw3"/>
+                                    <constraint firstItem="eXr-v3-NC8" firstAttribute="top" secondItem="ebx-Oh-nco" secondAttribute="bottom" constant="2" id="j9d-Gk-n43"/>
                                     <constraint firstItem="x4D-RP-0on" firstAttribute="top" secondItem="m2F-bL-5dq" secondAttribute="top" id="lMY-wa-YPO"/>
                                     <constraint firstItem="eZ3-Fl-Ebb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PVS-Hz-5ii" secondAttribute="bottom" constant="8" id="om9-yT-6W6"/>
                                     <constraint firstItem="x4D-RP-0on" firstAttribute="leading" secondItem="m2F-bL-5dq" secondAttribute="leading" id="qup-sa-Hk9"/>
-                                    <constraint firstItem="Sdd-Fc-vwI" firstAttribute="top" secondItem="x4D-RP-0on" secondAttribute="bottom" constant="12" id="rde-JQ-g5L"/>
                                     <constraint firstAttribute="bottom" secondItem="eZ3-Fl-Ebb" secondAttribute="bottom" constant="20" symbolic="YES" id="rdy-yM-WuR"/>
-                                    <constraint firstAttribute="trailing" secondItem="Sdd-Fc-vwI" secondAttribute="trailing" constant="8" id="sjH-O3-iKJ"/>
-                                    <constraint firstItem="Sdd-Fc-vwI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ebx-Oh-nco" secondAttribute="trailing" constant="8" id="ved-5R-8us"/>
+                                    <constraint firstItem="PVS-Hz-5ii" firstAttribute="top" secondItem="eXr-v3-NC8" secondAttribute="bottom" constant="14" id="tTa-FF-tSQ"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsi-Co-jvF">
@@ -75,7 +76,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <state key="normal" title="Done">
-                                    <color key="titleColor" red="0.12721274197536719" green="0.39300881416923072" blue="0.21589616800604861" alpha="0.82346443965517246" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.16825689345802536" green="0.33343349365641017" blue="0.28968411811511918" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onDone:" destination="qd7-bf-2hz" eventType="touchUpInside" id="cAX-Iq-23x"/>
@@ -129,7 +130,7 @@
                         <outlet property="doneButton" destination="jsi-Co-jvF" id="5Jl-Ws-RVK"/>
                         <outlet property="nameLabel" destination="ebx-Oh-nco" id="fcW-xq-P32"/>
                         <outlet property="noImg" destination="CSU-Pz-mnE" id="oFS-He-fJJ"/>
-                        <outlet property="ratingLabel" destination="Sdd-Fc-vwI" id="icw-3W-C3v"/>
+                        <outlet property="ratingImage" destination="eXr-v3-NC8" id="h4X-ix-FvS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2W-0f-b3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
