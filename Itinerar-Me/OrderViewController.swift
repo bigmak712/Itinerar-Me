@@ -15,6 +15,7 @@ class OrderViewController: UIViewController {
 
     var selections: [SelectionsCardFormatted]!
     var firebaseRef = FIRDatabase.database().reference()
+    var preferences: Preferences!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class OrderViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Itinerary", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "itineraryVC") as! FinalItineraryViewController
         vc.itinerary = self.selections
+        vc.preferences = self.preferences
         self.present(vc, animated: true, completion: nil)
     }
 }

@@ -120,40 +120,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vtj-l0-jJe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vtj-l0-jJe">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderCell" rowHeight="89" id="1hs-wo-8pY" customClass="OrderTableViewCell" customModule="Itinerar_Me" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="89"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderCell" rowHeight="119" id="1hs-wo-8pY" customClass="OrderTableViewCell" customModule="Itinerar_Me" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1hs-wo-8pY" id="HKL-3F-UBv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose a start time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LID-yV-nLm">
+                                                    <rect key="frame" x="8" y="8" width="150" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="r4C-se-w0s"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Diego Zoo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scw-96-9St">
-                                                    <rect key="frame" x="8" y="20" width="112.5" height="21"/>
+                                                    <rect key="frame" x="8" y="46" width="112.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Diego Zoo, San Diego CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZQ-a7-fNw">
-                                                    <rect key="frame" x="8" y="49" width="203" height="18"/>
+                                                    <rect key="frame" x="8" y="75" width="203" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="LID-yV-nLm" firstAttribute="leading" secondItem="HKL-3F-UBv" secondAttribute="leading" constant="8" id="17K-uL-xXp"/>
                                                 <constraint firstItem="Scw-96-9St" firstAttribute="leading" secondItem="HKL-3F-UBv" secondAttribute="leading" constant="8" id="3g1-Ie-Bzo"/>
-                                                <constraint firstItem="Scw-96-9St" firstAttribute="top" secondItem="HKL-3F-UBv" secondAttribute="top" constant="20" id="DM4-9p-KUD"/>
                                                 <constraint firstItem="ZZQ-a7-fNw" firstAttribute="top" secondItem="Scw-96-9St" secondAttribute="bottom" constant="8" id="HKk-pO-weK"/>
+                                                <constraint firstItem="LID-yV-nLm" firstAttribute="top" secondItem="HKL-3F-UBv" secondAttribute="top" constant="8" id="PJX-R4-pvz"/>
                                                 <constraint firstItem="ZZQ-a7-fNw" firstAttribute="leading" secondItem="HKL-3F-UBv" secondAttribute="leading" constant="8" id="ynL-fL-yQr"/>
+                                                <constraint firstItem="Scw-96-9St" firstAttribute="top" secondItem="LID-yV-nLm" secondAttribute="bottom" constant="8" id="zEp-kF-ISf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addressLabel" destination="ZZQ-a7-fNw" id="Xed-3s-u7i"/>
                                             <outlet property="nameLabel" destination="Scw-96-9St" id="cuM-YW-MaT"/>
+                                            <outlet property="startTimeTextField" destination="LID-yV-nLm" id="w7B-vi-u89"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
