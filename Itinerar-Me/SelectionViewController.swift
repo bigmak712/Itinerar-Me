@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import GooglePlaces
 import AlamofireImage
+import MBProgressHUD
 
 class SelectionViewController: UIViewController {
 
@@ -19,10 +20,10 @@ class SelectionViewController: UIViewController {
     @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var checkImg: UIImageView!
     @IBOutlet weak var noImg: UIImageView!
+    @IBOutlet weak var ratingImage: UIImageView!
     
     let apiKey = "AIzaSyDWgrglpRDRqRVwPJMo-SkTq5xg7kJS0hk"
     
@@ -143,7 +144,26 @@ class SelectionViewController: UIViewController {
             i += 1
         }
         
-        ratingLabel.text = place!.rating
+        let rate = place?.rating
+            if(rate == 1.0 || rate == 0.5 || rate == 1.5) {
+                ratingImage.image = #imageLiteral(resourceName: "1rating")
+            } else if( rate == 2 ) {
+                ratingImage.image = #imageLiteral(resourceName: "2rating")
+            } else if(rate == 2.5 ) {
+                ratingImage.image = #imageLiteral(resourceName: "2andhalfrating")
+            }else if(rate! == 3) {
+                ratingImage.image = #imageLiteral(resourceName: "3rating")
+            } else if(rate == 3.5 ) {
+                ratingImage.image = #imageLiteral(resourceName: "3andhalfrating")
+            } else if( rate == 4 ) {
+                ratingImage.image = #imageLiteral(resourceName: "4rating")
+            } else if(rate == 4.5 ) {
+                ratingImage.image = #imageLiteral(resourceName: "4andhalfRating")
+            } else {
+                ratingImage.image = #imageLiteral(resourceName: "5rating")
+        }
+        
+        
     }
     
     @IBAction func onDone(_ sender: Any) {
@@ -244,7 +264,9 @@ class SelectionViewController: UIViewController {
         }
         //If next type is rest and no rests left.
         else  {
-            if(self.restArray?.count == 0) {
+            if(self.restIndex == self.restArray?.count) {
+                MBProgressHUD.showAdded(to: self.view, animated: true)
+                
                 fetchRestauraunts(preferences: preferences, success: { (success: Bool) in
                     if(success ) {
                         if(self.restArray?.count == 0) {
@@ -269,6 +291,7 @@ class SelectionViewController: UIViewController {
                     }, failure: { (error: Error?) in
                         print(error?.localizedDescription)
                 })
+                MBProgressHUD.hide(for: self.view, animated: true)
             
             }
 
@@ -312,6 +335,9 @@ class SelectionViewController: UIViewController {
         //Fetch Restaurants.
         let restParams = self.formatParams(pageToken: self.nextPageTokenRest, type: "restaurant&keyword=dining")
         print(restParams)
+      
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+
         Alamofire.request(restParams).validate().responseJSON { response in
             switch response.result {
             case .success:
@@ -334,6 +360,8 @@ class SelectionViewController: UIViewController {
                 failure(error)
             }
         }
+        MBProgressHUD.hide(for: self.view, animated: true)
+
     }
     
     /*
@@ -349,6 +377,8 @@ class SelectionViewController: UIViewController {
             //Fetch Activities.
             let params = formatParams(pageToken: nil, type: s)
             
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+
             Alamofire.request(params).validate().responseJSON { response in
                 switch response.result {
                 case .success:
@@ -373,6 +403,7 @@ class SelectionViewController: UIViewController {
                     succ = false
                 }
             }
+            MBProgressHUD.hide(for: self.view, animated: true)
         }
         success(succ)
     }
@@ -451,9 +482,30 @@ class SelectionViewController: UIViewController {
         place.types = dict?["types"] as! [String]
         
         if dict!["rating"] != nil {
-            place.rating = "\((dict!["rating"])!)" + "/5"
-        } else {
-            place.rating = ""
+            let rate = dict!["rating"] as! Double
+            if(rate < 0.5 ) {
+                place.rating = 0.5
+            } else if(rate >= 0.5 && rate <= 1) {
+                place.rating = 1
+            } else if(rate >= 1 && rate < 1.5 ) {
+                place.rating = 1.5
+            } else if(rate >= 1.5  && rate < 2 ) {
+                place.rating = 2
+            }else if(rate >= 2 && rate < 2.5 ) {
+                place.rating = 2.5
+            } else if(rate >= 2.5 && rate < 3) {
+                place.rating = 3
+            } else if(rate >= 3 && rate < 3.5 ) {
+                place.rating = 3.5
+            } else if(rate >= 3.5  && rate < 4 ) {
+                place.rating = 4
+            }else if(rate >= 4 && rate < 5 ) {
+                place.rating = 4.5
+            } else {
+                place.rating = 5
+
+            }
+
         }
         
         return place
