@@ -27,10 +27,7 @@ class TimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
-
+        self.hideKeyboardWhenTappedAround()
         
         backButton.layer.borderWidth = CGFloat(1.0)
         backButton.layer.cornerRadius = CGFloat(30.0)
@@ -91,12 +88,6 @@ class TimeViewController: UIViewController {
         
         endTimeTextField.text = dateFormatter.string(from: sender.date)
         
-    }
-    
-    //Calls this function when the tap is recognized.
-    override func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
     }
     
     @IBAction func onNext(_ sender: Any) {
