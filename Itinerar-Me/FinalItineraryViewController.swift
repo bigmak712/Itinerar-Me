@@ -11,6 +11,7 @@ import TimelineTableViewCell
 
 class FinalItineraryViewController: UIViewController {
     var itinerary: [SelectionsCardFormatted]!
+    var preferences: Preferences!
 
     @IBOutlet weak var itineraryTableView: UITableView!
     
@@ -43,7 +44,7 @@ extension FinalItineraryViewController: UITableViewDelegate, UITableViewDataSour
 //        itineraryCell.nameLabel.text = itinerary[indexPath.row].name
 //        itineraryCell.addressLabel.text = itinerary[indexPath.row].address
         
-        timelineCell.titleLabel.text = "8:00AM"
+        timelineCell.titleLabel.text = itinerary[indexPath.row].startTime!
         timelineCell.descriptionLabel.font = timelineCell.descriptionLabel.font.withSize(16)
         timelineCell.descriptionLabel.text = "\(itinerary[indexPath.row].name!)\r\(itinerary[indexPath.row].address!)"
         

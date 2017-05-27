@@ -42,7 +42,7 @@
                                     <action selector="userTouchedTxtField:" destination="WD4-UM-D7U" eventType="touchDown" id="3sH-bj-t4e"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Radius (km)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7cr-xY-kBV">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Distance (km)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7cr-xY-kBV">
                                 <rect key="frame" x="71" y="225" width="232" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7pn-Fd-vIv"/>

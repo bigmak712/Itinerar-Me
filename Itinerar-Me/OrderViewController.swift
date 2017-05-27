@@ -15,6 +15,8 @@ class OrderViewController: UIViewController {
 
     var selections: [SelectionsCardFormatted]!
     var firebaseRef = FIRDatabase.database().reference()
+    var preferences: Preferences!
+    var itineraries = [[String: Any]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +32,35 @@ class OrderViewController: UIViewController {
     }
     
     @IBAction func onFinish(_ sender: Any) {
+        // Save start times in selections
+        let cells = self.orderTableView.visibleCells as! Array<OrderTableViewCell>
+
+        var index = 0
+        for cell in cells {
+            selections[index].startTime = cell.startTimeTextField.text!
+            index += 1
+        }
+        
         //Store itinerary into database
-//        let key = firebaseRef.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("itineraries").childByAutoId().key
-//        let post = selections
-//        firebaseRef.updateChildValues(["/\(key)": post!])
+        let key = firebaseRef.child("itineraries").childByAutoId().key
+        for selection in selections {
+            let itinerary = ["address": selection.address,
+                //image: UIImage!
+                "name": selection.name!,
+                "id": selection.id!,
+                "types": selection.types!,
+                "rating": selection.rating!,
+                "startTime": selection.startTime!] as [String : Any]
+            
+            itineraries.append(itinerary)
+        }
+        let childUpdates = ["users/\((FIRAuth.auth()?.currentUser?.uid)!)/\(key)/\(preferences.title!)": itineraries]
+        firebaseRef.updateChildValues(childUpdates)
         
         let storyboard = UIStoryboard(name: "Itinerary", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "itineraryVC") as! FinalItineraryViewController
         vc.itinerary = self.selections
+        vc.preferences = self.preferences
         self.present(vc, animated: true, completion: nil)
     }
 }
