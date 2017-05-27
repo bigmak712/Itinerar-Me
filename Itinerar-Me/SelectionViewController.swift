@@ -210,17 +210,22 @@ class SelectionViewController: UIViewController {
         //If next type is activity and there are activities left.
         if(self.nextType == 1 && self.activityIndex != self.activityArray.count) {
             self.currPlace = self.formatPlaceForCard(dict: self.activityArray[self.activityIndex] )
+            self.formatCardUI(place:self.currPlace)
+
             self.activityIndex += 1
             self.nextType = 0
             
         //If next type is activity and no activites left.
         } else if(self.nextType == 1 && self.activityIndex == self.activityArray.count) {
-            
                     if(self.activityArray.count == 0) {
+                        nextType = 0
+                    } else {
                         self.activityArray.removeAll()
                         let outOfActivitiesAlertCont = UIAlertController(title: "Done With Activities", message: "We have no more activity results for you! If you would like more try increasing your radius in your preference.", preferredStyle: UIAlertControllerStyle.alert)
                         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                         outOfActivitiesAlertCont.addAction(action)
+                        
+                        nextType = 0
                         
                         self.present(outOfActivitiesAlertCont, animated: true, completion: nil)
                     }
@@ -228,8 +233,14 @@ class SelectionViewController: UIViewController {
         //If next type is rest and there are activities left.
         else if(self.nextType == 0 && self.restIndex != self.restArray?.count) {
             self.currPlace = self.formatPlaceForCard(dict: self.restArray![self.restIndex] )
+            self.formatCardUI(place:self.currPlace)
+
+            if(self.activityIndex == self.activityArray.count) {
+                self.nextType = 0
+            } else {
+                self.nextType = 1
+            }
             self.restIndex += 1
-            self.nextType = 1
         }
         //If next type is rest and no rests left.
         else  {
@@ -245,8 +256,14 @@ class SelectionViewController: UIViewController {
                         } else {
                             self.restIndex = 0
                             self.currPlace = self.formatPlaceForCard(dict: self.restArray?[self.restIndex] )
+                            self.formatCardUI(place:self.currPlace)
+
                             self.restIndex += 1
+                            if(self.activityIndex == self.activityArray.count) {
+                                self.nextType = 0
+                            }else {
                             self.nextType = 1
+                            }
                         }
                     }
                     }, failure: { (error: Error?) in
@@ -254,6 +271,7 @@ class SelectionViewController: UIViewController {
                 })
             
             }
+
         }
         
         UIView.animate(withDuration: 0.2, animations: {
@@ -329,7 +347,7 @@ class SelectionViewController: UIViewController {
         var succ: Bool = false
         for s in types {
             //Fetch Activities.
-            let params = formatParams(pageToken: self.nextPageTokenAct, type: s)
+            let params = formatParams(pageToken: nil, type: s)
             
             Alamofire.request(params).validate().responseJSON { response in
                 switch response.result {

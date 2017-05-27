@@ -27,6 +27,8 @@ class TimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         backButton.layer.borderWidth = CGFloat(1.0)
         backButton.layer.cornerRadius = CGFloat(30.0)
         backButton.layer.borderColor = dark_green.cgColor
@@ -96,11 +98,12 @@ class TimeViewController: UIViewController {
         else if (endTimeTextField.text?.isEmpty)!  {
             showAlert(title: "End Time Not Found", message: "Enter a End Time")
         }
+            
+        /*
         else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == -1) {
             showAlert(title: "End Time is Before Start Time", message: "Enter Valid Start/End Times")
         }
         
-        /*
         else if (compareTimes(time1: startTimeTextField.text!, time2: endTimeTextField.text!) == 0) {
             showAlert(title: "Warning: Short Time Length", message: "You might not have enough time to do activities")
         }*/
@@ -117,6 +120,7 @@ class TimeViewController: UIViewController {
         preferences.endTime = endTime
     }
     
+    /*
     // Return -1 if the time is invalid
     // Return 0 if the time is short
     // Return 1 if the time is longer than an hour
@@ -156,6 +160,7 @@ class TimeViewController: UIViewController {
         // time difference is longer than an hour
         return 1
     }
+    */
     
     func showAlert(title: String, message: String){
         // create the alert
