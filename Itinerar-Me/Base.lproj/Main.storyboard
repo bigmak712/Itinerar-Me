@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -158,9 +158,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="tfG-aW-VHx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="tfG-aW-VHx">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHJ-na-tPV">
                                 <rect key="frame" x="16" y="100" width="343" height="48"/>
@@ -217,6 +216,7 @@
                             <constraint firstItem="xMm-XS-ung" firstAttribute="top" secondItem="uwM-nc-VHv" secondAttribute="bottom" constant="8" id="63X-Fa-3vr"/>
                             <constraint firstItem="4Y8-k6-0fm" firstAttribute="top" secondItem="9pc-IZ-rxl" secondAttribute="bottom" constant="25" id="7P7-73-2wz"/>
                             <constraint firstAttribute="trailing" secondItem="4Y8-k6-0fm" secondAttribute="trailing" constant="40" id="7dk-7P-DYe"/>
+                            <constraint firstAttribute="trailing" secondItem="tfG-aW-VHx" secondAttribute="trailing" id="Cpr-XS-0pV"/>
                             <constraint firstAttribute="trailing" secondItem="Zge-HB-hDa" secondAttribute="trailing" constant="40" id="En7-R8-h24"/>
                             <constraint firstItem="ikE-ih-nfw" firstAttribute="top" secondItem="9Q4-wp-rDm" secondAttribute="bottom" constant="25" id="Hfi-tR-PZn"/>
                             <constraint firstAttribute="trailing" secondItem="bHJ-na-tPV" secondAttribute="trailing" constant="16" id="ID2-gy-Buf"/>
@@ -226,14 +226,17 @@
                             <constraint firstItem="Zge-HB-hDa" firstAttribute="leading" secondItem="2TF-KG-mo7" secondAttribute="leading" constant="40" id="aXP-Is-13n"/>
                             <constraint firstItem="ikE-ih-nfw" firstAttribute="leading" secondItem="2TF-KG-mo7" secondAttribute="leading" constant="40" id="ahF-Pb-Dt6"/>
                             <constraint firstItem="4Y8-k6-0fm" firstAttribute="leading" secondItem="2TF-KG-mo7" secondAttribute="leading" constant="40" id="aiu-X5-LY0"/>
+                            <constraint firstItem="tfG-aW-VHx" firstAttribute="top" secondItem="2TF-KG-mo7" secondAttribute="top" id="coe-kK-UtH"/>
                             <constraint firstAttribute="trailing" secondItem="9pc-IZ-rxl" secondAttribute="trailing" constant="40" id="dqJ-vF-4Ej"/>
                             <constraint firstAttribute="trailing" secondItem="ikE-ih-nfw" secondAttribute="trailing" constant="40" id="eTX-qv-j2v"/>
                             <constraint firstAttribute="trailing" secondItem="xMm-XS-ung" secondAttribute="trailing" constant="16" id="h4u-QE-gTp"/>
+                            <constraint firstItem="ucj-55-8bZ" firstAttribute="top" secondItem="tfG-aW-VHx" secondAttribute="bottom" id="hXY-0F-x0h"/>
                             <constraint firstItem="9Q4-wp-rDm" firstAttribute="top" secondItem="bHJ-na-tPV" secondAttribute="bottom" constant="60" id="moq-hs-M9N"/>
                             <constraint firstItem="bHJ-na-tPV" firstAttribute="leading" secondItem="2TF-KG-mo7" secondAttribute="leading" constant="16" id="nls-9K-pLh"/>
                             <constraint firstItem="Zge-HB-hDa" firstAttribute="top" secondItem="4Y8-k6-0fm" secondAttribute="bottom" constant="50" id="qoq-gd-zT4"/>
                             <constraint firstItem="9Q4-wp-rDm" firstAttribute="leading" secondItem="2TF-KG-mo7" secondAttribute="leading" constant="40" id="tBj-tX-hPH"/>
                             <constraint firstItem="bHJ-na-tPV" firstAttribute="top" secondItem="uwM-nc-VHv" secondAttribute="bottom" constant="80" id="uAW-HV-LGj"/>
+                            <constraint firstItem="tfG-aW-VHx" firstAttribute="leading" secondItem="2TF-KG-mo7" secondAttribute="leading" id="xqq-JB-n5z"/>
                         </constraints>
                     </view>
                     <connections>

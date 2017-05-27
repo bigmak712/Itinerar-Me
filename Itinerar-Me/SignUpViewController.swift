@@ -43,25 +43,57 @@ class SignUpViewController: UIViewController {
         
         super.viewDidLayoutSubviews()
     }
-
+    
+    func showAlert(title: String, message: String){
+        // create the alert
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func onSignUp(_ sender: Any) {
         guard let fullName = fullNameField.text, !fullName.isEmpty else {
+            // Alert Messages
+            if (fullNameField.text?.isEmpty)! {
+                showAlert(title: "No Name Found", message: "Enter your full name")
+            }
+            
             print("NO NAME")
             return
         }
         
         guard let email = emailField.text, !email.isEmpty else {
+            // Alert Messages
+            if (emailField.text?.isEmpty)! {
+                showAlert(title: "No Email Found", message: "Enter your email")
+            }
+            
             print("NO EMAIL")
             return
         }
         
         guard let password = passwordField.text, !password.isEmpty else {
+            // Alert Messages
+            if (passwordField.text?.isEmpty)! {
+                showAlert(title: "No Password Found", message: "Enter your password")
+            }
+            
             print("NO PASSWORD")
             return
         }
         
+        if ((passwordField.text?.characters.count)! < 6 && (passwordField.text?.characters.count)! > 0) {
+            showAlert(title: "Password Length is Invalid", message: "The password must be at least 6 characters long")
+        }
+        
         if password != confirmPasswordField.text {
+            // Alert Messages
+            showAlert(title: "Passwords Don't Match", message: "Re-enter your passwords")
+            
             print("PASSWORDS DON'T MATCH")
             return
         }

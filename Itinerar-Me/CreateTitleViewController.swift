@@ -47,7 +47,6 @@ class CreateTitleViewController: UIViewController, UITextFieldDelegate {
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
-
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
