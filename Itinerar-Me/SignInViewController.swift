@@ -60,13 +60,34 @@ class SignInViewController: UIViewController {
         super.viewDidLayoutSubviews()
     }
     
+    func showAlert(title: String, message: String){
+        // create the alert
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func onLogin(_ sender: Any) {
         guard let email = emailField.text, !email.isEmpty else {
+            // Alert Messages
+            if (emailField.text?.isEmpty)! {
+                showAlert(title: "No Email Found", message: "Enter a Valid Email")
+            }
+            
             print("NO EMAIL")
             return
         }
         
         guard let password = passwordField.text, !password.isEmpty else {
+            // Alert Messages
+            if (passwordField.text?.isEmpty)! {
+                showAlert(title: "Password Not Found", message: "Enter your password")
+            }
+            
             print("NO Password")
             return
         }

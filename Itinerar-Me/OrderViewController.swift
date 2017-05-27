@@ -37,6 +37,9 @@ class OrderViewController: UIViewController {
 
         var index = 0
         for cell in cells {
+            if (cell.startTimeTextField.text?.isEmpty)! {
+                showAlert(title: "Start Time Not Found", message: "Missing Start Time(s)")
+            }
             selections[index].startTime = cell.startTimeTextField.text!
             index += 1
         }
@@ -62,6 +65,17 @@ class OrderViewController: UIViewController {
         vc.itinerary = self.selections
         vc.preferences = self.preferences
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    func showAlert(title: String, message: String){
+        // create the alert
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
