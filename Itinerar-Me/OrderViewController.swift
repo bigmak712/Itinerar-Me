@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class OrderViewController: UIViewController {
     @IBOutlet weak var orderTableView: UITableView!
 
     var selections: [SelectionsCardFormatted]!
+    var firebaseRef = FIRDatabase.database().reference()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,9 @@ class OrderViewController: UIViewController {
     
     @IBAction func onFinish(_ sender: Any) {
         //Store itinerary into database
+//        let key = firebaseRef.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("itineraries").childByAutoId().key
+//        let post = selections
+//        firebaseRef.updateChildValues(["/\(key)": post!])
         
         let storyboard = UIStoryboard(name: "Itinerary", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "itineraryVC") as! FinalItineraryViewController
