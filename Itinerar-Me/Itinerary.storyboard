@@ -143,6 +143,9 @@
                                                 <constraint firstItem="Acq-Mr-8qC" firstAttribute="leading" secondItem="fkW-Ok-L1I" secondAttribute="leading" constant="8" id="Mnq-M2-npd"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="QyG-WR-zcm" kind="show" id="h1n-Vd-q0S"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
