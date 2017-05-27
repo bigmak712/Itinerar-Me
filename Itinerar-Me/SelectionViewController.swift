@@ -144,14 +144,14 @@ class SelectionViewController: UIViewController {
             i += 1
         }
         
-        let rate = place?.rating
+        if let rate = place?.rating {
             if(rate == 1.0 || rate == 0.5 || rate == 1.5) {
                 ratingImage.image = #imageLiteral(resourceName: "1rating")
             } else if( rate == 2 ) {
                 ratingImage.image = #imageLiteral(resourceName: "2rating")
             } else if(rate == 2.5 ) {
                 ratingImage.image = #imageLiteral(resourceName: "2andhalfrating")
-            }else if(rate! == 3) {
+            }else if(rate == 3) {
                 ratingImage.image = #imageLiteral(resourceName: "3rating")
             } else if(rate == 3.5 ) {
                 ratingImage.image = #imageLiteral(resourceName: "3andhalfrating")
@@ -161,6 +161,9 @@ class SelectionViewController: UIViewController {
                 ratingImage.image = #imageLiteral(resourceName: "4andhalfRating")
             } else {
                 ratingImage.image = #imageLiteral(resourceName: "5rating")
+            }
+        } else {
+            ratingImage.image = #imageLiteral(resourceName: "3andhalfrating")
         }
         
         
@@ -265,8 +268,6 @@ class SelectionViewController: UIViewController {
         //If next type is rest and no rests left.
         else  {
             if(self.restIndex == self.restArray?.count) {
-                MBProgressHUD.showAdded(to: self.view, animated: true)
-                
                 fetchRestauraunts(preferences: preferences, success: { (success: Bool) in
                     if(success ) {
                         if(self.restArray?.count == 0) {
@@ -291,7 +292,6 @@ class SelectionViewController: UIViewController {
                     }, failure: { (error: Error?) in
                         print(error?.localizedDescription)
                 })
-                MBProgressHUD.hide(for: self.view, animated: true)
             
             }
 
@@ -378,7 +378,6 @@ class SelectionViewController: UIViewController {
             let params = formatParams(pageToken: nil, type: s)
             
             MBProgressHUD.showAdded(to: self.view, animated: true)
-
             Alamofire.request(params).validate().responseJSON { response in
                 switch response.result {
                 case .success:
