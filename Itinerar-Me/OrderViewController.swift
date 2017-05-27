@@ -69,6 +69,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.nameLabel.text = selections[indexPath.row].name
         cell.addressLabel.text = selections[indexPath.row].address
+        print("TEST: " + cell.startTimeTextField.text!)
         selections[indexPath.row].startTime = cell.startTimeTextField.text
         
         return cell
