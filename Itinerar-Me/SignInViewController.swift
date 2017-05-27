@@ -40,8 +40,8 @@ class SignInViewController: UIViewController {
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let _ = user {
                 // User is signed in.
-                let storyboard = UIStoryboard(name: "Preferences", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "locationVC")
+                let storyboard = UIStoryboard(name: "Itinerary", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "profileVC")
                 self.present(vc, animated: false, completion: nil)
             } else {
                 // No user is signed in.
