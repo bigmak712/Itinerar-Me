@@ -430,7 +430,9 @@ class SelectionViewController: UIViewController {
         
         params.append("&radius=\(radius)")
         
-       // let maxPrice = "\(preferences.maxPrice)"
+        let maxPrice = "\(preferences.maxPrice)"
+        print(maxPrice)
+        
         params.append("&maxprice=4")
        
         //Either restauraunt or point of interest
