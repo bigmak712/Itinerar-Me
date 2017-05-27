@@ -32,6 +32,15 @@ class OrderViewController: UIViewController {
     }
     
     @IBAction func onFinish(_ sender: Any) {
+        // Save start times in selections
+        let cells = self.orderTableView.visibleCells as! Array<OrderTableViewCell>
+
+        var index = 0
+        for cell in cells {
+            selections[index].startTime = cell.startTimeTextField.text!
+            index += 1
+        }
+        
         //Store itinerary into database
         let key = firebaseRef.child("itineraries").childByAutoId().key
         for selection in selections {
@@ -81,8 +90,6 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.nameLabel.text = selections[indexPath.row].name
         cell.addressLabel.text = selections[indexPath.row].address
-        print("TEST: " + cell.startTimeTextField.text!)
-        selections[indexPath.row].startTime = cell.startTimeTextField.text
         
         return cell
     }
