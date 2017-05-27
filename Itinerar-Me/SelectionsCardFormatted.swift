@@ -16,6 +16,6 @@ class SelectionsCardFormatted: NSObject {
     //var desc: String!
     var id: String!
     var types: [String]!
-    var rating: String!
+    var rating: Double!
     
 }
