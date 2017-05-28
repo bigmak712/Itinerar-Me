@@ -27,6 +27,8 @@ class LocationViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         //textField.frame.height = 45
         textField.textColor = UIColor.lightGray
         radiusTextField.textColor = UIColor.lightGray
