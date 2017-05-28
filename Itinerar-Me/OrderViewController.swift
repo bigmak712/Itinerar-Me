@@ -20,6 +20,7 @@ class OrderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
 
         orderTableView.delegate = self
         orderTableView.dataSource = self

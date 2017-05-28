@@ -40,10 +40,6 @@ extension FinalItineraryViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let timelineCell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath) as! TimelineTableViewCell
         
-//        let itineraryCell = itineraryTableView.dequeueReusableCell(withIdentifier: "itineraryCell", for: indexPath) as! FinalItineraryTableViewCell
-//        itineraryCell.nameLabel.text = itinerary[indexPath.row].name
-//        itineraryCell.addressLabel.text = itinerary[indexPath.row].address
-        
         timelineCell.titleLabel.text = itinerary[indexPath.row].startTime!
         timelineCell.descriptionLabel.font = timelineCell.descriptionLabel.font.withSize(16)
         timelineCell.descriptionLabel.text = "\(itinerary[indexPath.row].name!)\r\(itinerary[indexPath.row].address!)"
