@@ -9,9 +9,11 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import MBProgressHUD
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var profileTableView: UITableView!
+    @IBOutlet weak var profileLabel: UILabel!
 
     var firebaseRef = FIRDatabase.database().reference()
     var itineraries = [NSArray]()
@@ -23,12 +25,16 @@ class ProfileViewController: UIViewController {
         profileTableView.dataSource = self
         
         let userID = FIRAuth.auth()?.currentUser?.uid
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         firebaseRef.child("users").child(userID!).child("itineraries").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             for itinerary in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 self.itineraries.append(itinerary.value as! NSArray)
             }
             self.profileTableView.reloadData()
+            MBProgressHUD.hide(for: self.view, animated: true)
+
         }) { (error) in
             print(error.localizedDescription)
         }
