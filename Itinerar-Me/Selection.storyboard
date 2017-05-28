@@ -47,7 +47,7 @@
                                             <constraint firstAttribute="width" constant="72" id="aqD-fb-1Yy"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories: " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZ3-Fl-Ebb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Categories: " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZ3-Fl-Ebb">
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                     <constraint firstItem="eXr-v3-NC8" firstAttribute="top" secondItem="ebx-Oh-nco" secondAttribute="bottom" constant="2" id="j9d-Gk-n43"/>
                                     <constraint firstItem="x4D-RP-0on" firstAttribute="top" secondItem="m2F-bL-5dq" secondAttribute="top" id="lMY-wa-YPO"/>
                                     <constraint firstItem="x4D-RP-0on" firstAttribute="leading" secondItem="m2F-bL-5dq" secondAttribute="leading" id="qup-sa-Hk9"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eZ3-Fl-Ebb" secondAttribute="bottom" priority="8" constant="73" id="rdy-yM-WuR"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eZ3-Fl-Ebb" secondAttribute="bottom" priority="8" constant="8" id="rdy-yM-WuR"/>
                                     <constraint firstItem="PVS-Hz-5ii" firstAttribute="top" secondItem="eXr-v3-NC8" secondAttribute="bottom" constant="16" id="tTa-FF-tSQ"/>
                                 </constraints>
                             </view>
