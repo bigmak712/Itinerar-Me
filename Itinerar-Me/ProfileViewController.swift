@@ -60,6 +60,17 @@ class ProfileViewController: UIViewController {
         self.present(vc, animated: false, completion: nil)
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toItineraryVC" {
+//            if let indexPath = profileTableView.indexPathForSelectedRow{
+//                let selectedRow = indexPath.row
+//                let itineraryVC = segue.destination as! FinalItineraryViewController
+//                let itineraryArr = itineraries[selectedRow] as! [SelectionsCardFormatted]
+//                itineraryVC.itinerary = itineraryArr
+//            }
+//        }
+//    }
+    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
